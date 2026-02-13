@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "message": "¡Gracias por contactarnos! Hemos recibido tu mensaje y te responderemos en menos de 24 horas.",
+  "data": {
+    "responseTime": "24 horas",
+    "supportEmail": "contacto@asistetech.com",
+    "supportPhone": "+1 (555) 123-4567"
+  }
+}
