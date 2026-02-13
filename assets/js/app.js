@@ -96,7 +96,17 @@ const statNumbers = document.querySelectorAll('.stat-number');
 let hasAnimated = false;
 
 const animateCounter = (element) => {
+    // Check if it's a custom value (like "3/7")
+    const customValue = element.getAttribute('data-custom');
+    if (customValue) {
+        // No animation for custom values, just display them
+        element.textContent = customValue;
+        return;
+    }
+    
     const target = parseInt(element.getAttribute('data-target'));
+    const prefix = element.getAttribute('data-prefix') || '';
+    const suffix = element.getAttribute('data-suffix') || '';
     const duration = 2000; // 2 seconds
     const increment = target / (duration / 16); // 60fps
     let current = 0;
@@ -105,18 +115,10 @@ const animateCounter = (element) => {
         current += increment;
         
         if (current < target) {
-            element.textContent = Math.floor(current);
+            element.textContent = prefix + Math.floor(current) + suffix;
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target;
-            
-            // Add + or % sign if needed
-            const label = element.nextElementSibling.textContent.toLowerCase();
-            if (label.includes('satisfacción')) {
-                element.textContent = target + '%';
-            } else if (label.includes('instituciones') || label.includes('proyectos')) {
-                element.textContent = target + '+';
-            }
+            element.textContent = prefix + target + suffix;
         }
     };
     

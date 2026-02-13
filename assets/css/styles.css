@@ -84,10 +84,18 @@ h6 {
     font-weight: 800;
     color: var(--primary-color) !important;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand:hover {
     transform: scale(1.05);
+}
+
+.navbar-logo {
+    height: 45px;
+    width: auto;
+    transition: var(--transition);
 }
 
 .navbar-brand i {
@@ -139,6 +147,7 @@ h6 {
     padding: 0.5rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
+
 }
 
 /* ========================================
@@ -156,15 +165,13 @@ h6 {
 /* Barra verde superior */
 .hero-top-bar {
     position: absolute;
-    top: 83px;
+    top: 80px;
     left: 0;
     width: 100%;
     background: #17d597;
-    padding: 1rem 0;
-    /* Aumentado de 0.75rem */
+    padding: 18px 0;
     z-index: 2;
     font-size: 1.05rem;
-    /* Aumentado de 0.95rem */
     font-weight: 500;
     animation: slideDown 0.6s ease-out;
 }
@@ -207,7 +214,6 @@ h6 {
     font-size: 0.9rem;
     font-weight: 500;
     backdrop-filter: blur(10px);
-    /*margin-top: 0rem;  Reducido el espacio superior */
 }
 
 /* Ola decorativa inferior */
@@ -438,12 +444,13 @@ h6 {
    ======================================== */
 .trusted-section {
     overflow: hidden;
+    background: white;
 }
 
 .logos-carousel {
     width: 100%;
     overflow: hidden;
-    padding: 2rem 0;
+    padding: 30px 0;
 }
 
 .logos-track {
@@ -488,20 +495,32 @@ h6 {
    STATS SECTION
    ======================================== */
 .stats-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(180deg, #0055ae 100%, #00a0df 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section .section-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .stat-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 2.5rem 1.5rem;
     border-radius: 16px;
-    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: var(--transition);
 }
 
 .stat-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .stat-icon {
@@ -511,16 +530,17 @@ h6 {
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 900;
-    color: var(--dark-color);
+    color: white;
     margin-bottom: 0.5rem;
+    line-height: 1;
 }
 
 .stat-label {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
 }
 
 /* ========================================
@@ -628,7 +648,7 @@ h6 {
    QUOTE SECTION
    ======================================== */
 .quote-section {
-    background: linear-gradient(135deg, var(--dark-color) 0%, #2d2d44 100%);
+    background: linear-gradient(180deg, #0055ae 100%, #00a0df 100%);
     color: white;
 }
 
@@ -724,7 +744,7 @@ h6 {
    CONTACT CTA SECTION
    ======================================== */
 .contact-cta-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(180deg, #ffffff 100%, #00a0df 100%);
 }
 
 .cta-card {
@@ -818,7 +838,7 @@ h6 {
    FOOTER
    ======================================== */
 .footer {
-    background: var(--dark-color);
+    background: linear-gradient(180deg, #0055ae 100%, #00a0df 100%);
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -826,6 +846,12 @@ h6 {
     color: white;
     font-size: 1.75rem;
     font-weight: 800;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+    filter: brightness(0) invert(1);
 }
 
 .footer-brand i {
