@@ -28,15 +28,22 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* ACTUALIZADO */
+    font-family: 'Poppins', sans-serif;
+    /* ACTUALIZADO */
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif; /* ACTUALIZADO */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+    /* ACTUALIZADO */
     font-weight: 700;
     line-height: 1.2;
 }
@@ -139,9 +146,10 @@ h1, h2, h3, h4, h5, h6 {
    ======================================== */
 .hero-section {
     position: relative;
-    background: linear-gradient(180deg, #00346b 0%, #0980c0 100%);
+    background: linear-gradient(180deg, #0055ae 50%, #00a0df 100%);
     color: white;
-    padding-top: 110px; /* Reducido de 130px */
+    padding-top: 110px;
+    /* Reducido de 130px */
     overflow: hidden;
 }
 
@@ -152,9 +160,11 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     background: #17d597;
-    padding: 1rem 0; /* Aumentado de 0.75rem */
+    padding: 1rem 0;
+    /* Aumentado de 0.75rem */
     z-index: 2;
-    font-size: 1.05rem; /* Aumentado de 0.95rem */
+    font-size: 1.05rem;
+    /* Aumentado de 0.95rem */
     font-weight: 500;
     animation: slideDown 0.6s ease-out;
 }
@@ -164,6 +174,7 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(-100%);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -259,12 +270,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
     }
+
     33% {
         transform: translate(50px, -50px) scale(1.1);
     }
+
     66% {
         transform: translate(-50px, 50px) scale(0.9);
     }
@@ -375,15 +390,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes morphing {
-    0%, 100% {
+
+    0%,
+    100% {
         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     }
+
     25% {
         border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
     }
+
     50% {
         border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
     }
+
     75% {
         border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
     }
@@ -402,9 +422,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(-50%) translateY(0);
     }
+
     50% {
         transform: translateX(-50%) translateY(10px);
     }
@@ -455,6 +478,7 @@ h1, h2, h3, h4, h5, h6 {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -786,7 +810,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0.25rem;
 }
 
-.form-control.is-invalid ~ .invalid-feedback {
+.form-control.is-invalid~.invalid-feedback {
     display: block;
 }
 
@@ -993,17 +1017,19 @@ h1, h2, h3, h4, h5, h6 {
         left: -20px;
         font-size: 3rem;
     }
-    
+
     /* Barra verde responsive - MEJORADA */
     .hero-top-bar {
-        font-size: 0.9rem; /* Aumentado de 0.85rem */
-        padding: 0.85rem 0; /* Aumentado de 0.5rem */
+        font-size: 0.9rem;
+        /* Aumentado de 0.85rem */
+        padding: 0.85rem 0;
+        /* Aumentado de 0.5rem */
     }
-    
+
     .hero-section {
         padding-top: 100px;
     }
-    
+
     .hero-badge {
         margin-top: 0.75rem;
         font-size: 0.85rem;
@@ -1022,6 +1048,7 @@ h1, h2, h3, h4, h5, h6 {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
