@@ -1,6 +1,6 @@
 /**
  * ============================================
- * ASISTE TECH - LANDING PAGE
+ * ASISTESCOLAR - LANDING PAGE
  * Main JavaScript File
  * ============================================
  */
@@ -33,12 +33,12 @@ const observerCallback = (entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const sectionId = entry.target.getAttribute('id');
-            
+
             // Remove active class from all nav links
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
-            
+
             // Add active class to corresponding nav link
             const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
             if (activeLink) {
@@ -61,22 +61,22 @@ sections.forEach(section => {
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        
+
         // Only prevent default if it's an anchor link
         if (href.startsWith('#')) {
             e.preventDefault();
             const targetId = href.substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
                 const navbarHeight = navbar.offsetHeight;
                 const targetPosition = targetSection.offsetTop - navbarHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu if open
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (navbarCollapse.classList.contains('show')) {
@@ -103,17 +103,17 @@ const animateCounter = (element) => {
         element.textContent = customValue;
         return;
     }
-    
+
     const target = parseInt(element.getAttribute('data-target'));
     const prefix = element.getAttribute('data-prefix') || '';
     const suffix = element.getAttribute('data-suffix') || '';
     const duration = 2000; // 2 seconds
     const increment = target / (duration / 16); // 60fps
     let current = 0;
-    
+
     const updateCounter = () => {
         current += increment;
-        
+
         if (current < target) {
             element.textContent = prefix + Math.floor(current) + suffix;
             requestAnimationFrame(updateCounter);
@@ -121,7 +121,7 @@ const animateCounter = (element) => {
             element.textContent = prefix + target + suffix;
         }
     };
-    
+
     updateCounter();
 };
 
@@ -136,7 +136,7 @@ if (statsSection) {
             }
         });
     }, { threshold: 0.5 });
-    
+
     statsObserver.observe(statsSection);
 }
 
@@ -150,49 +150,49 @@ const submitBtn = document.querySelector('#submitBtn');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         // Get form fields
         const nameInput = document.querySelector('#name');
         const emailInput = document.querySelector('#email');
         const messageInput = document.querySelector('#message');
         const institutionInput = document.querySelector('#institution');
-        
+
         // Reset validation states
         [nameInput, emailInput, messageInput].forEach(input => {
             input.classList.remove('is-invalid');
         });
-        
+
         // Validation flags
         let isValid = true;
-        
+
         // Validate name (at least 2 characters)
         if (nameInput.value.trim().length < 2) {
             nameInput.classList.add('is-invalid');
             isValid = false;
         }
-        
+
         // Validate email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value.trim())) {
             emailInput.classList.add('is-invalid');
             isValid = false;
         }
-        
+
         // Validate message (at least 10 characters)
         if (messageInput.value.trim().length < 10) {
             messageInput.classList.add('is-invalid');
             isValid = false;
         }
-        
+
         // If validation fails, stop here
         if (!isValid) {
             return;
         }
-        
+
         // Disable submit button
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
-        
+
         // Prepare data
         const formData = {
             name: nameInput.value.trim(),
@@ -201,7 +201,7 @@ if (contactForm) {
             message: messageInput.value.trim(),
             timestamp: new Date().toISOString()
         };
-        
+
         try {
             // Simulate API call using fetch to local JSON
             const response = await fetch('data/contact.json', {
@@ -210,22 +210,22 @@ if (contactForm) {
                     'Content-Type': 'application/json'
                 }
             });
-            
+
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            
+
             const data = await response.json();
-            
+
             // Show success alert
             showAlert('success', '¡Éxito!', data.message || 'Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.');
-            
+
             // Reset form
             contactForm.reset();
-            
+
             // Log form data to console (in real scenario, this would be sent to server)
             console.log('Form data submitted:', formData);
-            
+
         } catch (error) {
             // Show error alert
             showAlert('danger', 'Error', 'Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
@@ -246,14 +246,14 @@ function showAlert(type, title, message) {
     const alertElement = document.querySelector('#liveAlert');
     const alertTitle = document.querySelector('#alertTitle');
     const alertMessage = document.querySelector('#alertMessage');
-    
+
     // Set alert type
     alertElement.className = `alert alert-${type} alert-dismissible fade show`;
-    
+
     // Set content
     alertTitle.textContent = title;
     alertMessage.textContent = message;
-    
+
     // Auto-hide after 5 seconds
     setTimeout(() => {
         const bsAlert = new bootstrap.Alert(alertElement);
@@ -296,7 +296,7 @@ if (scrollIndicator) {
         if (statsSection) {
             const navbarHeight = navbar.offsetHeight;
             const targetPosition = statsSection.offsetTop - navbarHeight;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -324,13 +324,13 @@ formInputs.forEach(input => {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Asiste Tech Landing Page - Loaded Successfully');
-    
+    console.log('AsistEscolar Landing Page - Loaded Successfully');
+
     // Add fade-in animation to hero content
     const heroTitle = document.querySelector('.hero-title');
     const heroSubtitle = document.querySelector('.hero-subtitle');
     const heroButtons = document.querySelector('.hero-buttons');
-    
+
     if (heroTitle) heroTitle.classList.add('fade-in');
     if (heroSubtitle) {
         setTimeout(() => heroSubtitle.classList.add('fade-in'), 200);

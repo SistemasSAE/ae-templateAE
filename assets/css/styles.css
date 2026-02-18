@@ -3,7 +3,11 @@
    ======================================== */
 :root {
     --primary-color: #0253ac;
-    --secondary-color: #17d597;
+    --secondary-color: #009fe3;
+    --green-light: #03e0c9;
+    --green-dark: #17d597;
+    --orange: #fe9135;
+    --purple: #bdc6f6;
     --dark-color: #1a1a2e;
     --light-color: #f8f9fa;
     --text-color: #333;
@@ -155,10 +159,9 @@ h6 {
    ======================================== */
 .hero-section {
     position: relative;
-    background: linear-gradient(180deg, #0055ae 50%, #00a0df 100%);
+    background: var(--gradient-primary);
     color: white;
     padding-top: 110px;
-    /* Reducido de 130px */
     overflow: hidden;
 }
 
@@ -197,7 +200,7 @@ h6 {
     color: white !important;
     text-decoration: underline !important;
     transition: var(--transition);
-    font-weight: 600;
+    font-weight: 00;
 }
 
 .hero-top-bar a:hover {
@@ -299,7 +302,7 @@ h6 {
 
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
@@ -339,14 +342,14 @@ h6 {
 }
 
 .btn-primary {
-    background: var(--gradient-secondary);
+    background: var(--gradient-primary);
     border: none;
-    box-shadow: 0 4px 15px rgba(23, 213, 151, 0.3);
+    /*box-shadow: 0 4px 15px #0054a74b;*/
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(23, 213, 151, 0.4);
+    box-shadow: 0 6px 15px #1188ff77;
 }
 
 .btn-outline-light {
@@ -531,7 +534,7 @@ h6 {
 
 .stat-number {
     font-size: 4rem;
-    font-weight: 900;
+    font-weight: 700;
     color: white;
     margin-bottom: 0.5rem;
     line-height: 1;
@@ -546,102 +549,162 @@ h6 {
 /* ========================================
    SERVICES SECTION
    ======================================== */
-.service-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+.services-section {
+    background: #f4f6f8;
+}
+
+.services-main-title {
+    font-size: 36px;
+    font-weight: 680;
+    color: var(--dark-color);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    padding-top: 45px;
+}
+
+.services-main-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* New card style */
+.svc-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem 1.5rem;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transition: var(--transition);
+.svc-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+/* Color variants for top border */
+.svc-card--blue-dark {
+    border-top-color: var(--primary-color);
 }
 
-.service-card:hover::before {
-    transform: scaleX(1);
+.svc-card--green-light {
+    border-top-color: var(--green-light);
 }
 
-.service-card.featured {
-    border: 2px solid var(--secondary-color);
-    position: relative;
+.svc-card--blue-light {
+    border-top-color: var(--secondary-color);
 }
 
-.service-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--gradient-secondary);
-    color: white;
-    padding: 0.375rem 1rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 700;
+.svc-card--purple {
+    border-top-color: var(--purple);
 }
 
-.service-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient-primary);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
-    color: white;
+.svc-card--orange {
+    border-top-color: var(--orange);
 }
 
-.service-card.featured .service-icon {
-    background: var(--gradient-secondary);
+/* Icon color matches border */
+.svc-card--blue-dark .svc-card__icon {
+    color: var(--primary-color);
 }
 
-.service-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--dark-color);
-}
-
-.service-description {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-
-.service-features {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.service-features li {
-    padding: 0.5rem 0;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.service-features i {
+.svc-card--blue-light .svc-card__icon {
     color: var(--secondary-color);
-    font-size: 1.125rem;
+}
+
+.svc-card--green-light .svc-card__icon {
+    color: var(--green-light);
+}
+
+.svc-card--purple .svc-card__icon {
+    color: var(--purple);
+}
+
+.svc-card--orange .svc-card__icon {
+    color: var(--orange);
+}
+
+/* Header: icon + title inline */
+.svc-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+}
+
+.svc-card__icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.svc-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.svc-card__desc {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+}
+
+.svc-card__desc--highlight {
+    color: #0253ac;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.35rem;
+    flex-grow: 0;
+}
+
+.svc-card__link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0253ac;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.svc-card__link:hover {
+    color: #0369d9;
+    text-decoration: underline;
+}
+
+/* CTA button */
+.btn-services-cta {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    border: none;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-services-cta:hover {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(2, 83, 172, 0.35);
+}
+
+/* Keep old classes available (used nowhere now but avoids 404 on cached pages) */
+.service-card {
+    display: none;
 }
 
 /* ========================================
