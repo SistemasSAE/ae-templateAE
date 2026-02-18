@@ -89,6 +89,50 @@ navLinks.forEach(link => {
 });
 
 // ============================================
+// 2b. MEGA-MENU TOGGLE
+// ============================================
+
+const megaItems = document.querySelectorAll('.has-megamenu');
+
+megaItems.forEach(item => {
+    const trigger = item.querySelector('.nav-link--dropdown, .btn-comunidad');
+    const menu = item.querySelector('.megamenu');
+
+    if (!trigger || !menu) return;
+
+    // Desktop: hover
+    item.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 992) {
+            item.classList.add('open');
+        }
+    });
+
+    item.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 992) {
+            item.classList.remove('open');
+        }
+    });
+
+    // Mobile: click toggle
+    trigger.addEventListener('click', (e) => {
+        if (window.innerWidth < 992) {
+            e.preventDefault();
+            const isOpen = item.classList.contains('open');
+            // Close all others
+            megaItems.forEach(other => other.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+    });
+});
+
+// Close mega-menus when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.has-megamenu')) {
+        megaItems.forEach(item => item.classList.remove('open'));
+    }
+});
+
+// ============================================
 // 3. STATS COUNTER ANIMATION
 // ============================================
 

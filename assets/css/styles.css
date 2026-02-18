@@ -8,6 +8,7 @@
     --green-dark: #17d597;
     --orange: #fe9135;
     --purple: #bdc6f6;
+    --white: #ffffff;
     --dark-color: #1a1a2e;
     --light-color: #f8f9fa;
     --text-color: #333;
@@ -97,7 +98,7 @@ h6 {
 }
 
 .navbar-logo {
-    height: 45px;
+    height: 62px;
     width: auto;
     transition: var(--transition);
 }
@@ -144,14 +145,299 @@ h6 {
     width: 60%;
 }
 
-/* Botón especial en el navbar */
-.navbar .btn-primary {
-    background: var(--primary-color);
+/* Botón Comunidad SAE */
+.btn-comunidad {
+    background: var(--gradient-primary);
     border: none;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.25rem;
     border-radius: 8px;
     font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #fff !important;
+    text-decoration: none;
+    transition: var(--transition);
+}
 
+.btn-comunidad:hover {
+    opacity: 0.9;
+    color: #fff !important;
+}
+
+/* Chevron icons in nav */
+.nav-chevron {
+    font-size: 0.7rem;
+    transition: transform 0.25s ease;
+    vertical-align: middle;
+}
+
+.nav-chevron--white {
+    color: #fff;
+}
+
+.has-megamenu:hover .nav-chevron,
+.has-megamenu.open .nav-chevron {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   MEGA-MENU
+   ======================================== */
+.has-megamenu {
+    position: relative;
+}
+
+/* The dropdown panel */
+.megamenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 280px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.13);
+    z-index: 1050;
+    padding: 0.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform: translateX(-50%) translateY(-6px);
+}
+
+/* Wide variant for Servicios (2-col grid) */
+.megamenu--wide {
+    min-width: 480px;
+}
+
+/* 3-column variant for Servicios full list */
+.megamenu--wide3col {
+    min-width: 820px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    display: none;
+    flex-direction: row;
+    padding: 0.75rem;
+    gap: 0;
+}
+
+.has-megamenu:hover .megamenu--wide3col,
+.has-megamenu.open .megamenu--wide3col {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.megamenu__col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 0.25rem;
+}
+
+.megamenu__col--divider {
+    border-left: 1px solid #f0f0f0;
+    padding-left: 0.5rem;
+    margin-left: 0.25rem;
+}
+
+/* Comunidad SAE: right-aligned */
+.megamenu--comunidad {
+    min-width: 300px;
+    left: auto;
+    right: 0;
+    transform: none;
+    transform: translateY(-6px);
+}
+
+/* Bridge gap: invisible padding so cursor doesn't leave hover zone */
+.megamenu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+}
+
+/* Show state */
+.has-megamenu:hover .megamenu,
+.has-megamenu.open .megamenu {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.has-megamenu:hover .megamenu--comunidad,
+.has-megamenu.open .megamenu--comunidad {
+    transform: translateY(0);
+}
+
+/* Header label inside Comunidad dropdown */
+.megamenu__header {
+    padding: 0.6rem 0.75rem 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+}
+
+/* Inner container */
+.megamenu__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* 2-column grid for Servicios */
+.megamenu__inner--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+}
+
+/* Each item row */
+.megamenu__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--dark-color);
+    transition: background 0.18s ease;
+}
+
+.megamenu__item:hover {
+    background: #f0f5ff;
+    color: var(--primary-color);
+}
+
+/* Comunidad item: space-between to push arrow right */
+.megamenu__item--comunidad {
+    justify-content: flex-start;
+}
+
+.megamenu__item--comunidad .megamenu__arrow {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: #bbb;
+    transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.megamenu__item--comunidad:hover .megamenu__arrow {
+    color: var(--primary-color);
+    transform: translateX(3px);
+}
+
+/* Icon box */
+.megamenu__icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    color: #fff;
+}
+
+.megamenu__icon-box--blue {
+    background: var(--primary-color);
+}
+
+.megamenu__icon-box--teal {
+    background: var(--green-dark);
+}
+
+.megamenu__icon-box--orange {
+    background: var(--orange);
+}
+
+/* Text block */
+.megamenu__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.megamenu__title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.2;
+}
+
+.megamenu__sub {
+    font-size: 0.75rem;
+    color: #888;
+    line-height: 1.3;
+}
+
+/* ---- MOBILE: stack inside collapse ---- */
+@media (max-width: 991.98px) {
+    .megamenu {
+        position: static;
+        transform: none !important;
+        box-shadow: none;
+        border-radius: 8px;
+        background: #f8f9fa;
+        opacity: 1;
+        pointer-events: auto;
+        display: none;
+        padding: 0.25rem 0.5rem;
+        margin: 0.25rem 0 0.5rem 0.5rem;
+    }
+
+    .has-megamenu.open .megamenu {
+        display: block;
+    }
+
+    .megamenu--wide {
+        min-width: unset;
+    }
+
+    .megamenu__inner--grid {
+        grid-template-columns: 1fr;
+    }
+
+    .megamenu--comunidad {
+        right: auto;
+    }
+
+    .megamenu--wide3col {
+        min-width: unset;
+        flex-direction: column;
+    }
+
+    .megamenu__col--divider {
+        border-left: none;
+        border-top: 1px solid #e8e8e8;
+        padding-left: 0;
+        margin-left: 0;
+        padding-top: 0.25rem;
+        margin-top: 0.25rem;
+    }
+
+    .nav-link--dropdown {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-comunidad {
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* ========================================
@@ -168,13 +454,13 @@ h6 {
 /* Barra verde superior */
 .hero-top-bar {
     position: absolute;
-    top: 80px;
+    top: 100px;
     left: 0;
     width: 100%;
     background: #17d597;
-    padding: 18px 0;
+    padding: 10px 0;
     z-index: 2;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 500;
     animation: slideDown 0.6s ease-out;
 }
