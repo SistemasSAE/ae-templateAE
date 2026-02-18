@@ -465,6 +465,25 @@ h6 {
     animation: slideDown 0.6s ease-out;
 }
 
+.arrow-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #0b224e;
+    /* Dark navy blue */
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.hero-top-bar a:hover .arrow-circle {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
