@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sistema SAE Evaluación: Facilita la Gestión Académica. Da respuesta eficaz y eficiente a toda la comunidad educativa.">
+    <title>SAE Evaluación | AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .product-hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #0253ac 0%, #009fe3 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: white;
+            clip-path: ellipse(75% 100% at 50% 100%);
+        }
+
+        .feature-icon-large {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .info-section {
+            padding: 80px 0;
+        }
+
+        .info-card {
+            border: none;
+            border-radius: 20px;
+            padding: 2rem;
+            height: 100%;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .info-card h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .highlight-box {
+            background: rgba(2, 83, 172, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 2.5rem;
+            border-radius: 0 20px 20px 0;
+            margin: 3rem 0;
+        }
+
+        .cta-bottom {
+            padding: 100px 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .check-list li::before {
+            content: '\F272';
+            font-family: 'bootstrap-icons';
+            position: absolute;
+            left: 0;
+            color: #17d597;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Sistemas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Soporte</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#contact" class="btn btn-primary px-4">Contactar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <header class="product-hero">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">SAE Evaluación</li>
+                </ol>
+            </nav>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="feature-icon-large">
+                        <i class="bi bi-display"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">Facilita la Gestión Académica con SAE</h1>
+                    <p class="h4 fw-normal mb-4 opacity-90">Da respuesta eficaz y eficiente a los Miembros de la
+                        Comunidad Educativa.</p>
+                    <p class="lead mb-0 opacity-75">CENTRALIZA LA INFORMACIÓN ESTUDIANTIL Y AUTOMATIZA PROCESOS.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="info-section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <h2 class="fw-bold mb-4">Eficiencia Extraordinaria</h2>
+                    <p class="lead text-muted mb-4">
+                        Ahorra extraordinariamente recursos físicos (papelería y tinta), humanos y de tiempo con una
+                        herramienta diseñada para el futuro de la educación.
+                    </p>
+
+                    <div class="highlight-box">
+                        <h4 class="fw-bold mb-3">Adaptación a la Nueva Ley de Educación</h4>
+                        <p class="mb-0">
+                            Nuestros Sistemas están en constante adaptación a la <b>NUEVA LEY DE EDUCACIÓN</b>. Nos
+                            encargamos de proveer todas las modificaciones en Planillas, Formatos y Títulos que exija el
+                            Ministerio de Educación durante la vigencia del Contrato sin cobros adicionales.
+                        </p>
+                    </div>
+
+                    <h3 class="fw-bold mt-5 mb-4">Solución Integral de Gestión</h3>
+                    <p class="text-muted">Centraliza la información estudiantil y automatiza los procesos de evaluación
+                        y control de estudios a través de:</p>
+                    <ul class="list-unstyled check-list">
+                        <li>Cumpliendo con los requerimientos del Ministerio de Educación.</li>
+                        <li>Adaptándose a los diferentes niveles y planes de estudio.</li>
+                        <li>Migrando datos desde otros sistemas a SAE (históricos de datos personales y certificación de
+                            calificaciones) garantizado.</li>
+                        <li>Estadísticas clasificadas según la necesidad (edad, sexo, nacionalidad, notas y promedios;
+                            entre otros).</li>
+                        <li>Generación de listados, constancias y boletines personalizados.</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="info-card">
+                                <i class="bi bi-headset"></i>
+                                <h4>Asistencia Técnica Superior</h4>
+                                <p class="small text-muted mb-0">
+                                    Recibe la Mejor Asistencia Telefónica y Remota durante todo el período Escolar
+                                    referente a SAE Evaluación. <br>
+                                    <span class="text-primary">*El Cliente debe tener Internet para la Asistencia
+                                        Remota.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="info-card">
+                                <i class="bi bi-graph-up-arrow"></i>
+                                <h4>Mejora Continua</h4>
+                                <p class="small text-muted mb-0">
+                                    SAE está en permanente desarrollo, recibirás todas las mejoras que se realicen en
+                                    SAE Evaluación durante el período escolar sin cobros adicionales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="info-card">
+                                <i class="bi bi-mortarboard"></i>
+                                <h4>Formación Permanente</h4>
+                                <p class="small text-muted mb-0">
+                                    Brindamos formación constante al personal a través de ForoChats, Webinars, nuestro
+                                    canal de Youtube, o talleres presenciales en localidades seleccionadas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Quote Section -->
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <i class="bi bi-quote display-3 opacity-50 mb-3 d-block"></i>
+                    <p class="h3 fw-light lh-base mb-0">
+                        “SAE Evaluación está Adaptado a la Nueva Ley de Educación, y nuestra propuesta incluye todas las
+                        Modificaciones en Planillas y Formatos que exija el Ministerio de Educación, Asistencia
+                        Telefónica y Remota durante todo el Período Escolar.”
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo CTA -->
+    <section class="cta-bottom text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-4">¿Necesitas más información?</h2>
+                    <p class="lead text-muted mb-5">
+                        Descubre en primera persona cómo SAE Evaluación puede transformar tu institución. Agenda hoy
+                        mismo una demostración personalizada con nuestros expertos.
+                    </p>
+                    <a href="index.html#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
+                        <i class="bi bi-calendar-event me-2"></i>Agendar Demostración
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-lg-4">
+                    <img src="assets/img/logo-asistescolar2.png" alt="AsistEscolar" class="footer-logo mb-3">
+                    <p class="opacity-75">Transformando la educación con tecnología innovadora.</p>
+                </div>
+                <div class="col-lg-8 d-flex flex-column align-items-center align-items-md-end justify-content-center">
+                    <p class="small opacity-50 mb-0">Los sistemas de SAE requieren contrato anual para mantenimiento,
+                        revisiones, mejoras y asistencia técnica.</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="text-center opacity-75">
+                <p class="mb-0">&copy; 2026 Sistemas SAE. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
