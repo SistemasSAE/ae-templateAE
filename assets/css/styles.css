@@ -5,9 +5,9 @@
     --primary-color: #0253ac;
     --secondary-color: #009fe3;
     --green-light: #03e0c9;
-    --green-dark: #17d597;
+    --green-dark: #04d3be;
     --orange: #fe9135;
-    --purple: #bdc6f6;
+    --purple: #ba81e5;
     --white: #ffffff;
     --dark-color: #1a1a2e;
     --light-color: #f8f9fa;
@@ -1014,8 +1014,8 @@ h6 {
     top: -20px;
     left: -40px;
     font-size: 4rem;
-    opacity: 0.2;
-    color: var(--secondary-color);
+    opacity: 0.5;
+    color: var(--white-color);
 }
 
 .quote-author {
@@ -1105,7 +1105,7 @@ h6 {
 
 .cta-title {
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 650;
     margin-bottom: 1.5rem;
     color: var(--dark-color);
 }
