@@ -653,70 +653,78 @@
 
     <!-- Contact CTA Section -->
     <section id="contact" class="contact-cta-section py-5">
-        <div class="container">
+        <!-- Video de fondo de la sección -->
+        <video autoplay muted loop playsinline class="section-video">
+            <source src="./assets/video/cta-video.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="cta-card">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 mb-4 mb-lg-0">
-                                <h2 class="cta-title">¿Listo para <span style="color: var(--green-dark);">INNOVAR</span>
-                                    en tu institución Educativa?</h2>
-                                <p class="cta-description">
-                                    Contáctanos hoy y descubre cómo podemos ayudarte a transformar tu institución
-                                    educativa con soluciones tecnológicas a medida
-                                </p>
-                                <div class="cta-features">
-                                    <div class="cta-feature">
-                                        <i class="bi bi-check-circle-fill" style="color: var(--green-light);"></i>
-                                        <span>Asesoría gratuita</span>
-                                    </div>
-                                    <div class="cta-feature">
-                                        <i class="bi bi-check-circle-fill" style="color: var(--green-light);"></i>
-                                        <span>Somos un centro de asistencia técnica</span>
-                                    </div>
-                                    <div class="cta-feature">
-                                        <i class="bi bi-check-circle-fill" style="color: var(--green-light);"></i>
-                                        <span>Soluciones personalizadas</span>
+                        <div class="cta-content">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <h2 class="cta-title">¿Listo para <span
+                                            style="color: var(--green-light);">INNOVAR</span></h2>
+                                    <h2 class="cta-title mb-4">en tu institución Educativa?</h2>
+                                    <p class="cta-description">
+                                        Contáctanos hoy y descubre cómo podemos ayudarte a transformar tu institución
+                                        educativa con soluciones tecnológicas a medida
+                                    </p>
+                                    <div class="cta-features">
+                                        <div class="cta-feature text-white">
+                                            <i class="bi bi-check-circle-fill" style="color: var(--green-light);"></i>
+                                            <span>Asesoría gratuita</span>
+                                        </div>
+                                        <div class="cta-feature text-white">
+                                            <i class="bi bi-check-circle-fill" style="color: var(--green-light);"></i>
+                                            <span>Somos un centro de asistencia técnica</span>
+                                        </div>
+                                        <div class="cta-feature text-white">
+                                            <i class="bi bi-check-circle-fill" style="color: var(--green-light);"></i>
+                                            <span>Soluciones personalizadas</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <form id="contactForm" class="contact-form" novalidate>
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Nombre completo</label>
-                                        <input type="text" class="form-control" id="name" required>
-                                        <div class="invalid-feedback">
-                                            Por favor ingresa tu nombre completo
+                                <div class="col-lg-6">
+                                    <form id="contactForm" class="contact-form" novalidate>
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Nombre completo</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                            <div class="invalid-feedback">
+                                                Por favor ingresa tu nombre completo
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Correo electrónico</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                        <div class="invalid-feedback">
-                                            Por favor ingresa un correo válido
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Correo electrónico</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                            <div class="invalid-feedback">
+                                                Por favor ingresa un correo válido
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="institution" class="form-label">Institución</label>
-                                        <input type="text" class="form-control" id="institution">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="message" class="form-label">Mensaje</label>
-                                        <textarea class="form-control" id="message" rows="3" required></textarea>
-                                        <div class="invalid-feedback">
-                                            Por favor escribe un mensaje
+                                        <div class="mb-3">
+                                            <label for="institution" class="form-label">Institución</label>
+                                            <input type="text" class="form-control" id="institution">
                                         </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100" id="submitBtn">
-                                        <i class="bi bi-send me-2"></i>Enviar mensaje
-                                    </button>
-                                </form>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Mensaje</label>
+                                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                                            <div class="invalid-feedback">
+                                                Por favor escribe un mensaje
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100" id="submitBtn">
+                                            <i class="bi bi-send me-2"></i>Enviar mensaje
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
