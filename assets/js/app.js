@@ -407,3 +407,81 @@ const optimizedScroll = debounce(() => {
 }, 100);
 
 window.addEventListener('scroll', optimizedScroll);
+
+// ============================================
+// 11. HERO CAROUSEL LOGIC
+// ============================================
+
+const initHeroCarousel = () => {
+    const carousel = document.getElementById('heroCarousel');
+    if (!carousel) return;
+
+    const items = carousel.querySelectorAll('.hero-carousel-item');
+    const indicators = carousel.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prevHero');
+    const nextBtn = document.getElementById('nextHero');
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let autoPlayInterval;
+
+    const updateSlider = (newIndex) => {
+        if (isTransitioning || newIndex === currentIndex) return;
+        isTransitioning = true;
+
+        // Update items
+        items[currentIndex].classList.remove('active');
+        indicators[currentIndex].classList.remove('active');
+
+        currentIndex = newIndex;
+
+        items[currentIndex].classList.add('active');
+        indicators[currentIndex].classList.add('active');
+
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600);
+    };
+
+    const nextSlide = () => {
+        const nextIndex = (currentIndex + 1) % items.length;
+        updateSlider(nextIndex);
+    };
+
+    const prevSlide = () => {
+        const prevIndex = (currentIndex - 1 + items.length) % items.length;
+        updateSlider(prevIndex);
+    };
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoPlay();
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoPlay();
+    });
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            updateSlider(index);
+            resetAutoPlay();
+        });
+    });
+
+    // Auto-play
+    const startAutoPlay = () => {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+    };
+
+    const resetAutoPlay = () => {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+    };
+
+    startAutoPlay();
+};
+
+document.addEventListener('DOMContentLoaded', initHeroCarousel);

@@ -668,25 +668,149 @@ h6 {
     transform: translateY(-2px);
 }
 
-/* Hero Image Container */
-.hero-image-container {
-    position: relative;
-    height: 500px;
-}
-
-.hero-mockup {
+/* Hero Carousel Wrapper */
+.hero-carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    z-index: 5;
+}
+
+.hero-carousel {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 2.5rem;
+    padding-bottom: 5.5rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.hero-carousel-inner {
+    position: relative;
+    height: 280px;
+}
+
+.hero-carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+}
+
+.hero-carousel-item.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.hero-carousel-card {
+    text-align: center;
+}
+
+.carousel-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    font-size: 2.2rem;
+    margin: 0 auto 1.5rem;
+    color: white;
 }
 
-.hero-mockup i {
-    color: rgba(255, 255, 255, 0.3);
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+.hero-carousel-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.hero-carousel-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-preview-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.carousel-preview-dots span {
+    width: 40px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+/* Controls: Indicators & Nav */
+.hero-carousel-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-carousel-indicators {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.indicator.active {
+    width: 30px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+.hero-carousel-nav {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 .floating-element {
