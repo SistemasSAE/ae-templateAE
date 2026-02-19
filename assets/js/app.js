@@ -6,411 +6,302 @@
  */
 
 // ============================================
-// 1. NAVBAR SCROLL EFFECT & ACTIVE SECTION
+// 0. COMPONENT LOADER UTILITY
 // ============================================
 
-const navbar = document.querySelector('#mainNav');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section');
+const loadComponent = async (placeholderId, url) => {
+    const placeholder = document.getElementById(placeholderId);
+    if (!placeholder) return;
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Could not load ${url}`);
+        const content = await response.text();
+        placeholder.innerHTML = content;
+        return true;
+    } catch (error) {
+        console.error('Error loading component:', error);
+        return false;
     }
-});
-
-// Highlight active section in navbar using IntersectionObserver
-const observerOptions = {
-    root: null,
-    rootMargin: '-50% 0px -50% 0px',
-    threshold: 0
 };
 
-const observerCallback = (entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute('id');
+// ============================================
+// 1. INITIALIZATION WRAPPER
+// ============================================
 
-            // Remove active class from all nav links
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
+const initApp = async () => {
+    // Initialize AOS immediately for static elements
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            mirror: false
+        });
+    }
 
-            // Add active class to corresponding nav link
-            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        }
-    });
+    // Load Navbar and Footer
+    const navbarLoaded = await loadComponent('navbar-placeholder', 'components/navbar.html');
+    const footerLoaded = await loadComponent('footer-placeholder', 'components/footer.html');
+
+    // Initialize all logic that depends on Navbar/Footer
+    if (navbarLoaded) {
+        initNavbarLogic();
+    }
+
+    // Independent logic
+    initStatsCounter();
+    initContactForm();
+    initBackToTop();
+    initScrollIndicator();
+    initAnimations();
+    initHeroCarousel();
+
+    // Refresh AOS after components are loaded
+    if (typeof AOS !== 'undefined') {
+        setTimeout(() => {
+            AOS.refresh();
+        }, 500);
+    }
 };
 
-const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-sections.forEach(section => {
-    observer.observe(section);
-});
-
 // ============================================
-// 2. SMOOTH SCROLL FOR NAVIGATION
+// 2. NAVBAR & NAVIGATION LOGIC
 // ============================================
 
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
+const initNavbarLogic = () => {
+    const navbar = document.querySelector('#mainNav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
 
-        // Only prevent default if it's an anchor link
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetSection = document.getElementById(targetId);
+    if (!navbar) return;
 
-            if (targetSection) {
-                const navbarHeight = navbar.offsetHeight;
-                const targetPosition = targetSection.offsetTop - navbarHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Close mobile menu if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    const navbarToggler = document.querySelector('.navbar-toggler');
-                    navbarToggler.click();
-                }
-            }
-        }
-    });
-});
-
-// ============================================
-// 2b. MEGA-MENU TOGGLE
-// ============================================
-
-const megaItems = document.querySelectorAll('.has-megamenu');
-
-megaItems.forEach(item => {
-    const trigger = item.querySelector('.nav-link--dropdown, .btn-comunidad');
-    const menu = item.querySelector('.megamenu');
-
-    if (!trigger || !menu) return;
-
-    // Desktop: hover
-    item.addEventListener('mouseenter', () => {
-        if (window.innerWidth >= 992) {
-            item.classList.add('open');
-        }
-    });
-
-    item.addEventListener('mouseleave', () => {
-        if (window.innerWidth >= 992) {
-            item.classList.remove('open');
-        }
-    });
-
-    // Mobile: click toggle
-    trigger.addEventListener('click', (e) => {
-        if (window.innerWidth < 992) {
-            e.preventDefault();
-            const isOpen = item.classList.contains('open');
-            // Close all others
-            megaItems.forEach(other => other.classList.remove('open'));
-            if (!isOpen) item.classList.add('open');
-        }
-    });
-});
-
-// Close mega-menus when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.has-megamenu')) {
-        megaItems.forEach(item => item.classList.remove('open'));
-    }
-});
-
-// ============================================
-// 3. STATS COUNTER ANIMATION
-// ============================================
-
-const statNumbers = document.querySelectorAll('.stat-number');
-let hasAnimated = false;
-
-const animateCounter = (element) => {
-    // Check if it's a custom value (like "3/7")
-    const customValue = element.getAttribute('data-custom');
-    if (customValue) {
-        // No animation for custom values, just display them
-        element.textContent = customValue;
-        return;
-    }
-
-    const target = parseInt(element.getAttribute('data-target'));
-    const prefix = element.getAttribute('data-prefix') || '';
-    const suffix = element.getAttribute('data-suffix') || '';
-    const duration = 2000; // 2 seconds
-    const increment = target / (duration / 16); // 60fps
-    let current = 0;
-
-    const updateCounter = () => {
-        current += increment;
-
-        if (current < target) {
-            element.textContent = prefix + Math.floor(current) + suffix;
-            requestAnimationFrame(updateCounter);
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
         } else {
-            element.textContent = prefix + target + suffix;
+            navbar.classList.remove('scrolled');
         }
+    });
+
+    // Highlight active section (IntersectionObserver)
+    const observerOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
     };
 
-    updateCounter();
-};
-
-// Trigger animation when stats section is visible
-const statsSection = document.querySelector('#stats');
-if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
+    const observerCallback = (entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                hasAnimated = true;
-                statNumbers.forEach(stat => animateCounter(stat));
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"], .nav-link[href="index.html#${sectionId}"]`);
+                if (activeLink) activeLink.classList.add('active');
             }
         });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.includes('#')) {
+                const targetId = href.split('#')[1];
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    e.preventDefault();
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navbarHeight;
+
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+
+                    // Close mobile menu
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        document.querySelector('.navbar-toggler').click();
+                    }
+                }
+            }
+        });
+    });
+
+    // Mega-menu toggle
+    const megaItems = document.querySelectorAll('.has-megamenu');
+    megaItems.forEach(item => {
+        const trigger = item.querySelector('.nav-link--dropdown, .btn-comunidad');
+        if (!trigger) return;
+
+        // Desktop
+        item.addEventListener('mouseenter', () => {
+            if (window.innerWidth >= 992) item.classList.add('open');
+        });
+        item.addEventListener('mouseleave', () => {
+            if (window.innerWidth >= 992) item.classList.remove('open');
+        });
+
+        // Mobile
+        trigger.addEventListener('click', (e) => {
+            if (window.innerWidth < 992) {
+                e.preventDefault();
+                const isOpen = item.classList.contains('open');
+                megaItems.forEach(other => other.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            }
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.has-megamenu')) {
+            megaItems.forEach(item => item.classList.remove('open'));
+        }
+    });
+};
+
+// ============================================
+// 3. STATS COUNTER
+// ============================================
+
+const initStatsCounter = () => {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsSection = document.querySelector('#stats');
+    let hasAnimated = false;
+
+    if (!statsSection || statNumbers.length === 0) return;
+
+    const animate = (el) => {
+        const custom = el.getAttribute('data-custom');
+        if (custom) { el.textContent = custom; return; }
+
+        const target = parseInt(el.getAttribute('data-target'));
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const increment = target / (2000 / 16);
+        let curr = 0;
+
+        const update = () => {
+            curr += increment;
+            if (curr < target) {
+                el.textContent = prefix + Math.floor(curr) + suffix;
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = prefix + target + suffix;
+            }
+        };
+        update();
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            statNumbers.forEach(animate);
+        }
     }, { threshold: 0.5 });
 
     statsObserver.observe(statsSection);
-}
+};
 
 // ============================================
-// 4. CONTACT FORM VALIDATION & SUBMISSION
+// 4. CONTACT FORM
 // ============================================
 
-const contactForm = document.querySelector('#contactForm');
-const submitBtn = document.querySelector('#submitBtn');
+const initContactForm = () => {
+    const form = document.querySelector('#contactForm');
+    if (!form) return;
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const submitBtn = document.querySelector('#submitBtn');
+        const inputs = form.querySelectorAll('.form-control');
 
-        // Get form fields
-        const nameInput = document.querySelector('#name');
-        const emailInput = document.querySelector('#email');
-        const messageInput = document.querySelector('#message');
-        const institutionInput = document.querySelector('#institution');
-
-        // Reset validation states
-        [nameInput, emailInput, messageInput].forEach(input => {
-            input.classList.remove('is-invalid');
+        // Basic validation
+        let isValid = true;
+        inputs.forEach(input => {
+            if (input.hasAttribute('required') && !input.value.trim()) {
+                input.classList.add('is-invalid');
+                isValid = false;
+            }
         });
 
-        // Validation flags
-        let isValid = true;
+        if (!isValid) return;
 
-        // Validate name (at least 2 characters)
-        if (nameInput.value.trim().length < 2) {
-            nameInput.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // Validate email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value.trim())) {
-            emailInput.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // Validate message (at least 10 characters)
-        if (messageInput.value.trim().length < 10) {
-            messageInput.classList.add('is-invalid');
-            isValid = false;
-        }
-
-        // If validation fails, stop here
-        if (!isValid) {
-            return;
-        }
-
-        // Disable submit button
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
 
-        // Prepare data
-        const formData = {
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            institution: institutionInput.value.trim(),
-            message: messageInput.value.trim(),
-            timestamp: new Date().toISOString()
-        };
-
         try {
-            // Simulate API call using fetch to local JSON
-            const response = await fetch('data/contact.json', {
-                method: 'GET', // Using GET since we can't POST to a static file
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const data = await response.json();
-
-            // Show success alert
-            showAlert('success', '¡Éxito!', data.message || 'Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.');
-
-            // Reset form
-            contactForm.reset();
-
-            // Log form data to console (in real scenario, this would be sent to server)
-            console.log('Form data submitted:', formData);
-
+            await fetch('data/contact.json'); // Simulate
+            showAlert('success', '¡Éxito!', 'Tu mensaje ha sido enviado correctamente.');
+            form.reset();
         } catch (error) {
-            // Show error alert
-            showAlert('danger', 'Error', 'Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
-            console.error('Error submitting form:', error);
+            showAlert('danger', 'Error', 'Hubo un problema. Intenta de nuevo.');
         } finally {
-            // Re-enable submit button
             submitBtn.disabled = false;
             submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Enviar mensaje';
         }
     });
-}
 
-// ============================================
-// 5. SHOW BOOTSTRAP ALERT
-// ============================================
+    inputs.forEach(input => {
+        input.addEventListener('input', () => input.classList.remove('is-invalid'));
+    });
+};
 
-function showAlert(type, title, message) {
-    const alertElement = document.querySelector('#liveAlert');
-    const alertTitle = document.querySelector('#alertTitle');
-    const alertMessage = document.querySelector('#alertMessage');
-
-    // Set alert type
-    alertElement.className = `alert alert-${type} alert-dismissible fade show`;
-
-    // Set content
-    alertTitle.textContent = title;
-    alertMessage.textContent = message;
-
-    // Auto-hide after 5 seconds
+const showAlert = (type, title, message) => {
+    const alertEl = document.querySelector('#liveAlert');
+    if (!alertEl) return;
+    alertEl.className = `alert alert-${type} alert-dismissible fade show`;
+    document.querySelector('#alertTitle').textContent = title;
+    document.querySelector('#alertMessage').textContent = message;
     setTimeout(() => {
-        const bsAlert = new bootstrap.Alert(alertElement);
+        const bsAlert = new bootstrap.Alert(alertEl);
         bsAlert.close();
     }, 5000);
-}
+};
 
 // ============================================
-// 6. BACK TO TOP BUTTON
+// 5. BACK TO TOP & SCROLL INDICATOR
 // ============================================
 
-const backToTopBtn = document.querySelector('#backToTop');
-
-// Show/hide button based on scroll position
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
-});
-
-// Scroll to top when button is clicked
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+const initBackToTop = () => {
+    const btn = document.querySelector('#backToTop');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) btn.classList.add('show');
+        else btn.classList.remove('show');
     });
-});
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+};
 
-// ============================================
-// 7. SCROLL INDICATOR (HERO SECTION)
-// ============================================
-
-const scrollIndicator = document.querySelector('.scroll-indicator');
-
-if (scrollIndicator) {
-    scrollIndicator.addEventListener('click', () => {
-        const statsSection = document.querySelector('#stats');
-        if (statsSection) {
-            const navbarHeight = navbar.offsetHeight;
-            const targetPosition = statsSection.offsetTop - navbarHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+const initScrollIndicator = () => {
+    const indicator = document.querySelector('.scroll-indicator');
+    if (!indicator) return;
+    indicator.addEventListener('click', () => {
+        const stats = document.querySelector('#stats');
+        if (stats) {
+            const navbarHeight = document.querySelector('#mainNav')?.offsetHeight || 80;
+            window.scrollTo({ top: stats.offsetTop - navbarHeight, behavior: 'smooth' });
         }
     });
-}
+};
 
 // ============================================
-// 8. REMOVE VALIDATION ON INPUT
+// 6. ANIMATIONS & HERO CAROUSEL
 // ============================================
 
-const formInputs = document.querySelectorAll('.form-control');
+const initAnimations = () => {
+    const title = document.querySelector('.hero-title');
+    const subtitle = document.querySelector('.hero-subtitle');
+    const buttons = document.querySelector('.hero-buttons');
 
-formInputs.forEach(input => {
-    input.addEventListener('input', () => {
-        if (input.classList.contains('is-invalid')) {
-            input.classList.remove('is-invalid');
-        }
-    });
-});
-
-// ============================================
-// 9. INITIALIZE ON DOM CONTENT LOADED
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('AsistEscolar Landing Page - Loaded Successfully');
-
-    // Add fade-in animation to hero content
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroButtons = document.querySelector('.hero-buttons');
-
-    if (heroTitle) heroTitle.classList.add('fade-in');
-    if (heroSubtitle) {
-        setTimeout(() => heroSubtitle.classList.add('fade-in'), 200);
-    }
-    if (heroButtons) {
-        setTimeout(() => heroButtons.classList.add('fade-in'), 400);
-    }
-});
-
-// ============================================
-// 10. PERFORMANCE OPTIMIZATION
-// ============================================
-
-// Debounce function for scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Use debounced scroll for better performance
-const optimizedScroll = debounce(() => {
-    // Additional scroll-based logic can go here if needed
-}, 100);
-
-window.addEventListener('scroll', optimizedScroll);
-
-// ============================================
-// 11. HERO CAROUSEL LOGIC
-// ============================================
+    if (title) title.classList.add('fade-in');
+    if (subtitle) setTimeout(() => subtitle.classList.add('fade-in'), 200);
+    if (buttons) setTimeout(() => buttons.classList.add('fade-in'), 400);
+};
 
 const initHeroCarousel = () => {
     const carousel = document.getElementById('heroCarousel');
@@ -428,60 +319,23 @@ const initHeroCarousel = () => {
     const updateSlider = (newIndex) => {
         if (isTransitioning || newIndex === currentIndex) return;
         isTransitioning = true;
-
-        // Update items
         items[currentIndex].classList.remove('active');
         indicators[currentIndex].classList.remove('active');
-
         currentIndex = newIndex;
-
         items[currentIndex].classList.add('active');
         indicators[currentIndex].classList.add('active');
-
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 600);
+        setTimeout(() => { isTransitioning = false; }, 600);
     };
 
-    const nextSlide = () => {
-        const nextIndex = (currentIndex + 1) % items.length;
-        updateSlider(nextIndex);
-    };
+    if (nextBtn) nextBtn.addEventListener('click', () => { updateSlider((currentIndex + 1) % items.length); resetAutoPlay(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { updateSlider((currentIndex - 1 + items.length) % items.length); resetAutoPlay(); });
 
-    const prevSlide = () => {
-        const prevIndex = (currentIndex - 1 + items.length) % items.length;
-        updateSlider(prevIndex);
-    };
+    indicators.forEach((ind, i) => ind.addEventListener('click', () => { updateSlider(i); resetAutoPlay(); }));
 
-    // Event listeners
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoPlay();
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoPlay();
-    });
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            updateSlider(index);
-            resetAutoPlay();
-        });
-    });
-
-    // Auto-play
-    const startAutoPlay = () => {
-        autoPlayInterval = setInterval(nextSlide, 5000);
-    };
-
-    const resetAutoPlay = () => {
-        clearInterval(autoPlayInterval);
-        startAutoPlay();
-    };
-
+    const startAutoPlay = () => { autoPlayInterval = setInterval(() => updateSlider((currentIndex + 1) % items.length), 5000); };
+    const resetAutoPlay = () => { clearInterval(autoPlayInterval); startAutoPlay(); };
     startAutoPlay();
 };
 
-document.addEventListener('DOMContentLoaded', initHeroCarousel);
+// RUN APP
+document.addEventListener('DOMContentLoaded', initApp);

@@ -23,229 +23,236 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/product.css">
 
-    <style>
-        .product-hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(135deg, #0253ac 0%, #009fe3 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: white;
-            clip-path: ellipse(75% 100% at 50% 100%);
-        }
-
-        .feature-icon-large {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .info-section {
-            padding: 80px 0;
-        }
-
-        .info-card {
-            border: none;
-            border-radius: 20px;
-            padding: 2rem;
-            height: 100%;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .info-card i {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
-            display: block;
-        }
-
-        .info-card h4 {
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-
-        .highlight-box {
-            background: rgba(2, 83, 172, 0.03);
-            border-left: 4px solid var(--primary-color);
-            padding: 2.5rem;
-            border-radius: 0 20px 20px 0;
-            margin: 3rem 0;
-        }
-
-        .cta-bottom {
-            padding: 100px 0;
-            background: #f8f9fa;
-            position: relative;
-        }
-
-        .breadcrumb-item a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-        }
-
-        .breadcrumb-item.active {
-            color: white;
-        }
-
-        .check-list li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .check-list li::before {
-            content: '\F272';
-            font-family: 'bootstrap-icons';
-            position: absolute;
-            left: 0;
-            color: #17d597;
-            font-weight: bold;
-        }
-    </style>
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="navbar-logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Sistemas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#services">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Soporte</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="index.html#contact" class="btn btn-primary px-4">Contactar</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Product Hero -->
     <header class="product-hero">
         <div class="container">
             <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">SAE Evaluación</li>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none opacity-75">Inicio</a>
+                    </li>
+                    <li class="breadcrumb-item active text-primary fw-medium" aria-current="page">SAE Evaluación</li>
                 </ol>
             </nav>
             <div class="row align-items-center">
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="feature-icon-large">
                         <i class="bi bi-display"></i>
                     </div>
-                    <h1 class="display-4 fw-bold mb-3">Facilita la Gestión Académica con SAE</h1>
-                    <p class="h4 fw-normal mb-4 opacity-90">Da respuesta eficaz y eficiente a los Miembros de la
-                        Comunidad Educativa.</p>
-                    <p class="lead mb-0 opacity-75">CENTRALIZA LA INFORMACIÓN ESTUDIANTIL Y AUTOMATIZA PROCESOS.</p>
+                    <h1 class="display-4 fw-bold mb-3" style="color: var(--dark-color);">Sistema SAE Evaluación</h1>
+                    <p class="h5 fw-normal mb-4 lh-base text-muted">
+                        Para la Evaluación y Control de Estudio, adaptado a exigencias del MPPE y Zonas Educativas
+                        (planes vigentes y derogados); también para Escuelas Técnicas. Disponible para Régimen Regular y
+                        Adultos.
+                    </p>
+                    <p class="lead mb-0 fw-semibold text-primary">
+                        GARANTIZAMOS MIGRACIONES DE DATOS (personales y notas históricas) desde otros sistemas.
+                    </p>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="product-mockup-wrapper" style="position: relative; z-index: 2;">
+                        <img src="assets/img/saeevaluacion-hero.png" alt="SAE Evaluación" class="img-fluid"
+                            style="filter: drop-shadow(0 15px 30px rgba(2, 83, 172, 0.15)); max-width: 110%;">
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <section class="info-section">
+    <!-- Interface Highlight Section -->
+    <section class="laptop-feature-section py-5 overflow-hidden">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-7">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-right">
+                    <img src="assets/img/saeevaluacion-laptop.png" alt="Sistema SAE Evaluación"
+                        class="img-fluid product-laptop-img">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ps-lg-4">
+                        <h2 class="display-6 fw-bold mb-4" style="color: var(--dark-color);">Control de Estudios Moderno
+                            y Eficaz</h2>
+                        <p class="lead text-muted mb-4">
+                            Transforma la gestión de tu colegio con SAE Evaluación. Automatiza la carga de notas, genera
+                            documentos legales al instante y mantén el control total de los registros académicos en una
+                            plataforma intuitiva y segura.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-circle bg-primary-subtle text-primary">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Implementación Inmediata</h5>
+                                <p class="small text-muted mb-0">Comienza a usar el sistema en tiempo récord con nuestro
+                                    soporte experto.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-circle bg-success-subtle text-success">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Precisión y Legalidad</h5>
+                                <p class="small text-muted mb-0">Formatos siempre actualizados según las normas del
+                                    Ministerio de Educación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Potentials Section -->
+    <section class="potentials-section py-5 bg-light">
+        <div class="container container-custom">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Potencial del
+                    Sistema</span>
+                <h2 class="display-5 fw-bold" style="color: var(--dark-color);">Solución Integral y Normativa</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                    SAE Evaluación no solo gestiona datos; garantiza el cumplimiento legal y facilita la toma de
+                    decisiones institucionales.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Card 1: Legal y Normativa -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                        <div class="icon-circle bg-brand-primary text-white mb-4 shadow-sm">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Legal y Normativa</h4>
+                        <ul class="list-unstyled check-list-v2">
+                            <li>Emite todas las <strong>Planillas exigidas por el MPPE</strong>.</li>
+                            <li>Generación de <strong>Resúmenes Finales</strong> (Notas 01-20, NC, P, Art. 109, IN).
+                            </li>
+                            <li>Emisión de <strong>Títulos</strong> y Acta de Revisión de Documentos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Control Académico -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                        <div class="icon-circle bg-brand-green text-white mb-4 shadow-sm">
+                            <i class="bi bi-server"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Control Académico</h4>
+                        <ul class="list-unstyled check-list-v2">
+                            <li>Gestión de <strong>Históricos de Notas</strong> (Vigentes y Derogados).</li>
+                            <li><strong>Conversión Automática</strong> de notas históricas a planes derogados.</li>
+                            <li><strong>Garantizamos Migración</strong> de datos desde otros sistemas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Automatización -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                        <div class="icon-circle bg-brand-secondary text-white mb-4 shadow-sm">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Automatización</h4>
+                        <ul class="list-unstyled check-list-v2">
+                            <li><strong>Prosecución Automática</strong> al próximo año escolar.</li>
+                            <li>Carga automática de <strong>Escolaridad</strong> (Regulares, Repitientes).</li>
+                            <li>Exportación completa a <strong>Microsoft Excel</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4: Reportes e Impresión -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                        <div class="icon-circle bg-brand-orange text-white mb-4 shadow-sm">
+                            <i class="bi bi-printer"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Reportes e Impresión</h4>
+                        <ul class="list-unstyled check-list-v2">
+                            <li>Boletines <strong>Cualitativos y Cuantitativos</strong>.</li>
+                            <li>Constancias y <strong>Certificación de Calificaciones</strong> automáticas.</li>
+                            <li>Reportes de interés: <strong>Fichas, Carnets, Foto Nómina</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 5: Estadísticas Reales -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                        <div class="icon-circle bg-brand-purple text-white mb-4 shadow-sm">
+                            <i class="bi bi-bar-chart-line"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Estadística Real</h4>
+                        <ul class="list-unstyled check-list-v2">
+                            <li>Control exacto de <strong>Inscritos y Repitientes</strong>.</li>
+                            <li>Análisis por <strong>Edad, Sexo y Nacionalidad</strong>.</li>
+                            <li>Cuadro de Honor Final y promedios por sección.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 6: Mejora y Asistencia -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                        <div class="icon-circle bg-brand-muted text-white mb-4 shadow-sm">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Respaldo Constantante</h4>
+                        <ul class="list-unstyled check-list-v2">
+                            <li>Adaptación constante a la <strong>Nueva Ley de Educación</strong>.</li>
+                            <li>Mejor <strong>Asistencia Telefónica y Remota</strong> del mercado.</li>
+                            <li>Formación permanente (ForoChats, Webinars, Talleres).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content (Simplified) -->
+    <section class="info-section">
+        <div class="container container-custom">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7" data-aos="fade-right">
                     <h2 class="fw-bold mb-4">Eficiencia Extraordinaria</h2>
                     <p class="lead text-muted mb-4">
                         Ahorra extraordinariamente recursos físicos (papelería y tinta), humanos y de tiempo con una
                         herramienta diseñada para el futuro de la educación.
                     </p>
 
-                    <div class="highlight-box">
-                        <h4 class="fw-bold mb-3">Adaptación a la Nueva Ley de Educación</h4>
-                        <p class="mb-0">
+                    <div class="highlight-box bg-white shadow-sm">
+                        <h4 class="fw-bold mb-3 text-primary">Adaptación a la Nueva Ley de Educación</h4>
+                        <p class="mb-0 text-muted">
                             Nuestros Sistemas están en constante adaptación a la <b>NUEVA LEY DE EDUCACIÓN</b>. Nos
                             encargamos de proveer todas las modificaciones en Planillas, Formatos y Títulos que exija el
                             Ministerio de Educación durante la vigencia del Contrato sin cobros adicionales.
                         </p>
                     </div>
-
-                    <h3 class="fw-bold mt-5 mb-4">Solución Integral de Gestión</h3>
-                    <p class="text-muted">Centraliza la información estudiantil y automatiza los procesos de evaluación
-                        y control de estudios a través de:</p>
-                    <ul class="list-unstyled check-list">
-                        <li>Cumpliendo con los requerimientos del Ministerio de Educación.</li>
-                        <li>Adaptándose a los diferentes niveles y planes de estudio.</li>
-                        <li>Migrando datos desde otros sistemas a SAE (históricos de datos personales y certificación de
-                            calificaciones) garantizado.</li>
-                        <li>Estadísticas clasificadas según la necesidad (edad, sexo, nacionalidad, notas y promedios;
-                            entre otros).</li>
-                        <li>Generación de listados, constancias y boletines personalizados.</li>
-                    </ul>
                 </div>
-
-                <div class="col-lg-5">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="info-card">
-                                <i class="bi bi-headset"></i>
-                                <h4>Asistencia Técnica Superior</h4>
-                                <p class="small text-muted mb-0">
-                                    Recibe la Mejor Asistencia Telefónica y Remota durante todo el período Escolar
-                                    referente a SAE Evaluación. <br>
-                                    <span class="text-primary">*El Cliente debe tener Internet para la Asistencia
-                                        Remota.</span>
-                                </p>
-                            </div>
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="bg-primary rounded-5 p-5 text-white shadow-lg overflow-hidden position-relative"
+                        style="min-height: 400px;">
+                        <h3 class="fw-bold mb-4">Migración Sin Dolores</h3>
+                        <p class="mb-4 opacity-75">¿Tienes datos en otro sistema? No te preocupes. Garantizamos la
+                            migración completa de tus registros históricos a la plataforma SAE.</p>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="display-4 fw-bold">25+</div>
+                            <div class="small lh-sm opacity-75">Años de experiencia<br>en gestión escolar</div>
                         </div>
-                        <div class="col-12">
-                            <div class="info-card">
-                                <i class="bi bi-graph-up-arrow"></i>
-                                <h4>Mejora Continua</h4>
-                                <p class="small text-muted mb-0">
-                                    SAE está en permanente desarrollo, recibirás todas las mejoras que se realicen en
-                                    SAE Evaluación durante el período escolar sin cobros adicionales.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="info-card">
-                                <i class="bi bi-mortarboard"></i>
-                                <h4>Formación Permanente</h4>
-                                <p class="small text-muted mb-0">
-                                    Brindamos formación constante al personal a través de ForoChats, Webinars, nuestro
-                                    canal de Youtube, o talleres presenciales en localidades seleccionadas.
-                                </p>
-                            </div>
-                        </div>
+                        <i class="bi bi-database-fill-up position-absolute bottom-0 end-0 opacity-10"
+                            style="font-size: 10rem; transform: translate(20%, 20%);"></i>
                     </div>
                 </div>
             </div>
@@ -285,29 +292,28 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row g-4 text-center text-md-start">
-                <div class="col-lg-4">
-                    <img src="assets/img/logo-asistescolar2.png" alt="AsistEscolar" class="footer-logo mb-3">
-                    <p class="opacity-75">Transformando la educación con tecnología innovadora.</p>
-                </div>
-                <div class="col-lg-8 d-flex flex-column align-items-center align-items-md-end justify-content-center">
-                    <p class="small opacity-50 mb-0">Los sistemas de SAE requieren contrato anual para mantenimiento,
-                        revisiones, mejoras y asistencia técnica.</p>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="text-center opacity-75">
-                <p class="mb-0">&copy; 2026 Sistemas SAE. Todos los derechos reservados.</p>
-            </div>
+    <!-- Mandatory Disclaimer -->
+    <div class="bg-light py-3 border-top">
+        <div class="container text-center">
+            <p class="small text-muted mb-0">
+                <i class="bi bi-info-circle me-2"></i>Los sistemas de SAE requieren contrato anual para mantenimiento,
+                revisiones, mejoras y asistencia técnica.
+            </p>
         </div>
-    </footer>
+    </div>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <!-- Bootstrap JS -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
     <script src="assets/js/app.js"></script>
 </body>
 
