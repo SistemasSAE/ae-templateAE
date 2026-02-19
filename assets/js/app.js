@@ -30,37 +30,65 @@ const loadComponent = async (placeholderId, url) => {
 // ============================================
 
 const initApp = async () => {
-    // Initialize AOS immediately for static elements
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            once: true,
-            mirror: false
-        });
-    }
+    const preloader = document.getElementById('preloader');
+    let initialized = false;
 
-    // Load Navbar and Footer
-    const navbarLoaded = await loadComponent('navbar-placeholder', 'components/navbar.html');
-    const footerLoaded = await loadComponent('footer-placeholder', 'components/footer.html');
+    // Function to reveal the page
+    const revealPage = () => {
+        if (initialized) return;
+        initialized = true;
 
-    // Initialize all logic that depends on Navbar/Footer
-    if (navbarLoaded) {
-        initNavbarLogic();
-    }
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loading');
 
-    // Independent logic
-    initStatsCounter();
-    initContactForm();
-    initBackToTop();
-    initScrollIndicator();
-    initAnimations();
-    initHeroCarousel();
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 600);
+        }
 
-    // Refresh AOS after components are loaded
-    if (typeof AOS !== 'undefined') {
-        setTimeout(() => {
-            AOS.refresh();
-        }, 500);
+        // Initialize animations (AOS) only after reveal for better performance
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                mirror: false
+            });
+        }
+    };
+
+    // Safety timeout: reveal page after 3 seconds anyway
+    setTimeout(revealPage, 3000);
+
+    // 1. Start loading Navbar and Footer in parallel
+    const componentPromises = [
+        loadComponent('navbar-placeholder', 'components/navbar.html'),
+        loadComponent('footer-placeholder', 'components/footer.html')
+    ];
+
+    try {
+        // 2. Wait for components
+        const [navbarLoaded, footerLoaded] = await Promise.all(componentPromises);
+
+        if (navbarLoaded) {
+            initNavbarLogic();
+        }
+
+        // 3. Initialize independent logic
+        initStatsCounter();
+        initContactForm();
+        initBackToTop();
+        initScrollIndicator();
+        initAnimations();
+        initHeroCarousel();
+
+        // 4. Reveal Page
+        setTimeout(revealPage, 400);
+
+    } catch (error) {
+        console.error('Initialization error:', error);
+        revealPage();
     }
 };
 
