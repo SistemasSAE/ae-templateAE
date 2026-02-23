@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sistema SAE WEB: Herramienta integradora que optimiza sus procesos Comunicacionales, Académicos y Administrativos.">
+    <title>SAE WEB | AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sae-web.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content-wrapper">
+
+        <!-- Product Hero -->
+        <header class="product-hero">
+            <div class="container">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html"
+                                class="text-decoration-none opacity-75">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item active text-primary fw-medium" aria-current="page">SAE WEB
+                        </li>
+                    </ol>
+                </nav>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="feature-icon-large">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h1 class="display-4 fw-bold mb-3" style="color: var(--dark-color);">Sistema SAE WEB</h1>
+                        <p class="h5 fw-normal mb-4 lh-base text-muted">
+                            Herramienta integradora que optimiza sus procesos: <strong>Comunicacionales, Académicos y
+                                Administrativos.</strong>
+                        </p>
+                        <p class="lead mb-0 fw-semibold" style="color: var(--secondary-color);">
+                            🚀 Logre ahorros extraordinarios en recursos físicos, humanos y de tiempo con una plataforma
+                            de vanguardia.
+                        </p>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <div class="product-mockup-wrapper" style="position: relative; z-index: 2;">
+                            <!-- Usando la misma imagen de laptop de evaluación como placeholder visual -->
+                            <img src="assets/img/saeevaluacion-hero.png" alt="SAE WEB" class="img-fluid"
+                                style="filter: drop-shadow(0 15px 30px rgba(0, 159, 227, 0.15)); max-width: 110%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Interface Highlight Section -->
+        <section class="laptop-feature-section py-5 overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-right">
+                        <img src="assets/img/saeevaluacion-laptop.png" alt="Sistema SAE WEB"
+                            class="img-fluid product-laptop-img">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="ps-lg-4">
+                            <h2 class="display-6 fw-bold mb-4" style="color: var(--dark-color);">Conectividad y Gestión
+                                Total</h2>
+                            <p class="lead text-muted mb-4">
+                                Mejore el canal de comunicación entre todos los miembros de la comunidad educativa y
+                                acceda a la información desde cualquier parte del mundo.
+                            </p>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="icon-circle bg-primary-subtle text-primary">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Comunidad Conectada</h5>
+                                    <p class="small text-muted mb-0">Estudiante, representante, profesor y
+                                        administración en un solo lugar.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="icon-circle bg-info-subtle text-info">
+                                    <i class="bi bi-lightning-fill"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Procesos Eficientes</h5>
+                                    <p class="small text-muted mb-0">Inscripciones ONLINE y gestión estudiantil eficaz.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-circle bg-success-subtle text-success">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Estadísticas en Tiempo Real</h5>
+                                    <p class="small text-muted mb-0">Manejo de edad, sexo, nacionalidad, ingresos vs
+                                        egresos y más.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Tabs Section NEW DESIGN -->
+        <section class="modules-tabs-section py-5">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <span class="badge modules-section-badge px-3 py-2 rounded-pill mb-3">Ecosistema SAE WEB</span>
+                    <h2 class="display-5 fw-bold" style="color: var(--dark-color);">Explora todos los Módulos</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        Selecciona una categoría y descubre las funcionalidades disponibles para tu institución.
+                    </p>
+                </div>
+
+                <!-- Category Tabs Navigation -->
+                <div class="modules-tab-nav-wrapper mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <ul class="nav nav-pills category-tabs justify-content-center flex-nowrap" id="modulesTabs"
+                        role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active category-tab-btn" id="movil-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-movil" type="button" role="tab" data-color="#7c3aed"
+                                data-icon="bi-phone-fill">
+                                <i class="bi bi-phone-fill"></i>
+                                <span>Apps Móviles</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link category-tab-btn" id="administrativos-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-administrativos" type="button" role="tab" data-color="#0253ac"
+                                data-icon="bi-gear-wide-connected">
+                                <i class="bi bi-gear-wide-connected"></i>
+                                <span>Administrativos</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link category-tab-btn" id="academicos-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-academicos" type="button" role="tab" data-color="#059669"
+                                data-icon="bi-mortarboard-fill">
+                                <i class="bi bi-mortarboard-fill"></i>
+                                <span>Académicos</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link category-tab-btn" id="comunicaciones-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-comunicaciones" type="button" role="tab" data-color="#0891b2"
+                                data-icon="bi-chat-dots-fill">
+                                <i class="bi bi-chat-dots-fill"></i>
+                                <span>Comunicacionales</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link category-tab-btn" id="admision-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-admision" type="button" role="tab" data-color="#d97706"
+                                data-icon="bi-person-plus-fill">
+                                <i class="bi bi-person-plus-fill"></i>
+                                <span>Admisión</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link category-tab-btn" id="seguridad-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-seguridad" type="button" role="tab" data-color="#dc2626"
+                                data-icon="bi-shield-fill-check">
+                                <i class="bi bi-shield-fill-check"></i>
+                                <span>Seguridad</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Panes -->
+                <div class="tab-content" id="pills-tabContent">
+
+                    <!-- ==================== Pane: Aplicaciones Móviles ==================== -->
+                    <div class="tab-pane show active" id="pills-movil" role="tabpanel">
+                        <div class="modules-carousel-header text-center mb-4">
+                            <div class="category-icon-badge"
+                                style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
+                                <i class="bi bi-phone-fill"></i>
+                            </div>
+                            <h3 class="fw-bold mt-3" style="color:#7c3aed;">Aplicaciones Móviles</h3>
+                            <p class="text-muted small">Herramientas en la palma de tu mano, para cada rol de la
+                                comunidad educativa.</p>
+                        </div>
+                        <div id="carouselMovil" class="carousel slide module-carousel-3" data-bs-ride="carousel"
+                            data-bs-interval="4000" data-bs-pause="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#7c3aed;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+                                                    <i class="bi bi-briefcase-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">App para el Gerente</h5>
+                                                <p class="mod-card-desc">Acceso ejecutivo a estadísticas, reportes
+                                                    financieros y métricas institucionales en tiempo real desde
+                                                    cualquier lugar.</p>
+                                                <div class="mod-card-tag" style="background:#7c3aed15;color:#7c3aed;">
+                                                    Gerencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#7c3aed;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+                                                    <i class="bi bi-person-workspace"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">App para el Profesor</h5>
+                                                <p class="mod-card-desc">Registro de asistencia, carga de notas,
+                                                    planificación académica y comunicación con representantes desde el
+                                                    móvil.</p>
+                                                <div class="mod-card-tag" style="background:#7c3aed15;color:#7c3aed;">
+                                                    Docentes</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#7c3aed;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+                                                    <i class="bi bi-people-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">App para Representantes</h5>
+                                                <p class="mod-card-desc">Consulta de notas, asistencias, pagos y
+                                                    mensajes directos con la institución al instante desde el
+                                                    smartphone.</p>
+                                                <div class="mod-card-tag" style="background:#7c3aed15;color:#7c3aed;">
+                                                    Familia</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#7c3aed;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+                                                    <i class="bi bi-mortarboard-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">App para Estudiantes</h5>
+                                                <p class="mod-card-desc">Acceso al horario, calificaciones, recursos de
+                                                    clase, circulares y novedades institucionales en un solo lugar.</p>
+                                                <div class="mod-card-tag" style="background:#7c3aed15;color:#7c3aed;">
+                                                    Estudiantes</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev mod-nav" type="button" data-bs-target="#carouselMovil"
+                                data-bs-slide="prev" style="--nav-color:#7c3aed;">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control-next mod-nav" type="button" data-bs-target="#carouselMovil"
+                                data-bs-slide="next" style="--nav-color:#7c3aed;">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators mod-indicators" style="--ind-color:#7c3aed;">
+                                <button type="button" data-bs-target="#carouselMovil" data-bs-slide-to="0"
+                                    class="active"></button>
+                                <button type="button" data-bs-target="#carouselMovil" data-bs-slide-to="1"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== Pane: Administrativos ==================== -->
+                    <div class="tab-pane" id="pills-administrativos" role="tabpanel">
+                        <div class="modules-carousel-header text-center mb-4">
+                            <div class="category-icon-badge"
+                                style="background: linear-gradient(135deg, #0253ac, #009fe3);">
+                                <i class="bi bi-gear-wide-connected"></i>
+                            </div>
+                            <h3 class="fw-bold mt-3" style="color:#0253ac;">Administrativos</h3>
+                            <p class="text-muted small">Gestión financiera y operativa de tu institución de forma
+                                eficiente y centralizada.</p>
+                        </div>
+                        <div id="carouselAdmin" class="carousel slide module-carousel-3" data-bs-ride="carousel"
+                            data-bs-interval="4000" data-bs-pause="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0253ac;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0253ac,#009fe3);">
+                                                    <i class="bi bi-cash-stack"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Registro de Pagos</h5>
+                                                <p class="mod-card-desc">Conciliación bancaria rápida, emisión de
+                                                    facturas y control de estados de cuenta en tiempo real con
+                                                    trazabilidad completa.</p>
+                                                <div class="mod-card-tag" style="background:#0253ac15;color:#0253ac;">
+                                                    Finanzas</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0253ac;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0253ac,#009fe3);">
+                                                    <i class="bi bi-bar-chart-line-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Estadísticas y Reportes</h5>
+                                                <p class="mod-card-desc">Visualice el rendimiento financiero y académico
+                                                    a través de gráficas dinámicas e informes administrativos
+                                                    detallados.</p>
+                                                <div class="mod-card-tag" style="background:#0253ac15;color:#0253ac;">
+                                                    Reportes</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0253ac;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0253ac,#009fe3);">
+                                                    <i class="bi bi-people-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Gestión de Personal</h5>
+                                                <p class="mod-card-desc">Manejo de nómina docente, control de permisos,
+                                                    asignaciones de aula y listados por sección de forma eficiente.</p>
+                                                <div class="mod-card-tag" style="background:#0253ac15;color:#0253ac;">
+                                                    RRHH</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0253ac;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0253ac,#009fe3);">
+                                                    <i class="bi bi-layout-text-window-reverse"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Sub Organizaciones</h5>
+                                                <p class="mod-card-desc">Manejo de grupos académicos, deportivos y
+                                                    pastorales. Impresión de Carnet Digital e historial de pagos por
+                                                    representante.</p>
+                                                <div class="mod-card-tag" style="background:#0253ac15;color:#0253ac;">
+                                                    Organización</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0253ac;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0253ac,#009fe3);">
+                                                    <i class="bi bi-file-earmark-text-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Constancias y Solvencias</h5>
+                                                <p class="mod-card-desc">Emisión online de constancias de inscripción,
+                                                    solvencias y cartón de pagos de mensualidades digitales al instante.
+                                                </p>
+                                                <div class="mod-card-tag" style="background:#0253ac15;color:#0253ac;">
+                                                    Documentos</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev mod-nav" type="button" data-bs-target="#carouselAdmin"
+                                data-bs-slide="prev" style="--nav-color:#0253ac;">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control-next mod-nav" type="button" data-bs-target="#carouselAdmin"
+                                data-bs-slide="next" style="--nav-color:#0253ac;">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators mod-indicators" style="--ind-color:#0253ac;">
+                                <button type="button" data-bs-target="#carouselAdmin" data-bs-slide-to="0"
+                                    class="active"></button>
+                                <button type="button" data-bs-target="#carouselAdmin" data-bs-slide-to="1"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== Pane: Académicos ==================== -->
+                    <div class="tab-pane" id="pills-academicos" role="tabpanel">
+                        <div class="modules-carousel-header text-center mb-4">
+                            <div class="category-icon-badge"
+                                style="background: linear-gradient(135deg, #059669, #34d399);">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </div>
+                            <h3 class="fw-bold mt-3" style="color:#059669;">Académicos</h3>
+                            <p class="text-muted small">Herramientas digitales para optimizar el proceso de
+                                enseñanza-aprendizaje.</p>
+                        </div>
+                        <div id="carouselAcademicos" class="carousel slide module-carousel-3" data-bs-ride="carousel"
+                            data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#059669;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#059669,#34d399);">
+                                                    <i class="bi bi-calendar-check-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Control de Asistencias</h5>
+                                                <p class="mod-card-desc">Registro diario de puntualidad y faltas con
+                                                    notificaciones automáticas para los representantes vía correo o app.
+                                                </p>
+                                                <div class="mod-card-tag" style="background:#05966915;color:#059669;">
+                                                    Asistencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#059669;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#059669,#34d399);">
+                                                    <i class="bi bi-journal-bookmark-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Gestión de Notas y Boletines</h5>
+                                                <p class="mod-card-desc">Carga de calificaciones online, generación
+                                                    automática de boletines y certificados finales con firma
+                                                    electrónica.</p>
+                                                <div class="mod-card-tag" style="background:#05966915;color:#059669;">
+                                                    Evaluación</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#059669;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#059669,#34d399);">
+                                                    <i class="bi bi-clipboard2-data-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Planificación Académica</h5>
+                                                <p class="mod-card-desc">Planificadores de lapso, cronogramas de
+                                                    evaluación y distribución de contenidos programáticos por materia.
+                                                </p>
+                                                <div class="mod-card-tag" style="background:#05966915;color:#059669;">
+                                                    Planificación</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#059669;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#059669,#34d399);">
+                                                    <i class="bi bi-folder2-open"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Recursos Compartidos</h5>
+                                                <p class="mod-card-desc">Publicación de listas de útiles, guías,
+                                                    horarios, planes de evaluación y circulares accesibles a toda la
+                                                    comunidad.</p>
+                                                <div class="mod-card-tag" style="background:#05966915;color:#059669;">
+                                                    Recursos</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#059669;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#059669,#34d399);">
+                                                    <i class="bi bi-display-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Aula Virtual</h5>
+                                                <p class="mod-card-desc">Espacio digital para compartir materiales
+                                                    educativos, tareas y actividades interactivas como en una
+                                                    universidad.</p>
+                                                <div class="mod-card-tag" style="background:#05966915;color:#059669;">
+                                                    e-Learning</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev mod-nav" type="button"
+                                data-bs-target="#carouselAcademicos" data-bs-slide="prev" style="--nav-color:#059669;">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control-next mod-nav" type="button"
+                                data-bs-target="#carouselAcademicos" data-bs-slide="next" style="--nav-color:#059669;">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators mod-indicators" style="--ind-color:#059669;">
+                                <button type="button" data-bs-target="#carouselAcademicos" data-bs-slide-to="0"
+                                    class="active"></button>
+                                <button type="button" data-bs-target="#carouselAcademicos"
+                                    data-bs-slide-to="1"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== Pane: Comunicacionales ==================== -->
+                    <div class="tab-pane" id="pills-comunicaciones" role="tabpanel">
+                        <div class="modules-carousel-header text-center mb-4">
+                            <div class="category-icon-badge"
+                                style="background: linear-gradient(135deg, #0891b2, #22d3ee);">
+                                <i class="bi bi-chat-dots-fill"></i>
+                            </div>
+                            <h3 class="fw-bold mt-3" style="color:#0891b2;">Comunicacionales</h3>
+                            <p class="text-muted small">Mantén a toda la comunidad educativa conectada e informada en
+                                todo momento.</p>
+                        </div>
+                        <div id="carouselComunicaciones" class="carousel slide module-carousel-3"
+                            data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0891b2;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0891b2,#22d3ee);">
+                                                    <i class="bi bi-globe2"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Portal Web Autoadministrable</h5>
+                                                <p class="mod-card-desc">Gestiona tu cartelera informativa, calendario
+                                                    institucional, galerías de eventos y noticias sin depender de
+                                                    terceros.</p>
+                                                <div class="mod-card-tag" style="background:#0891b215;color:#0891b2;">
+                                                    Portal</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0891b2;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0891b2,#22d3ee);">
+                                                    <i class="bi bi-door-open-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Intranet Multiperfil</h5>
+                                                <p class="mod-card-desc">Portales dedicados para Estudiantes,
+                                                    Representantes, Profesores y Administradores con acceso seguro y
+                                                    personalizado.</p>
+                                                <div class="mod-card-tag" style="background:#0891b215;color:#0891b2;">
+                                                    Intranet</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0891b2;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0891b2,#22d3ee);">
+                                                    <i class="bi bi-envelope-at-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Correos Masivos</h5>
+                                                <p class="mod-card-desc">Envíos automatizados de notas, circulares y
+                                                    estados de cuenta directamente al correo electrónico de los
+                                                    representantes.</p>
+                                                <div class="mod-card-tag" style="background:#0891b215;color:#0891b2;">
+                                                    Email</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0891b2;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0891b2,#22d3ee);">
+                                                    <i class="bi bi-chat-left-dots-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Mensajería en Tiempo Real</h5>
+                                                <p class="mod-card-desc">Sistema de mensajería interna y notificaciones
+                                                    push para comunicación directa entre todos los miembros de la
+                                                    institución.</p>
+                                                <div class="mod-card-tag" style="background:#0891b215;color:#0891b2;">
+                                                    Mensajería</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#0891b2;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#0891b2,#22d3ee);">
+                                                    <i class="bi bi-images"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Galería y Cartelera Digital</h5>
+                                                <p class="mod-card-desc">Espacio multimedia para publicar fotos de
+                                                    eventos, comunicados oficiales y noticias del día de forma
+                                                    atractiva.</p>
+                                                <div class="mod-card-tag" style="background:#0891b215;color:#0891b2;">
+                                                    Multimedia</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev mod-nav" type="button"
+                                data-bs-target="#carouselComunicaciones" data-bs-slide="prev"
+                                style="--nav-color:#0891b2;">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control-next mod-nav" type="button"
+                                data-bs-target="#carouselComunicaciones" data-bs-slide="next"
+                                style="--nav-color:#0891b2;">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators mod-indicators" style="--ind-color:#0891b2;">
+                                <button type="button" data-bs-target="#carouselComunicaciones" data-bs-slide-to="0"
+                                    class="active"></button>
+                                <button type="button" data-bs-target="#carouselComunicaciones"
+                                    data-bs-slide-to="1"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== Pane: Admisión ==================== -->
+                    <div class="tab-pane" id="pills-admision" role="tabpanel">
+                        <div class="modules-carousel-header text-center mb-4">
+                            <div class="category-icon-badge"
+                                style="background: linear-gradient(135deg, #d97706, #fbbf24);">
+                                <i class="bi bi-person-plus-fill"></i>
+                            </div>
+                            <h3 class="fw-bold mt-3" style="color:#d97706;">Admisión</h3>
+                            <p class="text-muted small">Optimiza el proceso de inscripción y captación de nuevos
+                                estudiantes de forma digital.</p>
+                        </div>
+                        <div id="carouselAdmision" class="carousel slide module-carousel-3" data-bs-ride="carousel"
+                            data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#d97706;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#d97706,#fbbf24);">
+                                                    <i class="bi bi-person-lines-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Solicitud de Cupo Online</h5>
+                                                <p class="mod-card-desc">Formularios digitales de solicitud de cupo que
+                                                    se integran directamente al sistema con captación de datos del
+                                                    representante.</p>
+                                                <div class="mod-card-tag" style="background:#d9770615;color:#d97706;">
+                                                    Inscripción</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#d97706;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#d97706,#fbbf24);">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Inscripción Digital</h5>
+                                                <p class="mod-card-desc">Planilla de inscripción auto-gestionada que
+                                                    ahorra personal administrativo y tiempo de secretaría con proceso
+                                                    probado.</p>
+                                                <div class="mod-card-tag" style="background:#d9770615;color:#d97706;">
+                                                    Matrícula</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#d97706;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#d97706,#fbbf24);">
+                                                    <i class="bi bi-clipboard2-pulse-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Seguimiento de Admitidos</h5>
+                                                <p class="mod-card-desc">Panel de control para visualizar el estado de
+                                                    cada solicitud, gestionar aprobaciones y comunicar resultados
+                                                    automáticamente.</p>
+                                                <div class="mod-card-tag" style="background:#d9770615;color:#d97706;">
+                                                    Seguimiento</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev mod-nav" type="button"
+                                data-bs-target="#carouselAdmision" data-bs-slide="prev" style="--nav-color:#d97706;">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control-next mod-nav" type="button"
+                                data-bs-target="#carouselAdmision" data-bs-slide="next" style="--nav-color:#d97706;">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== Pane: Seguridad ==================== -->
+                    <div class="tab-pane" id="pills-seguridad" role="tabpanel">
+                        <div class="modules-carousel-header text-center mb-4">
+                            <div class="category-icon-badge"
+                                style="background: linear-gradient(135deg, #dc2626, #f87171);">
+                                <i class="bi bi-shield-fill-check"></i>
+                            </div>
+                            <h3 class="fw-bold mt-3" style="color:#dc2626;">Seguridad</h3>
+                            <p class="text-muted small">Acceso controlado y protección de datos para toda la comunidad
+                                educativa.</p>
+                        </div>
+                        <div id="carouselSeguridad" class="carousel slide module-carousel-3" data-bs-ride="carousel"
+                            data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#dc2626;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#dc2626,#f87171);">
+                                                    <i class="bi bi-qr-code-scan"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Control de Acceso ID+</h5>
+                                                <p class="mod-card-desc">Carnets digitales con códigos QR para control
+                                                    de acceso seguro y moderno. Validación inmediata de identidad en la
+                                                    institución.</p>
+                                                <div class="mod-card-tag" style="background:#dc262615;color:#dc2626;">
+                                                    Acceso</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#dc2626;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#dc2626,#f87171);">
+                                                    <i class="bi bi-lock-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Permisos por Rol</h5>
+                                                <p class="mod-card-desc">Control granular de acceso por perfil de
+                                                    usuario. Cada miembro accede únicamente a los módulos autorizados
+                                                    por la institución.</p>
+                                                <div class="mod-card-tag" style="background:#dc262615;color:#dc2626;">
+                                                    Permisos</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mod-card" style="--accent:#dc2626;">
+                                                <div class="mod-card-icon"
+                                                    style="background:linear-gradient(135deg,#dc2626,#f87171);">
+                                                    <i class="bi bi-shield-lock-fill"></i>
+                                                </div>
+                                                <h5 class="mod-card-title">Protección de Datos</h5>
+                                                <p class="mod-card-desc">Infraestructura segura con backup automático,
+                                                    cifrado de contraseñas y protección de la información personal del
+                                                    estudiantado.</p>
+                                                <div class="mod-card-tag" style="background:#dc262615;color:#dc2626;">
+                                                    Privacidad</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev mod-nav" type="button"
+                                data-bs-target="#carouselSeguridad" data-bs-slide="prev" style="--nav-color:#dc2626;">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control-next mod-nav" type="button"
+                                data-bs-target="#carouselSeguridad" data-bs-slide="next" style="--nav-color:#dc2626;">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div><!-- end tab-content -->
+            </div><!-- end container -->
+        </section>
+
+
+        <!-- Detailed Potentials Section -->
+        <section class="potentials-section py-5 bg-light">
+            <div class="container container-custom">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Potencial del
+                        Sistema</span>
+                    <h2 class="display-5 fw-bold" style="color: var(--dark-color);">Ventajas Frente a Otros Portales
+                    </h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                        SAE WEB es mucho más que una página institucional; es una base de datos robusta y
+                        autogestionable.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Card 1: Autogestión -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-secondary text-white mb-4 shadow-sm">
+                                <i class="bi bi-gear-wide-connected"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Auto gestionable</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li><strong>Portal WEB configurable</strong> por la institución.</li>
+                                <li>Manejo de Base de Datos dinámico.</li>
+                                <li>No es sólo una página web informativa.</li>
+                                <li>Mantenimiento y soporte técnico incluido.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Comunicación -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-orange text-white mb-4 shadow-sm">
+                                <i class="bi bi-chat-right-dots"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Mensajería Real</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Envío de correos electrónicos masivos.</li>
+                                <li><strong>Mensajería móvil en tiempo real</strong>.</li>
+                                <li>Comunicación directa sin intermediarios.</li>
+                                <li>Alertas y notificaciones instantáneas.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Inscripciones -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-green text-white mb-4 shadow-sm">
+                                <i class="bi bi-pencil-square"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Inscripción Online</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li><strong>Proceso de inscripción probado y útil</strong>.</li>
+                                <li>Planilla de inscripción digital auto-gestionada.</li>
+                                <li>Ahorro en personal administrativo y secretaría.</li>
+                                <li>Captación de datos directa del representante.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Académico -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-primary text-white mb-4 shadow-sm">
+                                <i class="bi bi-journal-check"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Gestión de Notas</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Notas del período escolar actual e histórico.</li>
+                                <li>Planificación Académica a un clic.</li>
+                                <li>Recursos educativos tipo universidad.</li>
+                                <li>Manejo de nóminas y listados por profesor.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Recursos -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-purple text-white mb-4 shadow-sm">
+                                <i class="bi bi-folder2-open"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Recursos Compartidos</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Publicación de listas de útiles y horarios.</li>
+                                <li><strong>Plan de evaluación y guías digitales</strong>.</li>
+                                <li>Circulares y cronogramas de eventos.</li>
+                                <li>Galería de imágenes y cartelera informativa.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Administrativo -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-muted text-white mb-4 shadow-sm">
+                                <i class="bi bi-layout-text-window-reverse"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Sub Organizaciones</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Manejo de grupos (Fútbol, Pastoral, etc).</li>
+                                <li>Impresión de Carnet Digital por representante.</li>
+                                <li>Emisión de Constancias y Solvencias online.</li>
+                                <li>Cartón de Pagos de Mensualidades digital.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content (Simplified) -->
+        <section class="info-section">
+            <div class="container container-custom">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <h2 class="fw-bold mb-4">Control Total por la Institución</h2>
+                        <p class="lead text-muted mb-4">
+                            SAE WEB permite restringir accesos mediante claves de usuario, asegurando que cada miembro
+                            de la comunidad realice solo los procesos autorizados.
+                        </p>
+
+                        <div class="highlight-box bg-white shadow-sm">
+                            <h4 class="fw-bold mb-3 text-primary">Compatibilidad y Capacitación</h4>
+                            <p class="mb-0 text-muted">
+                                Totalmente compatible con <b>SAE Evaluación y Pagos</b> para la importación y
+                                exportación de datos. Además, entrenamos al personal designado por la institución para
+                                gestionar todos los procesos de forma autónoma.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" data-aos="fade-left">
+                        <div class="bg-primary rounded-5 p-5 text-white shadow-lg overflow-hidden position-relative"
+                            style="min-height: 400px;">
+                            <h3 class="fw-bold mb-4">Vanguardia Educativa</h3>
+                            <p class="mb-4 opacity-75">Diseños modernos adecuados para el aprovechamiento máximo de las
+                                herramientas digitales en su institución.</p>
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="display-4 fw-bold">100%</div>
+                                <div class="small lh-sm opacity-75">Auto-administrable<br>por la institución</div>
+                            </div>
+                            <i class="bi bi-shield-lock-fill position-absolute bottom-0 end-0 opacity-10"
+                                style="font-size: 10rem; transform: translate(20%, 20%);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Quote Section -->
+        <section class="py-5 bg-secondary text-white text-center">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <i class="bi bi-quote display-3 opacity-50 mb-3 d-block"></i>
+                        <p class="h3 fw-light lh-base mb-0">
+                            “SAE WEB es la pieza que faltaba para completar el ecosistema digital de su colegio,
+                            brindando transparencia, ahorro y eficiencia a toda la comunidad.”
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA -->
+        <section class="cta-bottom text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-5 fw-bold mb-4">¿Desea modernizar su institución?</h2>
+                        <p class="lead text-muted mb-5">
+                            Descubra cómo SAE WEB puede transformar la comunicación y los procesos de su colegio. Agenda
+                            hoy mismo una demostración personalizada.
+                        </p>
+                        <a href="index.html#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
+                            <i class="bi bi-calendar-event me-2"></i>Agendar Demostración
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mandatory Disclaimer -->
+        <div class="bg-light py-3 border-top">
+            <div class="container text-center">
+                <p class="small text-muted mb-0">
+                    <i class="bi bi-info-circle me-2"></i>Los sistemas de SAE requieren contrato anual para
+                    mantenimiento, revisiones, mejoras y asistencia técnica.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Module Carousels: init on tab show (Bootstrap ignores hidden panes) -->
+    <script>
+        // Initialize all module carousels with autoplay
+        // This runs inline after Bootstrap bundle is loaded, so bootstrap is available immediately
+        (function () {
+            function initCarousels() {
+                // Init every carousel in the modules section with autoplay
+                document.querySelectorAll('.module-carousel-3').forEach(function (el) {
+                    bootstrap.Carousel.getOrCreateInstance(el, { interval: 4000, ride: 'carousel', wrap: true }).cycle();
+                });
+
+                // On tab switch: restart the carousel of the newly visible pane from slide 0
+                document.querySelectorAll('#modulesTabs [data-bs-toggle="pill"]').forEach(function (btn) {
+                    btn.addEventListener('shown.bs.tab', function (e) {
+                        var pane = document.querySelector(e.target.getAttribute('data-bs-target'));
+                        if (!pane) return;
+                        pane.querySelectorAll('.module-carousel-3').forEach(function (el) {
+                            var c = bootstrap.Carousel.getOrCreateInstance(el, { interval: 4000, ride: 'carousel', wrap: true });
+                            c.to(0);
+                            c.cycle();
+                        });
+                    });
+                });
+            }
+
+            // Run as soon as DOM is ready (Bootstrap bundle is already parsed above this tag)
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initCarousels);
+            } else {
+                initCarousels();
+            }
+        })();
+    </script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

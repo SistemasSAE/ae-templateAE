@@ -15,6 +15,9 @@
     --text-muted: #6c757d;
     --gradient-primary: linear-gradient(135deg, #0253ac 0%, #0369d9 100%);
     --gradient-secondary: linear-gradient(135deg, #17d597 0%, #0eb67a 100%);
+    --gradient-saeevaluacion: linear-gradient(135deg, #f0f7ff 50%, #5ea1ff9c 100%);
+    --gradient-saepagos: linear-gradient(135deg, #f4fdfc 50%, #0eb67b81 100%);
+    --gradient-saeweb: linear-gradient(135deg, #f0faff 50%, #009fe380 100%);
     --transition: all 0.3s ease;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);

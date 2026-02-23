@@ -4,7 +4,7 @@
 
 .product-hero {
     padding: 160px 0 100px;
-    background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+    background: var(--gradient-saepagos);
     /* Color verdoso para pagos */
     color: var(--dark-color);
     position: relative;

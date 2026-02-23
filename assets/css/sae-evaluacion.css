@@ -4,7 +4,7 @@
 
 .product-hero {
     padding: 160px 0 100px;
-    background: linear-gradient(135deg, #f0f7ff 0%, #5ea1ff9c 100%);
+    background: var(--gradient-saeevaluacion);
     color: var(--dark-color);
     position: relative;
     overflow: hidden;

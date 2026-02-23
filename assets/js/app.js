@@ -98,7 +98,7 @@ const initApp = async () => {
 
 const initNavbarLogic = () => {
     const navbar = document.querySelector('#mainNav');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('#mainNav .nav-link');
     const sections = document.querySelectorAll('section');
 
     if (!navbar) return;
