@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Todos los productos y servicios de AsistEscolar: Soluciones tecnológicas para instituciones educativas.">
+    <title>Soluciones | AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ── Hero wrapper ── */
+        .sol-hero-wrap {
+            background: linear-gradient(135deg, #0c1f3f 0%, #0d3270 50%, #0c2a5c 100%);
+            padding-top: 90px;
+            padding-bottom: 56px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Dot grid overlay */
+        .sol-hero-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        /* Glow blobs */
+        .sol-hero-wrap::after {
+            content: '';
+            position: absolute;
+            top: -80px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(52,168,83,.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .sol-hero-blob {
+            position: absolute;
+            bottom: -120px; left: -80px;
+            width: 420px; height: 420px;
+            background: radial-gradient(circle, rgba(26,115,232,.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        /* ── App icons carousel ── */
+        .apps-carousel-wrap {
+            overflow: hidden;
+            padding: 0 0 36px;
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+
+        .apps-track {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 28px;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .apps-track.running {
+            animation: appsScroll var(--scroll-duration, 35s) linear infinite;
+        }
+
+        .apps-track:hover { animation-play-state: paused; }
+
+        @keyframes appsScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(var(--scroll-dist, -50%)); }
+        }
+
+        .app-icon-bubble {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,.10);
+            transition: transform .2s;
+            cursor: default;
+        }
+
+        .app-icon-bubble:hover { transform: scale(1.12); }
+
+        /* Color palette for bubbles */
+        .bbl-blue    { background: #e8f0fe; color: #1a73e8; }
+        .bbl-green   { background: #e6f4ea; color: #188038; }
+        .bbl-cyan    { background: #e0f7fa; color: #00838f; }
+        .bbl-purple  { background: #f3e8fd; color: #7b1fa2; }
+        .bbl-orange  { background: #fff3e0; color: #e65100; }
+        .bbl-teal    { background: #e0f2f1; color: #00695c; }
+        .bbl-red     { background: #fce8e6; color: #c62828; }
+        .bbl-yellow  { background: #fffde7; color: #f57f17; }
+        .bbl-indigo  { background: #e8eaf6; color: #283593; }
+        .bbl-pink    { background: #fce4ec; color: #ad1457; }
+        .bbl-lime    { background: #f9fbe7; color: #558b2f; }
+        .bbl-brown   { background: #efebe9; color: #4e342e; }
+
+        /* ── Page intro ── */
+        .sol-intro {
+            padding: 36px 0 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sol-intro h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: .5rem;
+        }
+
+        .sol-intro .sol-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 2rem;
+        }
+
+        /* ── Breadcrumb ── */
+        .sol-breadcrumb {
+            font-size: .85rem;
+            color: rgba(255,255,255,.55);
+            margin-bottom: 0;
+        }
+
+        .sol-breadcrumb a { color: rgba(255,255,255,.75); text-decoration: none; }
+        .sol-breadcrumb a:hover { color: #fff; text-decoration: underline; }
+        .sol-breadcrumb .breadcrumb-item.active { color: var(--green-light, #34a853); }
+
+        /* ── Filter pills ── */
+        .filter-pills {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 50px;
+            padding: 6px 10px;
+            backdrop-filter: blur(8px);
+        }
+
+        .filter-pill {
+            border: none;
+            background: transparent;
+            border-radius: 50px;
+            padding: .42rem 1.3rem;
+            font-size: .92rem;
+            font-weight: 500;
+            color: rgba(255,255,255,.75);
+            cursor: pointer;
+            transition: background .2s, color .2s;
+        }
+
+        .filter-pill:hover   { background: rgba(255,255,255,.15); color: #fff; }
+        .filter-pill.active  { background: #fff; color: #0253ac; font-weight: 700;
+                               box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+
+        /* ── Cards grid ── */
+        .cards-grid { padding: 48px 0 20px; }
+
+        .sol-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,.07);
+            transition: transform .25s, box-shadow .25s;
+            height: 100%;
+        }
+
+        .sol-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 32px rgba(0,0,0,.13);
+        }
+
+        .sol-card.hidden { display: none; }
+
+        .sol-card .card-body { padding: 1.8rem; }
+
+        .sol-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* reuse bubble colors */
+        .sol-icon-wrap.blue-dark  { background: #e8f0fe; color: #1a73e8; }
+        .sol-icon-wrap.green      { background: #e6f4ea; color: #188038; }
+        .sol-icon-wrap.blue-light { background: #e0f7fa; color: #00838f; }
+        .sol-icon-wrap.orange     { background: #fff3e0; color: #e65100; }
+        .sol-icon-wrap.purple     { background: #f3e8fd; color: #7b1fa2; }
+        .sol-icon-wrap.teal       { background: #e0f2f1; color: #00695c; }
+        .sol-icon-wrap.red        { background: #fce8e6; color: #c62828; }
+        .sol-icon-wrap.yellow     { background: #fffde7; color: #f57f17; }
+
+        .sol-card .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: .5rem;
+        }
+
+        .sol-card .card-text {
+            font-size: .9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .sol-badge {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 600;
+            padding: .22rem .65rem;
+            border-radius: 50px;
+            margin-bottom: .7rem;
+        }
+
+        .badge-product { background: #e8f0fe; color: #1a73e8; }
+        .badge-service { background: #e6f4ea; color: #188038; }
+        .badge-support { background: #f3e8fd; color: #7b1fa2; }
+
+        .sol-audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: .8rem 0;
+        }
+
+        .audience-tag {
+            font-size: .72rem;
+            font-weight: 500;
+            padding: .18rem .55rem;
+            border-radius: 50px;
+            background: #f1f3f4;
+            color: #555;
+        }
+
+        .btn-link-arrow {
+            font-size: .88rem;
+            font-weight: 600;
+            color: #0253ac;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: .8rem;
+            transition: gap .2s;
+        }
+
+        .btn-link-arrow:hover { gap: 9px; }
+
+        /* section divider */
+        .section-label {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 1.2rem;
+        }
+
+        /* ── CTA ── */
+        .solutions-cta {
+            background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 100%);
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .solutions-cta h2 { font-weight: 800; }
+
+        .solutions-cta .btn-cta {
+            background: var(--green-light, #34a853);
+            color: #fff;
+            border: none;
+            padding: .8rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity .2s, transform .2s;
+        }
+
+        .solutions-cta .btn-cta:hover { opacity: .88; transform: translateY(-2px); }
+
+        /* ── Suite divider ── */
+        .suite-divider-inner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: .5rem;
+        }
+
+        .suite-divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d0d7de, transparent);
+        }
+
+        .suite-divider-label {
+            display: inline-flex;
+            align-items: center;
+            font-size: .82rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #0253ac;
+            background: #e8f0fe;
+            border: 1px solid #c5d8f8;
+            border-radius: 50px;
+            padding: .35rem 1.1rem;
+            white-space: nowrap;
+        }
+
+        .suite-divider-sub {
+            text-align: center;
+            font-size: .85rem;
+            color: #888;
+            margin: 0;
+        }
+
+        /* No results */
+        #no-results {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 0;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content-wrapper">
+
+        <!-- Hero -->
+        <div class="sol-hero-wrap">
+            <div class="sol-hero-blob"></div>
+
+        <!-- Apps Icon Carousel -->
+        <div class="apps-carousel-wrap">
+            <div class="apps-track" id="appsTrack">
+                <!-- Set 1 -->
+                <div class="app-icon-bubble bbl-blue"    title="SAE Evaluación"><i class="bi bi-display"></i></div>
+                <div class="app-icon-bubble bbl-green"   title="SAE Pagos"><i class="bi bi-credit-card"></i></div>
+                <div class="app-icon-bubble bbl-cyan"    title="SAE WEB"><i class="bi bi-globe"></i></div>
+                <div class="app-icon-bubble bbl-purple"  title="App Móvil"><i class="bi bi-phone"></i></div>
+                <div class="app-icon-bubble bbl-orange"  title="Mensajería"><i class="bi bi-chat-dots-fill"></i></div>
+                <div class="app-icon-bubble bbl-teal"    title="Migración"><i class="bi bi-database-fill-up"></i></div>
+                <div class="app-icon-bubble bbl-red"     title="Soporte"><i class="bi bi-headset"></i></div>
+                <div class="app-icon-bubble bbl-yellow"  title="Capacitación"><i class="bi bi-mortarboard"></i></div>
+                <div class="app-icon-bubble bbl-indigo"  title="Implementación"><i class="bi bi-gear-wide-connected"></i></div>
+                <div class="app-icon-bubble bbl-pink"    title="Aulas Virtuales"><i class="bi bi-easel"></i></div>
+                <div class="app-icon-bubble bbl-lime"    title="Portal Web"><i class="bi bi-window"></i></div>
+                <div class="app-icon-bubble bbl-brown"   title="Reportes"><i class="bi bi-bar-chart-fill"></i></div>
+                <div class="app-icon-bubble bbl-blue"    title="Intranet"><i class="bi bi-people-fill"></i></div>
+                <div class="app-icon-bubble bbl-green"   title="Notas"><i class="bi bi-journal-check"></i></div>
+                <div class="app-icon-bubble bbl-cyan"    title="Facturación"><i class="bi bi-receipt"></i></div>
+                <div class="app-icon-bubble bbl-purple"  title="Notificaciones"><i class="bi bi-bell-fill"></i></div>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <div class="app-icon-bubble bbl-blue"    title="SAE Evaluación"><i class="bi bi-display"></i></div>
+                <div class="app-icon-bubble bbl-green"   title="SAE Pagos"><i class="bi bi-credit-card"></i></div>
+                <div class="app-icon-bubble bbl-cyan"    title="SAE WEB"><i class="bi bi-globe"></i></div>
+                <div class="app-icon-bubble bbl-purple"  title="App Móvil"><i class="bi bi-phone"></i></div>
+                <div class="app-icon-bubble bbl-orange"  title="Mensajería"><i class="bi bi-chat-dots-fill"></i></div>
+                <div class="app-icon-bubble bbl-teal"    title="Migración"><i class="bi bi-database-fill-up"></i></div>
+                <div class="app-icon-bubble bbl-red"     title="Soporte"><i class="bi bi-headset"></i></div>
+                <div class="app-icon-bubble bbl-yellow"  title="Capacitación"><i class="bi bi-mortarboard"></i></div>
+                <div class="app-icon-bubble bbl-indigo"  title="Implementación"><i class="bi bi-gear-wide-connected"></i></div>
+                <div class="app-icon-bubble bbl-pink"    title="Aulas Virtuales"><i class="bi bi-easel"></i></div>
+                <div class="app-icon-bubble bbl-lime"    title="Portal Web"><i class="bi bi-window"></i></div>
+                <div class="app-icon-bubble bbl-brown"   title="Reportes"><i class="bi bi-bar-chart-fill"></i></div>
+                <div class="app-icon-bubble bbl-blue"    title="Intranet"><i class="bi bi-people-fill"></i></div>
+                <div class="app-icon-bubble bbl-green"   title="Notas"><i class="bi bi-journal-check"></i></div>
+                <div class="app-icon-bubble bbl-cyan"    title="Facturación"><i class="bi bi-receipt"></i></div>
+                <div class="app-icon-bubble bbl-purple"  title="Notificaciones"><i class="bi bi-bell-fill"></i></div>
+            </div>
+        </div>
+
+        <!-- Page Intro -->
+        <section class="sol-intro">
+            <div class="container">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb sol-breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                        <li class="breadcrumb-item active">Soluciones</li>
+                    </ol>
+                </nav>
+                <h1 data-aos="fade-up">Productos útiles pensados<br>para <span class="text-gradient">ti</span></h1>
+                <p class="sol-subtitle" data-aos="fade-up" data-aos-delay="80">Innovación que conecta</p>
+
+                <!-- Filter pills -->
+                <div data-aos="fade-up" data-aos-delay="160">
+                    <div class="filter-pills" id="filterPills">
+                        <button class="filter-pill active" data-filter="todos">Todos</button>
+                        <button class="filter-pill" data-filter="gerencial">Gerencial</button>
+                        <button class="filter-pill" data-filter="profesor">Profesor</button>
+                        <button class="filter-pill" data-filter="representante">Representante</button>
+                        <button class="filter-pill" data-filter="estudiante">Estudiante</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </div><!-- /sol-hero-wrap -->
+
+        <!-- Cards Grid -->
+        <section class="cards-grid">
+            <div class="container">
+                <div class="row g-4" id="cardsContainer">
+
+                    <!-- SAE Evaluación -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial profesor"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap blue-dark"><i class="bi bi-display"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">Sistema SAE Evaluación</h3>
+                                <p class="card-text">
+                                    Para la Evaluación y Control de Estudios, adaptado al MPPE y Zonas Educativas
+                                    (planes vigentes y derogados); también para Escuelas Técnicas.
+                                    Disponible para Régimen Regular y Adultos.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Profesor</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Conforme al MPPE y Zonas Educativas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Régimen Regular y de Adultos</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Escuelas Técnicas</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Migración de datos garantizada</li>
+                                </ul>
+                                <a href="sae-evaluacion.html" class="btn-link-arrow">
+                                    Conocer más <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Pagos -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial representante"
+                         data-aos="fade-up" data-aos-delay="80">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap green"><i class="bi bi-credit-card"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">Sistema SAE Pagos</h3>
+                                <p class="card-text">
+                                    Control de Pagos, Facturación y Cobranza. Ajuste e indexación automática,
+                                    entorno multimoneda ($, pesos, euro), multicuentas, IGTF y Reportes AVEC.
+                                    <strong>¡Homologado por el SENIAT!</strong>
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Representante</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Homologado SENIAT</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Multimoneda y multicuentas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Reportes AVEC</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Cobranza e indexación automática</li>
+                                </ul>
+                                <a href="sae-pagos.html" class="btn-link-arrow">
+                                    Conocer más <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE WEB -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial profesor representante estudiante"
+                         data-aos="fade-up" data-aos-delay="160">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap blue-light"><i class="bi bi-globe"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">Sistema SAE WEB</h3>
+                                <p class="card-text">
+                                    Plataforma educativa web integradora: optimiza procesos administrativos, académicos
+                                    y comunicacionales en un solo lugar. Desde Portal WEB hasta Aulas Virtuales SAE.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Profesor</span>
+                                    <span class="audience-tag">Representante</span>
+                                    <span class="audience-tag">Estudiante</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Portal web institucional</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Aulas Virtuales SAE</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Plataforma centralizada</li>
+                                </ul>
+                                <a href="sae-web.html" class="btn-link-arrow">
+                                    Conocer más <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mensajería -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial representante"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap orange"><i class="bi bi-chat-dots-fill"></i></div>
+                                <span class="sol-badge badge-service">Servicio</span>
+                                <h3 class="card-title">Sistemas de Envío de Mensajería</h3>
+                                <p class="card-text">
+                                    Mensajería masiva personalizada vía WhatsApp, correo electrónico, SMS e interna
+                                    desde Sistemas SAE. Mantén informada a toda tu comunidad educativa.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Representante</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>WhatsApp, Email, SMS</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Mensajería masiva e interna</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Personalización por destinatario</li>
+                                </ul>
+                                <a href="index.html#contact" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Móvil / Intranet -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial profesor representante estudiante"
+                         data-aos="fade-up" data-aos-delay="80">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap purple"><i class="bi bi-phone"></i></div>
+                                <span class="sol-badge badge-service">Servicio</span>
+                                <h3 class="card-title">Servicios Web y App Móvil</h3>
+                                <p class="card-text">
+                                    Intranet y aplicaciones móviles para toda la comunidad educativa.
+                                    Innova la forma de gestionar tu institución y haz que todos participen.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Profesor</span>
+                                    <span class="audience-tag">Representante</span>
+                                    <span class="audience-tag">Estudiante</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>App para representantes y alumnos</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Portal para profesores</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Panel gerencial</li>
+                                </ul>
+                                <a href="index.html#contact" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Migración de Datos -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="160">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap teal"><i class="bi bi-database-fill-up"></i></div>
+                                <span class="sol-badge badge-service">Servicio</span>
+                                <h3 class="card-title">Migración de Datos</h3>
+                                <p class="card-text">
+                                    Migración de datos personales y notas certificadas desde otros sistemas a
+                                    Sistemas SAE. Transición segura y sin pérdidas. <strong>¡GARANTIZADO!</strong>
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Datos personales y notas históricas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Desde cualquier sistema</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Proceso garantizado</li>
+                                </ul>
+                                <a href="index.html#contact" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soporte 24/7 -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap red"><i class="bi bi-headset"></i></div>
+                                <span class="sol-badge badge-support">Soporte</span>
+                                <h3 class="card-title">Soporte Técnico 24/7</h3>
+                                <p class="card-text">
+                                    Centro de asistencia técnica disponible las 24 horas, los 7 días de la semana.
+                                    Atención personalizada para resolver cualquier incidencia de forma rápida.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Disponibilidad continua 24/7</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Atención personalizada</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Resolución rápida</li>
+                                </ul>
+                                <a href="index.html#contact" class="btn-link-arrow">
+                                    Contáctanos <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capacitación -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial profesor"
+                         data-aos="fade-up" data-aos-delay="80">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap yellow"><i class="bi bi-mortarboard"></i></div>
+                                <span class="sol-badge badge-support">Soporte</span>
+                                <h3 class="card-title">Capacitación y Formación</h3>
+                                <p class="card-text">
+                                    Formación especializada para el personal administrativo, docente y directivo.
+                                    Aprovecha al máximo todas las funcionalidades de los Sistemas SAE.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Profesor</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Presencial y remota</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Material de apoyo incluido</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Adaptada al rol de cada usuario</li>
+                                </ul>
+                                <a href="index.html#contact" class="btn-link-arrow">
+                                    Contáctanos <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Implementación -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="160">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap orange"><i class="bi bi-gear-wide-connected"></i></div>
+                                <span class="sol-badge badge-support">Soporte</span>
+                                <h3 class="card-title">Implementación y Configuración</h3>
+                                <p class="card-text">
+                                    Acompañamiento completo durante la implementación, configuración y puesta en marcha
+                                    de los Sistemas SAE en tu institución. Asesoría gratuita incluida.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Asesoría gratuita</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Configuración personalizada</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Acompañamiento en todo el proceso</li>
+                                </ul>
+                                <a href="index.html#contact" class="btn-link-arrow">
+                                    Contáctanos <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Web Profesor -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial profesor"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap blue-dark"><i class="bi bi-person-workspace"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Web Profesor</h3>
+                                <p class="card-text">
+                                    Portal web exclusivo para docentes de instituciones públicas. Permite la gestión
+                                    académica, registro de evaluaciones y comunicación directa con la comunidad educativa.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Profesor</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Para instituciones públicas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Registro de evaluaciones en línea</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Comunicación con representantes</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Web Representante -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial representante"
+                         data-aos="fade-up" data-aos-delay="80">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap purple"><i class="bi bi-people-fill"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Web Representante</h3>
+                                <p class="card-text">
+                                    Portal web para representantes de instituciones públicas. Acceso en tiempo real
+                                    a notas, asistencia, pagos y comunicados de la institución educativa.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Representante</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Para instituciones públicas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Consulta de notas y asistencia</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Comunicados y avisos institucionales</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aulas Virtuales SAE -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial profesor representante estudiante"
+                         data-aos="fade-up" data-aos-delay="160">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap blue-light"><i class="bi bi-easel2-fill"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">Aulas Virtuales SAE</h3>
+                                <p class="card-text">
+                                    Plataforma de aprendizaje en línea integrada a los Sistemas SAE. Permite la
+                                    gestión de contenidos, tareas, evaluaciones y comunicación en un entorno virtual completo.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                    <span class="audience-tag">Profesor</span>
+                                    <span class="audience-tag">Representante</span>
+                                    <span class="audience-tag">Estudiante</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Contenidos y material didáctico</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Tareas y evaluaciones en línea</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Integrado con SAE WEB</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Respaldo de Datos en la Web -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap teal"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                                <span class="sol-badge badge-service">Servicio</span>
+                                <h3 class="card-title">Respaldo de Datos en la Web</h3>
+                                <p class="card-text">
+                                    Servicio de resguardo automático de la información institucional en la nube.
+                                    Protege todos tus datos con copias de seguridad periódicas, accesibles en cualquier momento.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Backups automáticos y programados</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Recuperación rápida de datos</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Almacenamiento seguro en la nube</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Divider: Suite Adicional -->
+                    <div class="col-12 card-item suite-divider" data-audience="gerencial" data-aos="fade-up">
+                        <div class="suite-divider-inner">
+                            <div class="suite-divider-line"></div>
+                            <div class="suite-divider-label">
+                                <i class="bi bi-grid-3x3-gap-fill me-2"></i>Suite Adicional SAE
+                            </div>
+                            <div class="suite-divider-line"></div>
+                        </div>
+                        <p class="suite-divider-sub">Módulos complementarios para la gestión integral de tu institución</p>
+                    </div>
+
+                    <!-- SAE Nómina -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="80">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap green"><i class="bi bi-person-badge-fill"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Nómina</h3>
+                                <p class="card-text">
+                                    Sistema de gestión de nómina para el personal docente y administrativo de la
+                                    institución educativa. Cálculo automático de salarios, deducciones y beneficios.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Cálculo automático de salarios</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Gestión de deducciones y beneficios</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Reportes de nómina</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Compras -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="160">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap orange"><i class="bi bi-cart-fill"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Compras</h3>
+                                <p class="card-text">
+                                    Módulo de gestión de compras y suministros para instituciones educativas. Controla
+                                    proveedores, órdenes de compra, inventario y presupuesto de manera eficiente.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Gestión de proveedores</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Órdenes de compra y presupuesto</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Control de inventario</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Control de Acceso -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap red"><i class="bi bi-shield-lock-fill"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Control de Acceso</h3>
+                                <p class="card-text">
+                                    Sistema de control de entrada y salida de estudiantes, personal y visitantes.
+                                    Mejora la seguridad institucional con registros digitales en tiempo real.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Registro de entradas y salidas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Alertas a representantes</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Historial de accesos</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Identificación ID+ -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="80">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap blue-dark"><i class="bi bi-qr-code-scan"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Identificación ID+</h3>
+                                <p class="card-text">
+                                    Generador de carnet digital con código QR para estudiantes y personal. Integra
+                                    identificación visual y verificación electrónica de forma rápida y segura.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Carnet digital con QR</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Verificación electrónica instantánea</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Integrado con Control de Acceso</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAE Eventos -->
+                    <div class="col-lg-4 col-md-6 card-item"
+                         data-audience="gerencial"
+                         data-aos="fade-up" data-aos-delay="160">
+                        <div class="sol-card card">
+                            <div class="card-body">
+                                <div class="sol-icon-wrap yellow"><i class="bi bi-calendar-event-fill"></i></div>
+                                <span class="sol-badge badge-product">Producto</span>
+                                <h3 class="card-title">SAE Eventos</h3>
+                                <p class="card-text">
+                                    Agiliza y mejora la experiencia en eventos presenciales de tu institución.
+                                    Gestión de boletos, credenciales, acceso con QR, certificados digitales y mucho más.
+                                </p>
+                                <div class="sol-audience-tags">
+                                    <span class="audience-tag">Gerencial</span>
+                                </div>
+                                <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Boletos y credenciales digitales</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Control de acceso con QR</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Certificados digitales automatizados</li>
+                                </ul>
+                                <a href="contacto.html" class="btn-link-arrow">
+                                    Solicitar info <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- No results -->
+                    <div id="no-results" class="col-12 text-center py-5">
+                        <i class="bi bi-search display-4 text-muted mb-3 d-block"></i>
+                        <p class="text-muted fs-5">No hay soluciones para este perfil aún.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contact-section" class="py-5">
+            <div class="container">
+                <div class="solutions-cta" data-aos="fade-up">
+                    <h2 class="mb-3">¿Listo para <span style="color: var(--green-light, #34a853);">transformar</span> tu institución?</h2>
+                    <p class="mb-4 opacity-75 lead">Contáctanos y descubre la solución ideal para tu institución educativa.</p>
+                    <a href="index.html#contact" class="btn-cta">
+                        <i class="bi bi-send me-2"></i>Solicitar asesoría gratuita
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        /* Apps Icon Carousel – infinite loop */
+        (function () {
+            const track = document.getElementById('appsTrack');
+            if (!track) return;
+            // Half = one full set of original icons
+            const half = track.scrollWidth / 2;
+            track.style.setProperty('--scroll-dist', `-${half}px`);
+            track.classList.add('running');
+        })();
+    </script>
+
+    <script>
+        /* Filter pills */
+        const pills = document.querySelectorAll('.filter-pill');
+        const items = document.querySelectorAll('.card-item');
+        const noResults = document.getElementById('no-results');
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+
+                const filter = pill.dataset.filter;
+                let visible = 0;
+
+                items.forEach(item => {
+                    const audiences = item.dataset.audience || '';
+                    const show = filter === 'todos' || audiences.includes(filter);
+                    item.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+
+                noResults.style.display = visible === 0 ? 'block' : 'none';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

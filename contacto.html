@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contáctanos — AsistEscolar. Solicita asesoría gratuita, soporte técnico o información sobre nuestros productos y servicios educativos.">
+    <title>Contáctanos | AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ── Hero ── */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--dark-color, #0c1f3f) 0%, #1a3a6a 100%);
+            padding: 130px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(52,168,83,.18) 0%, transparent 55%);
+        }
+
+        .contact-hero h1 { color: #fff; font-weight: 800; }
+        .contact-hero p  { color: rgba(255,255,255,.78); }
+
+        .contact-hero .breadcrumb-item a        { color: rgba(255,255,255,.7); text-decoration: none; }
+        .contact-hero .breadcrumb-item.active   { color: var(--green-light, #34a853); }
+        .contact-hero .breadcrumb-separator     { color: rgba(255,255,255,.4); }
+
+        /* ── Info cards ── */
+        .info-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 2px 20px rgba(0,0,0,.08);
+            padding: 2rem 1.6rem;
+            height: 100%;
+            transition: transform .25s, box-shadow .25s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        a.info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+            color: inherit;
+        }
+
+        .info-card__icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ic-green  { background: #e6f4ea; color: #188038; }
+        .ic-blue   { background: #e8f0fe; color: #1a73e8; }
+        .ic-orange { background: #fff3e0; color: #e65100; }
+        .ic-teal   { background: #e0f2f1; color: #00695c; }
+
+        .info-card__label {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: .3rem;
+        }
+
+        .info-card__value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: .2rem;
+        }
+
+        .info-card__sub {
+            font-size: .85rem;
+            color: #666;
+        }
+
+        /* ── Form card ── */
+        .form-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 32px rgba(0,0,0,.09);
+            padding: 2.4rem 2rem;
+        }
+
+        .form-card .form-label {
+            font-weight: 600;
+            font-size: .9rem;
+            color: #333;
+        }
+
+        .form-card .form-control,
+        .form-card .form-select {
+            border-radius: 10px;
+            border-color: #e0e0e0;
+            font-size: .93rem;
+            padding: .6rem .9rem;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .form-card .form-control:focus,
+        .form-card .form-select:focus {
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 3px rgba(26,115,232,.12);
+        }
+
+        .form-card .btn-submit {
+            background: linear-gradient(135deg, #0253ac, #1a73e8);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: .75rem 2.2rem;
+            font-weight: 600;
+            font-size: .95rem;
+            width: 100%;
+            transition: opacity .2s, transform .2s;
+        }
+
+        .form-card .btn-submit:hover { opacity: .9; transform: translateY(-2px); }
+
+        /* ── Sidebar info ── */
+        .side-block {
+            border-radius: 16px;
+            padding: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .side-block h5 {
+            font-size: .95rem;
+            font-weight: 700;
+            margin-bottom: .8rem;
+            color: #111;
+        }
+
+        .side-block p, .side-block a {
+            font-size: .88rem;
+            color: #555;
+            margin-bottom: .3rem;
+        }
+
+        .side-block a { text-decoration: none; color: #1a73e8; }
+        .side-block a:hover { text-decoration: underline; }
+
+        .side-hours { background: #f8f9fb; }
+        .side-social { background: #f8f9fb; }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .88rem;
+            font-weight: 500;
+            padding: .4rem .9rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 3px;
+            transition: opacity .2s;
+        }
+
+        .social-btn:hover { opacity: .82; }
+        .social-btn-wa  { background: #25d366; color: #fff; }
+        .social-btn-ig  { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+        .social-btn-fb  { background: #1877f2; color: #fff; }
+        .social-btn-yt  { background: #ff0000; color: #fff; }
+
+        /* ── FAQ ── */
+        .faq-section { background: #f8f9fb; }
+
+        .faq-section .accordion-button {
+            font-weight: 600;
+            font-size: .95rem;
+            color: #111;
+            background: #fff;
+        }
+
+        .faq-section .accordion-button:not(.collapsed) {
+            color: #0253ac;
+            background: #e8f0fe;
+            box-shadow: none;
+        }
+
+        .faq-section .accordion-button::after {
+            filter: none;
+        }
+
+        .faq-section .accordion-item {
+            border-radius: 12px !important;
+            overflow: hidden;
+            margin-bottom: .5rem;
+            border: 1px solid #e8e8e8;
+        }
+
+        .faq-section .accordion-body {
+            font-size: .92rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ── Alert ── */
+        #formAlert { display: none; border-radius: 12px; }
+
+        /* ── WhatsApp Community ── */
+        .wa-community {
+            background: linear-gradient(135deg, #0c2e1a 0%, #145227 60%, #1a6b33 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+        }
+
+        .wa-community::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 280px; height: 280px;
+            background: rgba(255,255,255,.04);
+            border-radius: 50%;
+        }
+
+        .wa-community::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 220px; height: 220px;
+            background: rgba(255,255,255,.04);
+            border-radius: 50%;
+        }
+
+        .wa-community__content { position: relative; z-index: 2; padding: 3rem 2.5rem; }
+
+        .wa-big-icon {
+            width: 72px; height: 72px;
+            background: rgba(255,255,255,.12);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.4rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .wa-community h2 { font-weight: 800; font-size: 1.75rem; }
+
+        .wa-community p { color: rgba(255,255,255,.82); font-size: .95rem; line-height: 1.7; }
+
+        .wa-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: .65rem;
+        }
+
+        .wa-benefit i { color: #4ede80; font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+
+        .wa-benefit span { font-size: .9rem; color: rgba(255,255,255,.85); }
+
+        /* Join mini-form */
+        .wa-form { position: relative; z-index: 2; padding: 3rem 2.5rem; }
+
+        .wa-form-inner {
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 18px;
+            padding: 2rem 1.8rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .wa-form-inner h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+
+        .wa-form-inner .form-control {
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: .9rem;
+            padding: .6rem .9rem;
+        }
+
+        .wa-form-inner .form-control::placeholder { color: rgba(255,255,255,.5); }
+
+        .wa-form-inner .form-control:focus {
+            background: rgba(255,255,255,.15);
+            border-color: #4ede80;
+            box-shadow: 0 0 0 3px rgba(78,222,128,.2);
+            color: #fff;
+        }
+
+        .wa-form-inner .form-label { font-size: .85rem; color: rgba(255,255,255,.8); font-weight: 500; }
+
+        .wa-form-inner .form-check-label { font-size: .82rem; color: rgba(255,255,255,.7); }
+
+        .wa-form-inner .form-check-input:checked { background-color: #25d366; border-color: #25d366; }
+
+        .btn-wa-join {
+            background: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: .72rem 1.8rem;
+            font-weight: 700;
+            font-size: .95rem;
+            width: 100%;
+            transition: background .2s, transform .2s;
+        }
+
+        .btn-wa-join:hover { background: #1ebe5a; transform: translateY(-2px); color: #fff; }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content-wrapper">
+
+        <!-- Hero -->
+        <header class="contact-hero">
+            <div class="container position-relative">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Contáctanos</li>
+                    </ol>
+                </nav>
+                <div class="row align-items-center">
+                    <div class="col-lg-7" data-aos="fade-up">
+                        <h1 class="display-4 mb-3">Estamos aquí<br>para <span class="text-gradient">ayudarte</span></h1>
+                        <p class="lead mb-0">
+                            Cuéntanos sobre tu institución y descubre cómo AsistEscolar puede transformarla.
+                            Asesoría completamente gratuita, sin compromisos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Info cards -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-3 mb-5">
+
+                    <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                        <a href="https://wa.me/584141234567" target="_blank" class="info-card">
+                            <div class="info-card__icon ic-green">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <span class="info-card__label">WhatsApp</span>
+                            <span class="info-card__value">+58 414 123 4567</span>
+                            <span class="info-card__sub">Escríbenos ahora</span>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+                        <a href="mailto:info@asistescolar.com" class="info-card">
+                            <div class="info-card__icon ic-blue">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <span class="info-card__label">Correo electrónico</span>
+                            <span class="info-card__value">info@asistescolar.com</span>
+                            <span class="info-card__sub">Respondemos en 24 h</span>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+                        <div class="info-card">
+                            <div class="info-card__icon ic-orange">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <span class="info-card__label">Teléfono</span>
+                            <span class="info-card__value">+58 212 123 4567</span>
+                            <span class="info-card__sub">Lun – Vie · 8 am – 6 pm</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+                        <div class="info-card">
+                            <div class="info-card__icon ic-teal">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <span class="info-card__label">Ubicación</span>
+                            <span class="info-card__value">Caracas, Venezuela</span>
+                            <span class="info-card__sub">Cobertura nacional</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Form + Sidebar -->
+                <div class="row g-4 align-items-start">
+
+                    <!-- Form -->
+                    <div class="col-lg-8" data-aos="fade-up">
+                        <div class="form-card">
+                            <h2 class="fw-bold mb-1" style="font-size:1.5rem;">Envíanos un mensaje</h2>
+                            <p class="text-muted mb-4" style="font-size:.9rem;">
+                                Completa el formulario y un asesor te contactará a la brevedad.
+                            </p>
+
+                            <div id="formAlert" class="alert" role="alert"></div>
+
+                            <form id="contactPageForm" novalidate>
+                                <div class="row g-3">
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-name" class="form-label">Nombre completo *</label>
+                                        <input type="text" class="form-control" id="cp-name"
+                                               placeholder="Ej. María González" required>
+                                        <div class="invalid-feedback">Por favor ingresa tu nombre completo.</div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-email" class="form-label">Correo electrónico *</label>
+                                        <input type="email" class="form-control" id="cp-email"
+                                               placeholder="correo@institución.edu" required>
+                                        <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-phone" class="form-label">Teléfono / WhatsApp</label>
+                                        <input type="tel" class="form-control" id="cp-phone"
+                                               placeholder="+58 414 000 0000">
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-institution" class="form-label">Institución educativa</label>
+                                        <input type="text" class="form-control" id="cp-institution"
+                                               placeholder="Nombre de tu institución">
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-role" class="form-label">Tu rol</label>
+                                        <select class="form-select" id="cp-role">
+                                            <option value="" selected disabled>Selecciona...</option>
+                                            <option>Director / Rector</option>
+                                            <option>Coordinador TI</option>
+                                            <option>Administrador</option>
+                                            <option>Docente</option>
+                                            <option>Otro</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-service" class="form-label">Servicio de interés</label>
+                                        <select class="form-select" id="cp-service">
+                                            <option value="" selected disabled>Selecciona...</option>
+                                            <option>SAE Evaluación</option>
+                                            <option>SAE Pagos</option>
+                                            <option>SAE WEB</option>
+                                            <option>Mensajería</option>
+                                            <option>App Móvil / Intranet</option>
+                                            <option>Migración de Datos</option>
+                                            <option>Soporte Técnico</option>
+                                            <option>Capacitación</option>
+                                            <option>Otro / Varios</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-estado" class="form-label">Estado</label>
+                                        <select class="form-select" id="cp-estado">
+                                            <option value="" selected disabled>Selecciona un estado...</option>
+                                            <option>Amazonas</option>
+                                            <option>Anzoátegui</option>
+                                            <option>Apure</option>
+                                            <option>Aragua</option>
+                                            <option>Barinas</option>
+                                            <option>Bolívar</option>
+                                            <option>Carabobo</option>
+                                            <option>Cojedes</option>
+                                            <option>Delta Amacuro</option>
+                                            <option>Distrito Capital</option>
+                                            <option>Falcón</option>
+                                            <option>Guárico</option>
+                                            <option>La Guaira</option>
+                                            <option>Lara</option>
+                                            <option>Mérida</option>
+                                            <option>Miranda</option>
+                                            <option>Monagas</option>
+                                            <option>Nueva Esparta</option>
+                                            <option>Portuguesa</option>
+                                            <option>Sucre</option>
+                                            <option>Táchira</option>
+                                            <option>Trujillo</option>
+                                            <option>Yaracuy</option>
+                                            <option>Zulia</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="cp-ciudad" class="form-label">Ciudad</label>
+                                        <select class="form-select" id="cp-ciudad" disabled>
+                                            <option value="" selected>Selecciona primero un estado...</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="cp-message" class="form-label">Mensaje *</label>
+                                        <textarea class="form-control" id="cp-message" rows="4"
+                                                  placeholder="Cuéntanos sobre tu institución y en qué podemos ayudarte..." required></textarea>
+                                        <div class="invalid-feedback">Por favor escribe un mensaje.</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button type="submit" class="btn-submit" id="cp-submitBtn">
+                                            <i class="bi bi-send me-2"></i>Enviar mensaje
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <!-- Horarios -->
+                        <div class="side-block side-hours mb-3">
+                            <h5><i class="bi bi-clock-fill me-2 text-primary"></i>Horario de atención</h5>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span style="font-size:.88rem;color:#555;">Lunes – Viernes</span>
+                                <span style="font-size:.88rem;font-weight:600;color:#111;">8:00 am – 6:00 pm</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span style="font-size:.88rem;color:#555;">Sábado</span>
+                                <span style="font-size:.88rem;font-weight:600;color:#111;">8:00 am – 12:00 pm</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="font-size:.88rem;color:#555;">Soporte de emergencia</span>
+                                <span style="font-size:.88rem;font-weight:600;color:#188038;">24 / 7</span>
+                            </div>
+                        </div>
+
+                        <!-- Redes sociales -->
+                        <div class="side-block side-social mb-3">
+                            <h5><i class="bi bi-share-fill me-2 text-primary"></i>Síguenos</h5>
+                            <div>
+                                <a href="#" class="social-btn social-btn-wa">
+                                    <i class="bi bi-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="#" class="social-btn social-btn-ig">
+                                    <i class="bi bi-instagram"></i> Instagram
+                                </a>
+                                <a href="#" class="social-btn social-btn-fb">
+                                    <i class="bi bi-facebook"></i> Facebook
+                                </a>
+                                <a href="#" class="social-btn social-btn-yt">
+                                    <i class="bi bi-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Productos rápidos -->
+                        <div class="side-block" style="background:#e8f0fe;">
+                            <h5><i class="bi bi-grid-fill me-2" style="color:#1a73e8;"></i>Nuestros productos</h5>
+                            <a href="sae-evaluacion.html" class="d-flex align-items-center gap-2 mb-2"
+                               style="font-size:.88rem;font-weight:500;color:#0253ac;text-decoration:none;">
+                                <i class="bi bi-display"></i> SAE Evaluación
+                            </a>
+                            <a href="sae-pagos.html" class="d-flex align-items-center gap-2 mb-2"
+                               style="font-size:.88rem;font-weight:500;color:#0253ac;text-decoration:none;">
+                                <i class="bi bi-credit-card"></i> SAE Pagos
+                            </a>
+                            <a href="sae-web.html" class="d-flex align-items-center gap-2 mb-2"
+                               style="font-size:.88rem;font-weight:500;color:#0253ac;text-decoration:none;">
+                                <i class="bi bi-globe"></i> SAE WEB
+                            </a>
+                            <a href="soluciones.html" class="d-flex align-items-center gap-2"
+                               style="font-size:.88rem;font-weight:500;color:#0253ac;text-decoration:none;">
+                                <i class="bi bi-arrow-right-circle"></i> Ver todas las soluciones
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Community -->
+        <section class="py-5">
+            <div class="container">
+                <div class="wa-community" data-aos="fade-up">
+                    <div class="row g-0 align-items-center">
+
+                        <!-- Left: info -->
+                        <div class="col-lg-7 wa-community__content">
+                            <div class="wa-big-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <h2 class="mb-2">Únete a nuestra<br>Comunidad WhatsApp</h2>
+                            <p class="mb-4">
+                                Forma parte de <strong style="color:#4ede80;">@AsistEscolar_Sae</strong> y recibe
+                                contenido exclusivo directamente en tu WhatsApp.
+                            </p>
+                            <div class="wa-benefit">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Resúmenes de noticias relevantes sobre Sistemas SAE, actualizaciones y mejoras</span>
+                            </div>
+                            <div class="wa-benefit">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Podcasts con consejos y estrategias para optimizar tus procesos institucionales</span>
+                            </div>
+                            <div class="wa-benefit">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Información sobre cursos, talleres, Webinars y mucho más</span>
+                            </div>
+                            <div class="wa-benefit">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Acceso anticipado a nuevas funciones y lanzamientos</span>
+                            </div>
+                        </div>
+
+                        <!-- Right: mini-form -->
+                        <div class="col-lg-5 wa-form">
+                            <div class="wa-form-inner">
+                                <h4><i class="bi bi-stars me-2" style="color:#4ede80;"></i>¿Te animas?</h4>
+
+                                <form id="waForm" novalidate>
+                                    <div class="mb-3">
+                                        <label for="wa-name" class="form-label">Nombre *</label>
+                                        <input type="text" class="form-control" id="wa-name"
+                                               placeholder="Nombre de contacto" required>
+                                        <div class="invalid-feedback" style="color:#ffc8c8;">Ingresa tu nombre.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="wa-email" class="form-label">Correo electrónico *</label>
+                                        <input type="email" class="form-control" id="wa-email"
+                                               placeholder="correo@ejemplo.com" required>
+                                        <div class="invalid-feedback" style="color:#ffc8c8;">Ingresa un correo válido.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="wa-phone" class="form-label">Teléfono WhatsApp *</label>
+                                        <input type="tel" class="form-control" id="wa-phone"
+                                               placeholder="+58 414 000 0000" required>
+                                        <div class="invalid-feedback" style="color:#ffc8c8;">Ingresa tu número de WhatsApp.</div>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="wa-accept" required>
+                                        <label class="form-check-label" for="wa-accept">
+                                            Acepto recibir información por WhatsApp *
+                                        </label>
+                                        <div class="invalid-feedback" style="color:#ffc8c8;">Debes aceptar para continuar.</div>
+                                    </div>
+                                    <button type="submit" class="btn btn-wa-join mt-1" id="wa-submit">
+                                        <i class="bi bi-whatsapp me-2"></i>Unirme a la comunidad
+                                    </button>
+                                    <div id="wa-success" class="mt-3 text-center" style="display:none;color:#4ede80;font-weight:600;font-size:.9rem;">
+                                        <i class="bi bi-check-circle-fill me-1"></i> ¡Listo! Te agregaremos pronto.
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5" data-aos="fade-up">
+                            <h2 class="fw-bold" style="font-size:1.8rem;">Preguntas frecuentes</h2>
+                            <p class="text-muted">Respuestas rápidas a las dudas más comunes.</p>
+                        </div>
+
+                        <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-delay="80">
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        ¿La asesoría inicial tiene algún costo?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        No. La asesoría inicial es completamente gratuita y sin compromiso. Un especialista
+                                        analizará las necesidades de tu institución y te presentará la solución más adecuada.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        ¿En cuánto tiempo responden mi mensaje?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Los mensajes enviados por el formulario o correo tienen un tiempo de respuesta de
+                                        hasta 24 horas hábiles. Para una respuesta más rápida, escríbenos directamente
+                                        por WhatsApp.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        ¿Los Sistemas SAE funcionan para cualquier tipo de institución?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Sí. Nuestros sistemas están adaptados a cualquier modalidad (inicial, primaria,
+                                        media general, técnica y adultos), tanto para instituciones públicas como privadas,
+                                        y son conformes a las exigencias del MPPE y Zonas Educativas.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        ¿Puedo migrar datos desde otro sistema a SAE?
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Sí. Ofrecemos el servicio de migración de datos personales y notas históricas
+                                        desde cualquier otro sistema a Sistemas SAE, con proceso garantizado y sin
+                                        pérdida de información.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq5">
+                                        ¿Tienen soporte técnico luego de la implementación?
+                                    </button>
+                                </h2>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Sí. Contamos con un centro de asistencia técnica disponible 24/7 para emergencias,
+                                        y atención personalizada en horario regular. Tu institución siempre tendrá apoyo.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Toast alert -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveAlert" class="alert alert-dismissible fade" role="alert">
+            <strong id="alertTitle"></strong> <span id="alertMessage"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        /* ── Estado / Ciudad cascading ── */
+        const ciudadesPorEstado = {
+            'Amazonas':         ['Puerto Ayacucho','San Fernando de Atabapo','San Juan de Manapiare','Maroa','La Esmeralda'],
+            'Anzoátegui':       ['Barcelona','Puerto La Cruz','El Tigre','Anaco','Guanta','Lechería','Cantaura','Píritu','El Chaparro','Aragua de Barcelona'],
+            'Apure':            ['San Fernando de Apure','Guasdualito','Elorza','Achaguas','Biruaca','El Amparo','San Juan de Payara','Puerto Páez'],
+            'Aragua':           ['Maracay','Turmero','La Victoria','Cagua','El Limón','Santa Rita','Villa de Cura','Palo Negro','Las Tejerías','Colonia Tovar'],
+            'Barinas':          ['Barinas','Barinitas','Socopó','Ciudad Bolivia','Obispos','Libertad','Arismendi','Sabaneta'],
+            'Bolívar':          ['Ciudad Bolívar','Puerto Ordaz','San Félix','Upata','Caicara del Orinoco','Santa Elena de Uairén','Ciudad Piar','El Callao','Tumeremo'],
+            'Carabobo':         ['Valencia','Guacara','Los Guayos','Mariara','Puerto Cabello','Naguanagua','San Joaquín','Tocuyito','Bejuma','Montalbán'],
+            'Cojedes':          ['San Carlos','Tinaquillo','El Tinaco','Las Vegas','Pao de San Juan Bautista','Rómulo Gallegos'],
+            'Delta Amacuro':    ['Tucupita','Pedernales','Curiapo','Barrancas del Orinoco','José Vidal'],
+            'Distrito Capital': ['Caracas','Antimano','Caricuao','El Junquito','La Vega','Macarao'],
+            'Falcón':           ['Coro','Punto Fijo','La Vela de Coro','Churuguara','Tucacas','Chichiriviche','Morón','Dabajuro','Mene de Mauroa'],
+            'Guárico':          ['San Juan de los Morros','Valle de la Pascua','Calabozo','Altagracia de Orituco','El Sombrero','Zaraza','Tucupido','Ortiz'],
+            'La Guaira':        ['La Guaira','Maiquetía','Catia La Mar','Naiguatá','Macuto','Caraballeda','La Guaira (Puerto)'],
+            'Lara':             ['Barquisimeto','Cabudare','El Tocuyo','Carora','Quíbor','Sanare','Sarare','Duaca'],
+            'Mérida':           ['Mérida','El Vigía','Tovar','Ejido','Lagunillas','Timotes','Mucuchíes','Tabay','Mucurubá'],
+            'Miranda':          ['Los Teques','Guarenas','Guatire','Ocumare del Tuy','San Francisco de Yare','Cúa','Santa Teresa del Tuy','Charallave','Caucagua','Higuerote','Barlovento'],
+            'Monagas':          ['Maturín','Punta de Mata','Barrancas','Temblador','Caripito','Caripe','Quiriquire','Jusepín'],
+            'Nueva Esparta':    ['La Asunción','Porlamar','Pampatar','Juan Griego','El Valle del Espíritu Santo','Boca del Río','Juangriego','Punta de Piedras'],
+            'Portuguesa':       ['Guanare','Acarigua','Araure','Biscucuy','Ospino','Guanarito','Papelón','Payara'],
+            'Sucre':            ['Cumaná','Carúpano','Cariaco','Güiria','Casanay','Mariguitar','Irapa','Tunapuy'],
+            'Táchira':          ['San Cristóbal','Táriba','Rubio','La Fría','San Antonio del Táchira','Colón','Ureña','Seboruco','Abejales','La Grita','San Josecito'],
+            'Trujillo':         ['Trujillo','Valera','Boconó','Pampán','La Ceiba','Motatán','Escuque','Betijoque','El Dividive'],
+            'Yaracuy':          ['San Felipe','Nirgua','Chivacoa','Yaritagua','Bruzual','Cocorote','Independencia','Aroa'],
+            'Zulia':            ['Maracaibo','Cabimas','Ciudad Ojeda','San Francisco','La Villa del Rosario','Machiques','Lagunillas','Bachaquero','Encontrados','Mene Grande','Santa Bárbara del Zulia','Bobures','El Vigía (Zulia)']
+        };
+
+        const estadoSel  = document.getElementById('cp-estado');
+        const ciudadSel  = document.getElementById('cp-ciudad');
+
+        estadoSel.addEventListener('change', function () {
+            const cities = ciudadesPorEstado[this.value] || [];
+            ciudadSel.innerHTML = '<option value="" disabled selected>Selecciona una ciudad...</option>';
+            cities.forEach(c => {
+                const opt = document.createElement('option');
+                opt.textContent = c;
+                ciudadSel.appendChild(opt);
+            });
+            ciudadSel.disabled = cities.length === 0;
+        });
+
+        /* WhatsApp community form */
+        const waForm   = document.getElementById('waForm');
+        const waSubmit = document.getElementById('wa-submit');
+        const waOk     = document.getElementById('wa-success');
+
+        waForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!waForm.checkValidity()) { waForm.classList.add('was-validated'); return; }
+
+            waSubmit.disabled = true;
+            waSubmit.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Procesando...';
+
+            setTimeout(() => {
+                waSubmit.disabled = false;
+                waSubmit.innerHTML = '<i class="bi bi-whatsapp me-2"></i>Unirme a la comunidad';
+                waForm.reset();
+                waForm.classList.remove('was-validated');
+                waOk.style.display = 'block';
+                setTimeout(() => { waOk.style.display = 'none'; }, 6000);
+            }, 1200);
+        });
+
+        const form    = document.getElementById('contactPageForm');
+        const alert   = document.getElementById('formAlert');
+        const submitBtn = document.getElementById('cp-submitBtn');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
+
+            /* Simulate send — replace with real backend/EmailJS call */
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Enviar mensaje';
+                form.reset();
+                form.classList.remove('was-validated');
+
+                alert.className = 'alert alert-success';
+                alert.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' +
+                    '<strong>¡Mensaje enviado!</strong> Te contactaremos a la brevedad.';
+                alert.style.display = 'block';
+                alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                setTimeout(() => { alert.style.display = 'none'; }, 6000);
+            }, 1400);
+        });
+    </script>
+
+</body>
+
+</html>
