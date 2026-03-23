@@ -22,7 +22,7 @@
     <style>
         /* ── Hero wrapper ── */
         .sol-hero-wrap {
-            background: linear-gradient(135deg, #0c1f3f 0%, #0d3270 50%, #0c2a5c 100%);
+            background: var(--gradient-general);
             padding-top: 90px;
             padding-bottom: 56px;
             position: relative;
@@ -34,7 +34,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px);
             background-size: 28px 28px;
             pointer-events: none;
         }
@@ -43,17 +43,21 @@
         .sol-hero-wrap::after {
             content: '';
             position: absolute;
-            top: -80px; right: -100px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(52,168,83,.18) 0%, transparent 65%);
+            top: -80px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(52, 168, 83, .18) 0%, transparent 65%);
             pointer-events: none;
         }
 
         .sol-hero-blob {
             position: absolute;
-            bottom: -120px; left: -80px;
-            width: 420px; height: 420px;
-            background: radial-gradient(circle, rgba(26,115,232,.18) 0%, transparent 65%);
+            bottom: -120px;
+            left: -80px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(26, 115, 232, .18) 0%, transparent 65%);
             pointer-events: none;
         }
 
@@ -77,11 +81,18 @@
             animation: appsScroll var(--scroll-duration, 35s) linear infinite;
         }
 
-        .apps-track:hover { animation-play-state: paused; }
+        .apps-track:hover {
+            animation-play-state: paused;
+        }
 
         @keyframes appsScroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(var(--scroll-dist, -50%)); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(var(--scroll-dist, -50%));
+            }
         }
 
         .app-icon-bubble {
@@ -93,26 +104,75 @@
             justify-content: center;
             font-size: 1.7rem;
             flex-shrink: 0;
-            box-shadow: 0 4px 16px rgba(0,0,0,.10);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .10);
             transition: transform .2s;
             cursor: default;
         }
 
-        .app-icon-bubble:hover { transform: scale(1.12); }
+        .app-icon-bubble:hover {
+            transform: scale(1.12);
+        }
 
         /* Color palette for bubbles */
-        .bbl-blue    { background: #e8f0fe; color: #1a73e8; }
-        .bbl-green   { background: #e6f4ea; color: #188038; }
-        .bbl-cyan    { background: #e0f7fa; color: #00838f; }
-        .bbl-purple  { background: #f3e8fd; color: #7b1fa2; }
-        .bbl-orange  { background: #fff3e0; color: #e65100; }
-        .bbl-teal    { background: #e0f2f1; color: #00695c; }
-        .bbl-red     { background: #fce8e6; color: #c62828; }
-        .bbl-yellow  { background: #fffde7; color: #f57f17; }
-        .bbl-indigo  { background: #e8eaf6; color: #283593; }
-        .bbl-pink    { background: #fce4ec; color: #ad1457; }
-        .bbl-lime    { background: #f9fbe7; color: #558b2f; }
-        .bbl-brown   { background: #efebe9; color: #4e342e; }
+        .bbl-blue {
+            background: #e8f0fe;
+            color: #1a73e8;
+        }
+
+        .bbl-green {
+            background: #e6f4ea;
+            color: #188038;
+        }
+
+        .bbl-cyan {
+            background: #e0f7fa;
+            color: #00838f;
+        }
+
+        .bbl-purple {
+            background: #f3e8fd;
+            color: #7b1fa2;
+        }
+
+        .bbl-orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .bbl-teal {
+            background: #e0f2f1;
+            color: #00695c;
+        }
+
+        .bbl-red {
+            background: #fce8e6;
+            color: #c62828;
+        }
+
+        .bbl-yellow {
+            background: #fffde7;
+            color: #f57f17;
+        }
+
+        .bbl-indigo {
+            background: #e8eaf6;
+            color: #283593;
+        }
+
+        .bbl-pink {
+            background: #fce4ec;
+            color: #ad1457;
+        }
+
+        .bbl-lime {
+            background: #f9fbe7;
+            color: #558b2f;
+        }
+
+        .bbl-brown {
+            background: #efebe9;
+            color: #4e342e;
+        }
 
         /* ── Page intro ── */
         .sol-intro {
@@ -131,20 +191,30 @@
 
         .sol-intro .sol-subtitle {
             font-size: 1.1rem;
-            color: rgba(255,255,255,.7);
+            color: rgba(255, 255, 255, .7);
             margin-bottom: 2rem;
         }
 
         /* ── Breadcrumb ── */
         .sol-breadcrumb {
             font-size: .85rem;
-            color: rgba(255,255,255,.55);
+            color: rgba(255, 255, 255, .55);
             margin-bottom: 0;
         }
 
-        .sol-breadcrumb a { color: rgba(255,255,255,.75); text-decoration: none; }
-        .sol-breadcrumb a:hover { color: #fff; text-decoration: underline; }
-        .sol-breadcrumb .breadcrumb-item.active { color: var(--green-light, #34a853); }
+        .sol-breadcrumb a {
+            color: rgba(255, 255, 255, .75);
+            text-decoration: none;
+        }
+
+        .sol-breadcrumb a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .sol-breadcrumb .breadcrumb-item.active {
+            color: var(--green-light, #34a853);
+        }
 
         /* ── Filter pills ── */
         .filter-pills {
@@ -152,8 +222,8 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            background: rgba(255,255,255,.1);
-            border: 1px solid rgba(255,255,255,.15);
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .15);
             border-radius: 50px;
             padding: 6px 10px;
             backdrop-filter: blur(8px);
@@ -166,34 +236,48 @@
             padding: .42rem 1.3rem;
             font-size: .92rem;
             font-weight: 500;
-            color: rgba(255,255,255,.75);
+            color: rgba(255, 255, 255, .75);
             cursor: pointer;
             transition: background .2s, color .2s;
         }
 
-        .filter-pill:hover   { background: rgba(255,255,255,.15); color: #fff; }
-        .filter-pill.active  { background: #fff; color: #0253ac; font-weight: 700;
-                               box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+        .filter-pill:hover {
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+        }
+
+        .filter-pill.active {
+            background: #fff;
+            color: #0253ac;
+            font-weight: 700;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, .18);
+        }
 
         /* ── Cards grid ── */
-        .cards-grid { padding: 48px 0 20px; }
+        .cards-grid {
+            padding: 48px 0 20px;
+        }
 
         .sol-card {
             border: none;
             border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(0,0,0,.07);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, .07);
             transition: transform .25s, box-shadow .25s;
             height: 100%;
         }
 
         .sol-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 10px 32px rgba(0,0,0,.13);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, .13);
         }
 
-        .sol-card.hidden { display: none; }
+        .sol-card.hidden {
+            display: none;
+        }
 
-        .sol-card .card-body { padding: 1.8rem; }
+        .sol-card .card-body {
+            padding: 1.8rem;
+        }
 
         .sol-icon-wrap {
             width: 52px;
@@ -207,14 +291,45 @@
         }
 
         /* reuse bubble colors */
-        .sol-icon-wrap.blue-dark  { background: #e8f0fe; color: #1a73e8; }
-        .sol-icon-wrap.green      { background: #e6f4ea; color: #188038; }
-        .sol-icon-wrap.blue-light { background: #e0f7fa; color: #00838f; }
-        .sol-icon-wrap.orange     { background: #fff3e0; color: #e65100; }
-        .sol-icon-wrap.purple     { background: #f3e8fd; color: #7b1fa2; }
-        .sol-icon-wrap.teal       { background: #e0f2f1; color: #00695c; }
-        .sol-icon-wrap.red        { background: #fce8e6; color: #c62828; }
-        .sol-icon-wrap.yellow     { background: #fffde7; color: #f57f17; }
+        .sol-icon-wrap.blue-dark {
+            background: #e8f0fe;
+            color: #1a73e8;
+        }
+
+        .sol-icon-wrap.green {
+            background: #e6f4ea;
+            color: #188038;
+        }
+
+        .sol-icon-wrap.blue-light {
+            background: #e0f7fa;
+            color: #00838f;
+        }
+
+        .sol-icon-wrap.orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .sol-icon-wrap.purple {
+            background: #f3e8fd;
+            color: #7b1fa2;
+        }
+
+        .sol-icon-wrap.teal {
+            background: #e0f2f1;
+            color: #00695c;
+        }
+
+        .sol-icon-wrap.red {
+            background: #fce8e6;
+            color: #c62828;
+        }
+
+        .sol-icon-wrap.yellow {
+            background: #fffde7;
+            color: #f57f17;
+        }
 
         .sol-card .card-title {
             font-size: 1.05rem;
@@ -238,9 +353,20 @@
             margin-bottom: .7rem;
         }
 
-        .badge-product { background: #e8f0fe; color: #1a73e8; }
-        .badge-service { background: #e6f4ea; color: #188038; }
-        .badge-support { background: #f3e8fd; color: #7b1fa2; }
+        .badge-product {
+            background: #e8f0fe;
+            color: #1a73e8;
+        }
+
+        .badge-service {
+            background: #e6f4ea;
+            color: #188038;
+        }
+
+        .badge-support {
+            background: #f3e8fd;
+            color: #7b1fa2;
+        }
 
         .sol-audience-tags {
             display: flex;
@@ -270,7 +396,9 @@
             transition: gap .2s;
         }
 
-        .btn-link-arrow:hover { gap: 9px; }
+        .btn-link-arrow:hover {
+            gap: 9px;
+        }
 
         /* section divider */
         .section-label {
@@ -284,14 +412,16 @@
 
         /* ── CTA ── */
         .solutions-cta {
-            background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 100%);
+            background: var(--gradient-general);
             border-radius: 20px;
             padding: 56px 40px;
             text-align: center;
             color: #fff;
         }
 
-        .solutions-cta h2 { font-weight: 800; }
+        .solutions-cta h2 {
+            font-weight: 800;
+        }
 
         .solutions-cta .btn-cta {
             background: var(--green-light, #34a853);
@@ -306,7 +436,10 @@
             transition: opacity .2s, transform .2s;
         }
 
-        .solutions-cta .btn-cta:hover { opacity: .88; transform: translateY(-2px); }
+        .solutions-cta .btn-cta:hover {
+            opacity: .88;
+            transform: translateY(-2px);
+        }
 
         /* ── Suite divider ── */
         .suite-divider-inner {
@@ -371,70 +504,74 @@
         <div class="sol-hero-wrap">
             <div class="sol-hero-blob"></div>
 
-        <!-- Apps Icon Carousel -->
-        <div class="apps-carousel-wrap">
-            <div class="apps-track" id="appsTrack">
-                <!-- Set 1 -->
-                <div class="app-icon-bubble bbl-blue"    title="SAE Evaluación"><i class="bi bi-display"></i></div>
-                <div class="app-icon-bubble bbl-green"   title="SAE Pagos"><i class="bi bi-credit-card"></i></div>
-                <div class="app-icon-bubble bbl-cyan"    title="SAE WEB"><i class="bi bi-globe"></i></div>
-                <div class="app-icon-bubble bbl-purple"  title="App Móvil"><i class="bi bi-phone"></i></div>
-                <div class="app-icon-bubble bbl-orange"  title="Mensajería"><i class="bi bi-chat-dots-fill"></i></div>
-                <div class="app-icon-bubble bbl-teal"    title="Migración"><i class="bi bi-database-fill-up"></i></div>
-                <div class="app-icon-bubble bbl-red"     title="Soporte"><i class="bi bi-headset"></i></div>
-                <div class="app-icon-bubble bbl-yellow"  title="Capacitación"><i class="bi bi-mortarboard"></i></div>
-                <div class="app-icon-bubble bbl-indigo"  title="Implementación"><i class="bi bi-gear-wide-connected"></i></div>
-                <div class="app-icon-bubble bbl-pink"    title="Aulas Virtuales"><i class="bi bi-easel"></i></div>
-                <div class="app-icon-bubble bbl-lime"    title="Portal Web"><i class="bi bi-window"></i></div>
-                <div class="app-icon-bubble bbl-brown"   title="Reportes"><i class="bi bi-bar-chart-fill"></i></div>
-                <div class="app-icon-bubble bbl-blue"    title="Intranet"><i class="bi bi-people-fill"></i></div>
-                <div class="app-icon-bubble bbl-green"   title="Notas"><i class="bi bi-journal-check"></i></div>
-                <div class="app-icon-bubble bbl-cyan"    title="Facturación"><i class="bi bi-receipt"></i></div>
-                <div class="app-icon-bubble bbl-purple"  title="Notificaciones"><i class="bi bi-bell-fill"></i></div>
-                <!-- Set 2 (duplicate for seamless loop) -->
-                <div class="app-icon-bubble bbl-blue"    title="SAE Evaluación"><i class="bi bi-display"></i></div>
-                <div class="app-icon-bubble bbl-green"   title="SAE Pagos"><i class="bi bi-credit-card"></i></div>
-                <div class="app-icon-bubble bbl-cyan"    title="SAE WEB"><i class="bi bi-globe"></i></div>
-                <div class="app-icon-bubble bbl-purple"  title="App Móvil"><i class="bi bi-phone"></i></div>
-                <div class="app-icon-bubble bbl-orange"  title="Mensajería"><i class="bi bi-chat-dots-fill"></i></div>
-                <div class="app-icon-bubble bbl-teal"    title="Migración"><i class="bi bi-database-fill-up"></i></div>
-                <div class="app-icon-bubble bbl-red"     title="Soporte"><i class="bi bi-headset"></i></div>
-                <div class="app-icon-bubble bbl-yellow"  title="Capacitación"><i class="bi bi-mortarboard"></i></div>
-                <div class="app-icon-bubble bbl-indigo"  title="Implementación"><i class="bi bi-gear-wide-connected"></i></div>
-                <div class="app-icon-bubble bbl-pink"    title="Aulas Virtuales"><i class="bi bi-easel"></i></div>
-                <div class="app-icon-bubble bbl-lime"    title="Portal Web"><i class="bi bi-window"></i></div>
-                <div class="app-icon-bubble bbl-brown"   title="Reportes"><i class="bi bi-bar-chart-fill"></i></div>
-                <div class="app-icon-bubble bbl-blue"    title="Intranet"><i class="bi bi-people-fill"></i></div>
-                <div class="app-icon-bubble bbl-green"   title="Notas"><i class="bi bi-journal-check"></i></div>
-                <div class="app-icon-bubble bbl-cyan"    title="Facturación"><i class="bi bi-receipt"></i></div>
-                <div class="app-icon-bubble bbl-purple"  title="Notificaciones"><i class="bi bi-bell-fill"></i></div>
-            </div>
-        </div>
-
-        <!-- Page Intro -->
-        <section class="sol-intro">
-            <div class="container">
-                <nav aria-label="breadcrumb" class="mb-3">
-                    <ol class="breadcrumb sol-breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                        <li class="breadcrumb-item active">Soluciones</li>
-                    </ol>
-                </nav>
-                <h1 data-aos="fade-up">Productos útiles pensados<br>para <span class="text-gradient">ti</span></h1>
-                <p class="sol-subtitle" data-aos="fade-up" data-aos-delay="80">Innovación que conecta</p>
-
-                <!-- Filter pills -->
-                <div data-aos="fade-up" data-aos-delay="160">
-                    <div class="filter-pills" id="filterPills">
-                        <button class="filter-pill active" data-filter="todos">Todos</button>
-                        <button class="filter-pill" data-filter="gerencial">Gerencial</button>
-                        <button class="filter-pill" data-filter="profesor">Profesor</button>
-                        <button class="filter-pill" data-filter="representante">Representante</button>
-                        <button class="filter-pill" data-filter="estudiante">Estudiante</button>
+            <!-- Apps Icon Carousel -->
+            <div class="apps-carousel-wrap">
+                <div class="apps-track" id="appsTrack">
+                    <!-- Set 1 -->
+                    <div class="app-icon-bubble bbl-blue" title="SAE Evaluación"><i class="bi bi-display"></i></div>
+                    <div class="app-icon-bubble bbl-green" title="SAE Pagos"><i class="bi bi-credit-card"></i></div>
+                    <div class="app-icon-bubble bbl-cyan" title="SAE WEB"><i class="bi bi-globe"></i></div>
+                    <div class="app-icon-bubble bbl-purple" title="App Móvil"><i class="bi bi-phone"></i></div>
+                    <div class="app-icon-bubble bbl-orange" title="Mensajería"><i class="bi bi-chat-dots-fill"></i>
                     </div>
+                    <div class="app-icon-bubble bbl-teal" title="Migración"><i class="bi bi-database-fill-up"></i></div>
+                    <div class="app-icon-bubble bbl-red" title="Soporte"><i class="bi bi-headset"></i></div>
+                    <div class="app-icon-bubble bbl-yellow" title="Capacitación"><i class="bi bi-mortarboard"></i></div>
+                    <div class="app-icon-bubble bbl-indigo" title="Implementación"><i
+                            class="bi bi-gear-wide-connected"></i></div>
+                    <div class="app-icon-bubble bbl-pink" title="Aulas Virtuales"><i class="bi bi-easel"></i></div>
+                    <div class="app-icon-bubble bbl-lime" title="Portal Web"><i class="bi bi-window"></i></div>
+                    <div class="app-icon-bubble bbl-brown" title="Reportes"><i class="bi bi-bar-chart-fill"></i></div>
+                    <div class="app-icon-bubble bbl-blue" title="Intranet"><i class="bi bi-people-fill"></i></div>
+                    <div class="app-icon-bubble bbl-green" title="Notas"><i class="bi bi-journal-check"></i></div>
+                    <div class="app-icon-bubble bbl-cyan" title="Facturación"><i class="bi bi-receipt"></i></div>
+                    <div class="app-icon-bubble bbl-purple" title="Notificaciones"><i class="bi bi-bell-fill"></i></div>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <div class="app-icon-bubble bbl-blue" title="SAE Evaluación"><i class="bi bi-display"></i></div>
+                    <div class="app-icon-bubble bbl-green" title="SAE Pagos"><i class="bi bi-credit-card"></i></div>
+                    <div class="app-icon-bubble bbl-cyan" title="SAE WEB"><i class="bi bi-globe"></i></div>
+                    <div class="app-icon-bubble bbl-purple" title="App Móvil"><i class="bi bi-phone"></i></div>
+                    <div class="app-icon-bubble bbl-orange" title="Mensajería"><i class="bi bi-chat-dots-fill"></i>
+                    </div>
+                    <div class="app-icon-bubble bbl-teal" title="Migración"><i class="bi bi-database-fill-up"></i></div>
+                    <div class="app-icon-bubble bbl-red" title="Soporte"><i class="bi bi-headset"></i></div>
+                    <div class="app-icon-bubble bbl-yellow" title="Capacitación"><i class="bi bi-mortarboard"></i></div>
+                    <div class="app-icon-bubble bbl-indigo" title="Implementación"><i
+                            class="bi bi-gear-wide-connected"></i></div>
+                    <div class="app-icon-bubble bbl-pink" title="Aulas Virtuales"><i class="bi bi-easel"></i></div>
+                    <div class="app-icon-bubble bbl-lime" title="Portal Web"><i class="bi bi-window"></i></div>
+                    <div class="app-icon-bubble bbl-brown" title="Reportes"><i class="bi bi-bar-chart-fill"></i></div>
+                    <div class="app-icon-bubble bbl-blue" title="Intranet"><i class="bi bi-people-fill"></i></div>
+                    <div class="app-icon-bubble bbl-green" title="Notas"><i class="bi bi-journal-check"></i></div>
+                    <div class="app-icon-bubble bbl-cyan" title="Facturación"><i class="bi bi-receipt"></i></div>
+                    <div class="app-icon-bubble bbl-purple" title="Notificaciones"><i class="bi bi-bell-fill"></i></div>
                 </div>
             </div>
-        </section>
+
+            <!-- Page Intro -->
+            <section class="sol-intro">
+                <div class="container">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb sol-breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                            <li class="breadcrumb-item active">Soluciones</li>
+                        </ol>
+                    </nav>
+                    <h1 data-aos="fade-up">Productos útiles pensados<br>para <span class="text-gradient">ti</span></h1>
+                    <p class="sol-subtitle" data-aos="fade-up" data-aos-delay="80">Innovación que conecta</p>
+
+                    <!-- Filter pills -->
+                    <div data-aos="fade-up" data-aos-delay="160">
+                        <div class="filter-pills" id="filterPills">
+                            <button class="filter-pill active" data-filter="todos">Todos</button>
+                            <button class="filter-pill" data-filter="gerencial">Gerencial</button>
+                            <button class="filter-pill" data-filter="profesor">Profesor</button>
+                            <button class="filter-pill" data-filter="representante">Representante</button>
+                            <button class="filter-pill" data-filter="estudiante">Estudiante</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div><!-- /sol-hero-wrap -->
 
@@ -444,9 +581,8 @@
                 <div class="row g-4" id="cardsContainer">
 
                     <!-- SAE Evaluación -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial profesor"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial profesor" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap blue-dark"><i class="bi bi-display"></i></div>
@@ -462,10 +598,14 @@
                                     <span class="audience-tag">Profesor</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Conforme al MPPE y Zonas Educativas</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Régimen Regular y de Adultos</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Escuelas Técnicas</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Migración de datos garantizada</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Conforme al
+                                        MPPE y Zonas Educativas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Régimen
+                                        Regular y de Adultos</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Escuelas
+                                        Técnicas</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Migración de datos
+                                        garantizada</li>
                                 </ul>
                                 <a href="sae-evaluacion.html" class="btn-link-arrow">
                                     Conocer más <i class="bi bi-arrow-right"></i>
@@ -475,9 +615,8 @@
                     </div>
 
                     <!-- SAE Pagos -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial representante"
-                         data-aos="fade-up" data-aos-delay="80">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial representante" data-aos="fade-up"
+                        data-aos-delay="80">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap green"><i class="bi bi-credit-card"></i></div>
@@ -493,10 +632,14 @@
                                     <span class="audience-tag">Representante</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Homologado SENIAT</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Multimoneda y multicuentas</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Reportes AVEC</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Cobranza e indexación automática</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Homologado
+                                        SENIAT</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Multimoneda y
+                                        multicuentas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Reportes AVEC
+                                    </li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Cobranza e indexación
+                                        automática</li>
                                 </ul>
                                 <a href="sae-pagos.html" class="btn-link-arrow">
                                     Conocer más <i class="bi bi-arrow-right"></i>
@@ -506,9 +649,8 @@
                     </div>
 
                     <!-- SAE WEB -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial profesor representante estudiante"
-                         data-aos="fade-up" data-aos-delay="160">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial profesor representante estudiante"
+                        data-aos="fade-up" data-aos-delay="160">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap blue-light"><i class="bi bi-globe"></i></div>
@@ -525,9 +667,12 @@
                                     <span class="audience-tag">Estudiante</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Portal web institucional</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Aulas Virtuales SAE</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Plataforma centralizada</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Portal web
+                                        institucional</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Aulas
+                                        Virtuales SAE</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Plataforma centralizada
+                                    </li>
                                 </ul>
                                 <a href="sae-web.html" class="btn-link-arrow">
                                     Conocer más <i class="bi bi-arrow-right"></i>
@@ -537,9 +682,8 @@
                     </div>
 
                     <!-- Mensajería -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial representante"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial representante" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap orange"><i class="bi bi-chat-dots-fill"></i></div>
@@ -554,9 +698,12 @@
                                     <span class="audience-tag">Representante</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>WhatsApp, Email, SMS</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Mensajería masiva e interna</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Personalización por destinatario</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>WhatsApp,
+                                        Email, SMS</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Mensajería
+                                        masiva e interna</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Personalización por
+                                        destinatario</li>
                                 </ul>
                                 <a href="index.html#contact" class="btn-link-arrow">
                                     Solicitar info <i class="bi bi-arrow-right"></i>
@@ -566,9 +713,8 @@
                     </div>
 
                     <!-- App Móvil / Intranet -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial profesor representante estudiante"
-                         data-aos="fade-up" data-aos-delay="80">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial profesor representante estudiante"
+                        data-aos="fade-up" data-aos-delay="80">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap purple"><i class="bi bi-phone"></i></div>
@@ -585,8 +731,10 @@
                                     <span class="audience-tag">Estudiante</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>App para representantes y alumnos</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Portal para profesores</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>App para
+                                        representantes y alumnos</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Portal para
+                                        profesores</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Panel gerencial</li>
                                 </ul>
                                 <a href="index.html#contact" class="btn-link-arrow">
@@ -597,9 +745,8 @@
                     </div>
 
                     <!-- Migración de Datos -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="160">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="160">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap teal"><i class="bi bi-database-fill-up"></i></div>
@@ -613,8 +760,10 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Datos personales y notas históricas</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Desde cualquier sistema</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Datos
+                                        personales y notas históricas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Desde
+                                        cualquier sistema</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Proceso garantizado</li>
                                 </ul>
                                 <a href="index.html#contact" class="btn-link-arrow">
@@ -625,9 +774,8 @@
                     </div>
 
                     <!-- Soporte 24/7 -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap red"><i class="bi bi-headset"></i></div>
@@ -641,8 +789,10 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Disponibilidad continua 24/7</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Atención personalizada</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Disponibilidad
+                                        continua 24/7</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Atención
+                                        personalizada</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Resolución rápida</li>
                                 </ul>
                                 <a href="index.html#contact" class="btn-link-arrow">
@@ -653,9 +803,8 @@
                     </div>
 
                     <!-- Capacitación -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial profesor"
-                         data-aos="fade-up" data-aos-delay="80">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial profesor" data-aos="fade-up"
+                        data-aos-delay="80">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap yellow"><i class="bi bi-mortarboard"></i></div>
@@ -670,9 +819,12 @@
                                     <span class="audience-tag">Profesor</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Presencial y remota</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Material de apoyo incluido</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Adaptada al rol de cada usuario</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Presencial y
+                                        remota</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Material de
+                                        apoyo incluido</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Adaptada al rol de cada
+                                        usuario</li>
                                 </ul>
                                 <a href="index.html#contact" class="btn-link-arrow">
                                     Contáctanos <i class="bi bi-arrow-right"></i>
@@ -682,9 +834,8 @@
                     </div>
 
                     <!-- Implementación -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="160">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="160">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap orange"><i class="bi bi-gear-wide-connected"></i></div>
@@ -698,9 +849,12 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Asesoría gratuita</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Configuración personalizada</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Acompañamiento en todo el proceso</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Asesoría
+                                        gratuita</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Configuración
+                                        personalizada</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Acompañamiento en todo el
+                                        proceso</li>
                                 </ul>
                                 <a href="index.html#contact" class="btn-link-arrow">
                                     Contáctanos <i class="bi bi-arrow-right"></i>
@@ -710,9 +864,8 @@
                     </div>
 
                     <!-- SAE Web Profesor -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial profesor"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial profesor" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap blue-dark"><i class="bi bi-person-workspace"></i></div>
@@ -720,16 +873,20 @@
                                 <h3 class="card-title">SAE Web Profesor</h3>
                                 <p class="card-text">
                                     Portal web exclusivo para docentes de instituciones públicas. Permite la gestión
-                                    académica, registro de evaluaciones y comunicación directa con la comunidad educativa.
+                                    académica, registro de evaluaciones y comunicación directa con la comunidad
+                                    educativa.
                                 </p>
                                 <div class="sol-audience-tags">
                                     <span class="audience-tag">Gerencial</span>
                                     <span class="audience-tag">Profesor</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Para instituciones públicas</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Registro de evaluaciones en línea</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Comunicación con representantes</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Para
+                                        instituciones públicas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Registro de
+                                        evaluaciones en línea</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Comunicación con
+                                        representantes</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
                                     Solicitar info <i class="bi bi-arrow-right"></i>
@@ -739,9 +896,8 @@
                     </div>
 
                     <!-- SAE Web Representante -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial representante"
-                         data-aos="fade-up" data-aos-delay="80">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial representante" data-aos="fade-up"
+                        data-aos-delay="80">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap purple"><i class="bi bi-people-fill"></i></div>
@@ -756,9 +912,12 @@
                                     <span class="audience-tag">Representante</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Para instituciones públicas</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Consulta de notas y asistencia</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Comunicados y avisos institucionales</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Para
+                                        instituciones públicas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Consulta de
+                                        notas y asistencia</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Comunicados y avisos
+                                        institucionales</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
                                     Solicitar info <i class="bi bi-arrow-right"></i>
@@ -768,9 +927,8 @@
                     </div>
 
                     <!-- Aulas Virtuales SAE -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial profesor representante estudiante"
-                         data-aos="fade-up" data-aos-delay="160">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial profesor representante estudiante"
+                        data-aos="fade-up" data-aos-delay="160">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap blue-light"><i class="bi bi-easel2-fill"></i></div>
@@ -778,7 +936,8 @@
                                 <h3 class="card-title">Aulas Virtuales SAE</h3>
                                 <p class="card-text">
                                     Plataforma de aprendizaje en línea integrada a los Sistemas SAE. Permite la
-                                    gestión de contenidos, tareas, evaluaciones y comunicación en un entorno virtual completo.
+                                    gestión de contenidos, tareas, evaluaciones y comunicación en un entorno virtual
+                                    completo.
                                 </p>
                                 <div class="sol-audience-tags">
                                     <span class="audience-tag">Gerencial</span>
@@ -787,8 +946,10 @@
                                     <span class="audience-tag">Estudiante</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Contenidos y material didáctico</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Tareas y evaluaciones en línea</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Contenidos y
+                                        material didáctico</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Tareas y
+                                        evaluaciones en línea</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Integrado con SAE WEB</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
@@ -799,9 +960,8 @@
                     </div>
 
                     <!-- Respaldo de Datos en la Web -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap teal"><i class="bi bi-cloud-arrow-up-fill"></i></div>
@@ -809,15 +969,19 @@
                                 <h3 class="card-title">Respaldo de Datos en la Web</h3>
                                 <p class="card-text">
                                     Servicio de resguardo automático de la información institucional en la nube.
-                                    Protege todos tus datos con copias de seguridad periódicas, accesibles en cualquier momento.
+                                    Protege todos tus datos con copias de seguridad periódicas, accesibles en cualquier
+                                    momento.
                                 </p>
                                 <div class="sol-audience-tags">
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Backups automáticos y programados</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Recuperación rápida de datos</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Almacenamiento seguro en la nube</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Backups
+                                        automáticos y programados</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Recuperación
+                                        rápida de datos</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Almacenamiento seguro en la
+                                        nube</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
                                     Solicitar info <i class="bi bi-arrow-right"></i>
@@ -835,13 +999,13 @@
                             </div>
                             <div class="suite-divider-line"></div>
                         </div>
-                        <p class="suite-divider-sub">Módulos complementarios para la gestión integral de tu institución</p>
+                        <p class="suite-divider-sub">Módulos complementarios para la gestión integral de tu institución
+                        </p>
                     </div>
 
                     <!-- SAE Nómina -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="80">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="80">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap green"><i class="bi bi-person-badge-fill"></i></div>
@@ -855,8 +1019,10 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Cálculo automático de salarios</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Gestión de deducciones y beneficios</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Cálculo
+                                        automático de salarios</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Gestión de
+                                        deducciones y beneficios</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Reportes de nómina</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
@@ -867,9 +1033,8 @@
                     </div>
 
                     <!-- SAE Compras -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="160">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="160">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap orange"><i class="bi bi-cart-fill"></i></div>
@@ -883,8 +1048,10 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Gestión de proveedores</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Órdenes de compra y presupuesto</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Gestión de
+                                        proveedores</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Órdenes de
+                                        compra y presupuesto</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Control de inventario</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
@@ -895,9 +1062,8 @@
                     </div>
 
                     <!-- SAE Control de Acceso -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap red"><i class="bi bi-shield-lock-fill"></i></div>
@@ -911,8 +1077,10 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Registro de entradas y salidas</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Alertas a representantes</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Registro de
+                                        entradas y salidas</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Alertas a
+                                        representantes</li>
                                     <li><i class="bi bi-check2-circle text-success me-2"></i>Historial de accesos</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
@@ -923,9 +1091,8 @@
                     </div>
 
                     <!-- SAE Identificación ID+ -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="80">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="80">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap blue-dark"><i class="bi bi-qr-code-scan"></i></div>
@@ -939,9 +1106,12 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Carnet digital con QR</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Verificación electrónica instantánea</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Integrado con Control de Acceso</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Carnet digital
+                                        con QR</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Verificación
+                                        electrónica instantánea</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Integrado con Control de
+                                        Acceso</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
                                     Solicitar info <i class="bi bi-arrow-right"></i>
@@ -951,9 +1121,8 @@
                     </div>
 
                     <!-- SAE Eventos -->
-                    <div class="col-lg-4 col-md-6 card-item"
-                         data-audience="gerencial"
-                         data-aos="fade-up" data-aos-delay="160">
+                    <div class="col-lg-4 col-md-6 card-item" data-audience="gerencial" data-aos="fade-up"
+                        data-aos-delay="160">
                         <div class="sol-card card">
                             <div class="card-body">
                                 <div class="sol-icon-wrap yellow"><i class="bi bi-calendar-event-fill"></i></div>
@@ -967,9 +1136,12 @@
                                     <span class="audience-tag">Gerencial</span>
                                 </div>
                                 <ul class="list-unstyled mb-0" style="font-size:.85rem;color:#444;">
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Boletos y credenciales digitales</li>
-                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Control de acceso con QR</li>
-                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Certificados digitales automatizados</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Boletos y
+                                        credenciales digitales</li>
+                                    <li class="mb-1"><i class="bi bi-check2-circle text-success me-2"></i>Control de
+                                        acceso con QR</li>
+                                    <li><i class="bi bi-check2-circle text-success me-2"></i>Certificados digitales
+                                        automatizados</li>
                                 </ul>
                                 <a href="contacto.html" class="btn-link-arrow">
                                     Solicitar info <i class="bi bi-arrow-right"></i>
@@ -992,8 +1164,10 @@
         <section id="contact-section" class="py-5">
             <div class="container">
                 <div class="solutions-cta" data-aos="fade-up">
-                    <h2 class="mb-3">¿Listo para <span style="color: var(--green-light, #34a853);">transformar</span> tu institución?</h2>
-                    <p class="mb-4 opacity-75 lead">Contáctanos y descubre la solución ideal para tu institución educativa.</p>
+                    <h2 class="mb-3">¿Listo para <span style="color: var(--green-light, #34a853);">transformar</span> tu
+                        institución?</h2>
+                    <p class="mb-4 opacity-75 lead">Contáctanos y descubre la solución ideal para tu institución
+                        educativa.</p>
                     <a href="index.html#contact" class="btn-cta">
                         <i class="bi bi-send me-2"></i>Solicitar asesoría gratuita
                     </a>
