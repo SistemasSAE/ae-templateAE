@@ -707,6 +707,11 @@ h6 {
 .hero-multidevices {
     max-width: 100%;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    transition: transform 0.4s ease;
+}
+
+.hero-multidevices:hover {
+    transform: translateY(-10px) scale(1.03);
 }
 
 .btn-light {

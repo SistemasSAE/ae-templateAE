@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sistema SAE Eventos: Plataforma integral para la planificación, organización y gestión de eventos institucionales educativos.">
+    <title>SAE Eventos | AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sae-eventos.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content-wrapper">
+
+        <!-- Product Hero -->
+        <header class="product-hero">
+            <div class="container">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html"
+                                class="text-decoration-none opacity-75">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item active text-primary fw-medium" aria-current="page">SAE Eventos
+                        </li>
+                    </ol>
+                </nav>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="feature-icon-large">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <h1 class="display-4 fw-bold mb-3" style="color: var(--dark-color);">Sistema SAE Eventos</h1>
+                        <p class="h5 fw-normal mb-4 lh-base text-muted">
+                            Plataforma integral para la planificación, organización y gestión de eventos institucionales.
+                            Desde actos académicos hasta jornadas deportivas, todo en un solo lugar.
+                        </p>
+                        <p class="lead mb-0 fw-semibold" style="color: var(--secondary-color);">
+                            Coordina eventos exitosos con herramientas de inscripción, logística y seguimiento en tiempo real.
+                        </p>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <div class="product-mockup-wrapper" style="position: relative; z-index: 2;">
+                            <img src="assets/img/saeeventos-hero.png" alt="SAE Eventos" class="img-fluid"
+                                style="filter: drop-shadow(0 15px 30px rgba(0, 159, 227, 0.15)); max-width: 110%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Interface Highlight Section -->
+        <section class="laptop-feature-section py-5 overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-right">
+                        <img src="assets/img/saeeventos-laptop.png" alt="Sistema SAE Eventos"
+                            class="img-fluid product-laptop-img">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="ps-lg-4">
+                            <h2 class="display-6 fw-bold mb-4" style="color: var(--dark-color);">Organización de Eventos
+                                sin Complicaciones</h2>
+                            <p class="lead text-muted mb-4">
+                                Planifica, ejecuta y evalúa cada evento institucional con una plataforma que centraliza
+                                invitaciones, asistencia, recursos y presupuesto.
+                            </p>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="icon-circle bg-success-subtle text-success">
+                                    <i class="bi bi-calendar-check"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Planificación Integral</h5>
+                                    <p class="small text-muted mb-0">Calendario institucional con todos los eventos programados del período escolar.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="icon-circle bg-primary-subtle text-primary">
+                                    <i class="bi bi-person-check"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Control de Asistencia</h5>
+                                    <p class="small text-muted mb-0">Registro digital de asistentes con confirmación y seguimiento en tiempo real.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-circle bg-info-subtle text-info">
+                                    <i class="bi bi-megaphone"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Comunicación Directa</h5>
+                                    <p class="small text-muted mb-0">Envío de invitaciones y recordatorios por WhatsApp, SMS y correo electrónico.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Potentials Section -->
+        <section class="potentials-section py-5 bg-light">
+            <div class="container container-custom">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">Potencial del
+                        Sistema</span>
+                    <h2 class="display-5 fw-bold" style="color: var(--dark-color);">Gestión Completa de Eventos</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                        SAE Eventos te permite coordinar cada detalle, desde la planificación hasta el cierre de cada
+                        actividad institucional.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Card 1: Creación de Eventos -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-secondary text-white mb-4 shadow-sm">
+                                <i class="bi bi-calendar-plus"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Creación de Eventos</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Registro de eventos académicos, deportivos y culturales.</li>
+                                <li>Definición de fecha, lugar, capacidad y responsables.</li>
+                                <li>Categorización por tipo de evento.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Inscripción y Asistencia -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-primary text-white mb-4 shadow-sm">
+                                <i class="bi bi-person-lines-fill"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Inscripción y Asistencia</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Formularios de inscripción personalizables.</li>
+                                <li>Control de cupos y lista de espera.</li>
+                                <li>Registro de asistencia digital.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Logística y Recursos -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-green text-white mb-4 shadow-sm">
+                                <i class="bi bi-clipboard2-data"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Logística y Recursos</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Asignación de espacios y equipos.</li>
+                                <li>Control de materiales necesarios.</li>
+                                <li>Coordinación de personal de apoyo.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Presupuesto de Eventos -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-orange text-white mb-4 shadow-sm">
+                                <i class="bi bi-cash-coin"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Presupuesto de Eventos</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Estimación de costos por evento.</li>
+                                <li>Control de gastos e ingresos.</li>
+                                <li>Reportes financieros por actividad.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Reportes y Estadísticas -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-purple text-white mb-4 shadow-sm">
+                                <i class="bi bi-bar-chart-line"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Reportes y Estadísticas</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Historial completo de eventos realizados.</li>
+                                <li>Métricas de asistencia y participación.</li>
+                                <li>Exportación de datos a Microsoft Excel.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Notificaciones -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="info-card h-100 p-4 border-0 shadow-sm rounded-4 bg-white">
+                            <div class="icon-circle bg-brand-muted text-white mb-4 shadow-sm">
+                                <i class="bi bi-bell"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Notificaciones</h4>
+                            <ul class="list-unstyled check-list-v2">
+                                <li>Recordatorios automáticos a participantes.</li>
+                                <li>Alertas de cambios o cancelaciones.</li>
+                                <li>Comunicación masiva personalizada.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content (Simplified) -->
+        <section class="info-section">
+            <div class="container container-custom">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <h2 class="fw-bold mb-4">Eventos Memorables, Organización Impecable</h2>
+                        <p class="lead text-muted mb-4">
+                            Deja atrás las hojas de cálculo y las listas en papel. SAE Eventos te da el control total
+                            para que cada actividad institucional sea un éxito.
+                        </p>
+
+                        <div class="highlight-box bg-white shadow-sm">
+                            <h4 class="fw-bold mb-3 text-primary">Todo tu Calendario Institucional en un Solo Lugar</h4>
+                            <p class="mb-0 text-muted">
+                                Centraliza la planificación de todos los eventos de tu institución: actos de grado,
+                                reuniones de padres, jornadas deportivas, ferias científicas y más. Con SAE Eventos,
+                                todo tu equipo tiene visibilidad completa del calendario y puede coordinar recursos
+                                sin conflictos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" data-aos="fade-left">
+                        <div class="bg-primary rounded-5 p-5 text-white shadow-lg overflow-hidden position-relative"
+                            style="min-height: 400px;">
+                            <h3 class="fw-bold mb-4">Migración Sin Dolores</h3>
+                            <p class="mb-4 opacity-75">¿Tienes datos en otro sistema? No te preocupes. Garantizamos la
+                                migración completa de tus registros históricos a la plataforma SAE.</p>
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="display-4 fw-bold">25+</div>
+                                <div class="small lh-sm opacity-75">Años de experiencia<br>en gestión escolar</div>
+                            </div>
+                            <i class="bi bi-database-fill-up position-absolute bottom-0 end-0 opacity-10"
+                                style="font-size: 10rem; transform: translate(20%, 20%);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="py-5 bg-info text-white text-center">
+            <div class="container py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <i class="bi bi-quote display-3 opacity-50 mb-3 d-block"></i>
+                        <p class="h3 fw-light lh-base mb-3">
+                            "SAE Eventos transforma la manera en que tu institución planifica y ejecuta actividades.
+                            Nuestra propuesta incluye actualizaciones, soporte técnico y capacitación durante toda la
+                            vigencia del contrato."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA -->
+        <section class="cta-bottom text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-5 fw-bold mb-4">¿Necesitas más información?</h2>
+                        <p class="lead text-muted mb-5">
+                            Descubre en primera persona cómo SAE Eventos puede transformar tu institución. Agenda hoy
+                            mismo una demostración personalizada con nuestros expertos.
+                        </p>
+                        <a href="contactanos.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
+                            <i class="bi bi-calendar-event me-2"></i>Agendar Demostración
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mandatory Disclaimer -->
+        <div class="bg-light py-3 border-top">
+            <div class="container text-center">
+                <p class="small text-muted mb-0">
+                    <i class="bi bi-info-circle me-2"></i>Los Sistemas SAE requieren contrato anual para mantenimiento,
+                    revisiones, mejoras y asistencia técnica.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
