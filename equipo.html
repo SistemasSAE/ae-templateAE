@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Conoce al equipo humano detrás de Sistemas SAE: profesionales apasionados por la tecnología educativa en Venezuela.">
+    <meta name="keywords" content="equipo SAE, sistemas SAE, tecnología educativa, Venezuela">
+    <meta name="author" content="AsistEscolar">
+
+    <title>Nuestro Equipo | Sistemas SAE – AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ── Hero ── */
+        .team-hero-wrap {
+            background: linear-gradient(135deg, #0c1f3f 0%, #0d3270 50%, #0c2a5c 100%);
+            padding-top: 100px;
+            padding-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-hero-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .team-hero-wrap::after {
+            content: '';
+            position: absolute;
+            top: -80px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(3,224,201,.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .team-hero-blob {
+            position: absolute;
+            bottom: -120px; left: -80px;
+            width: 420px; height: 420px;
+            background: radial-gradient(circle, rgba(26,115,232,.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .team-hero-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .team-hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,.75);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .hero-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(3,224,201,.15);
+            border: 1px solid rgba(3,224,201,.35);
+            color: #03e0c9;
+            font-size: .82rem;
+            font-weight: 600;
+            padding: .4rem 1.1rem;
+            border-radius: 50px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        /* ── Breadcrumb ── */
+        .team-breadcrumb {
+            font-size: .85rem;
+            color: rgba(255,255,255,.5);
+        }
+        .team-breadcrumb a { color: rgba(255,255,255,.75); text-decoration: none; }
+        .team-breadcrumb a:hover { color: #fff; }
+        .team-breadcrumb .active { color: #03e0c9; }
+
+        /* ── Stats ribbon ── */
+        .team-stats-ribbon {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,.09);
+            padding: 28px 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: -36px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .ribbon-stat {
+            text-align: center;
+            min-width: 110px;
+        }
+
+        .ribbon-stat__number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .ribbon-stat__label {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-top: 4px;
+        }
+
+        /* ── Section heading ── */
+        .section-eyebrow {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            margin-bottom: .4rem;
+        }
+
+        .section-heading {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            color: #111;
+            line-height: 1.25;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ── Values section ── */
+        .values-section {
+            background: #f4f6f9;
+            padding: 80px 0;
+        }
+
+        .value-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem 1.75rem;
+            height: 100%;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+            border-top: 4px solid transparent;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 28px rgba(0,0,0,.11);
+        }
+
+        .value-card.vc-blue   { border-top-color: var(--primary-color); }
+        .value-card.vc-green  { border-top-color: #03e0c9; }
+        .value-card.vc-orange { border-top-color: var(--orange); }
+        .value-card.vc-purple { border-top-color: var(--purple); }
+
+        .value-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .vi-blue   { background: #e8f0fe; color: #0253ac; }
+        .vi-green  { background: #e0fdf8; color: #03e0c9; }
+        .vi-orange { background: #fff3e0; color: #e65100; }
+        .vi-purple { background: #f3e8fd; color: #7b1fa2; }
+
+        .value-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: .4rem;
+        }
+
+        .value-card p {
+            font-size: .875rem;
+            color: #666;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── Team grid ── */
+        .team-section { padding: 80px 0; }
+
+        .member-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 16px rgba(0,0,0,.07);
+            overflow: hidden;
+            height: 100%;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,.13);
+        }
+
+        .member-avatar-wrap {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .member-avatar-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        /* Avatar gradient backgrounds */
+        .av-blue   { background: linear-gradient(135deg, #e8f0fe 0%, #c5d8f8 100%); color: #0253ac; }
+        .av-green  { background: linear-gradient(135deg, #e0fdf8 0%, #a7eddf 100%); color: #03a89a; }
+        .av-purple { background: linear-gradient(135deg, #f3e8fd 0%, #d9b5f5 100%); color: #7b1fa2; }
+        .av-orange { background: linear-gradient(135deg, #fff3e0 0%, #ffd9a8 100%); color: #e65100; }
+        .av-teal   { background: linear-gradient(135deg, #e0f2f1 0%, #a5d6d1 100%); color: #00695c; }
+        .av-indigo { background: linear-gradient(135deg, #e8eaf6 0%, #c5caf4 100%); color: #283593; }
+        .av-pink   { background: linear-gradient(135deg, #fce4ec 0%, #f8b4ca 100%); color: #ad1457; }
+        .av-cyan   { background: linear-gradient(135deg, #e0f7fa 0%, #a8e4ec 100%); color: #0097a7; }
+
+        .member-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 14px;
+            background: #fff;
+            border-radius: 50px;
+            padding: .22rem .75rem;
+            font-size: .72rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,.12);
+        }
+
+        .member-body {
+            padding: 1.5rem;
+        }
+
+        .member-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: .15rem;
+        }
+
+        .member-role {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: .9rem;
+        }
+
+        .member-desc {
+            font-size: .845rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.1rem;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            font-size: .7rem;
+            font-weight: 600;
+            padding: .2rem .65rem;
+            border-radius: 50px;
+            background: #f1f3f4;
+            color: #444;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .social-link {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            background: #f4f6f8;
+            color: #555;
+            font-size: .9rem;
+            text-decoration: none;
+            transition: background .2s, color .2s;
+        }
+
+        .social-link:hover { background: var(--primary-color); color: #fff; }
+
+        /* ── Departments filter ── */
+        .dept-pills {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            background: #f4f6f9;
+            border: 1px solid #e0e4ea;
+            border-radius: 50px;
+            padding: 6px 10px;
+        }
+
+        .dept-pill {
+            border: none;
+            background: transparent;
+            border-radius: 50px;
+            padding: .38rem 1.2rem;
+            font-size: .88rem;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: background .2s, color .2s;
+        }
+
+        .dept-pill:hover  { background: rgba(2,83,172,.08); color: #0253ac; }
+        .dept-pill.active { background: #0253ac; color: #fff; font-weight: 700;
+                            box-shadow: 0 1px 6px rgba(2,83,172,.3); }
+
+        /* ── Culture Band ── */
+        .culture-band {
+            background: linear-gradient(135deg, #0c1f3f 0%, #0d3270 100%);
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .culture-band h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .culture-band p {
+            color: rgba(255,255,255,.75);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .culture-perk {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 1.4rem;
+        }
+
+        .perk-icon {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: rgba(255,255,255,.12);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            color: #03e0c9;
+            flex-shrink: 0;
+        }
+
+        .perk-text h5 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: .2rem;
+        }
+
+        .perk-text p {
+            font-size: .845rem;
+            color: rgba(255,255,255,.65);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* ── CTA ── */
+        .team-cta {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 100%);
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+
+        .cta-box h2 { font-weight: 800; position: relative; z-index: 1; }
+        .cta-box p  { color: rgba(255,255,255,.8); position: relative; z-index: 1; }
+
+        .btn-cta-team {
+            background: linear-gradient(135deg, #03e0c9 0%, #00b8a3 100%);
+            color: #062040;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            padding: .85rem 2.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity .2s, transform .2s;
+            position: relative; z-index: 1;
+        }
+
+        .btn-cta-team:hover { opacity: .88; transform: translateY(-2px); color: #062040; }
+
+        /* ── Nosotros section ── */
+        .nosotros-section {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .nosotros-text p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .nosotros-photo-wrap {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(2,83,172,.15);
+        }
+
+        .nosotros-photo-wrap img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, #e8f0fe 0%, #c5d8f8 60%, #e0fdf8 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: #6c8fc7;
+        }
+
+        .photo-placeholder i { font-size: 3.5rem; }
+        .photo-placeholder span { font-size: .9rem; font-weight: 600; }
+
+        .nosotros-photo-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.12);
+        }
+
+        .nosotros-photo-badge .badge-icon {
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0253ac, #0369d9);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .nosotros-photo-badge .badge-text strong {
+            display: block;
+            font-size: .85rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .nosotros-photo-badge .badge-text span {
+            font-size: .72rem;
+            color: #888;
+        }
+
+        /* ── Por qué elegirnos ── */
+        .elegirnos-section {
+            background: #f4f6f9;
+            padding: 80px 0;
+        }
+
+        .elegirnos-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            height: 100%;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .elegirnos-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(0,0,0,.11);
+        }
+
+        .elegirnos-icon {
+            width: 48px; height: 48px;
+            border-radius: 13px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .elegirnos-card h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: .3rem;
+        }
+
+        .elegirnos-card p {
+            font-size: .855rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .team-stats-ribbon { flex-direction: column; align-items: center; gap: 1.2rem; }
+            .culture-band .row { flex-direction: column; }
+            .nosotros-photo-wrap img { height: 260px; }
+            .photo-placeholder { height: 260px; }
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content-wrapper">
+
+        <!-- ── Hero ── -->
+        <div class="team-hero-wrap">
+            <div class="team-hero-blob"></div>
+            <div class="container text-center position-relative" style="z-index:2;">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb team-breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                        <li class="breadcrumb-item active">Nuestro Equipo</li>
+                    </ol>
+                </nav>
+
+                <div class="hero-badge-pill" data-aos="fade-down">
+                    <i class="bi bi-people-fill"></i> El equipo detrás de SAE
+                </div>
+                <h1 class="team-hero-title mb-3" data-aos="fade-up">
+                    Personas apasionadas<br>por la <span class="text-gradient">educación</span> y la tecnología
+                </h1>
+                <p class="team-hero-subtitle mb-0" data-aos="fade-up" data-aos-delay="80">
+                    Somos un equipo multidisciplinario con más de 25 años ayudando a instituciones
+                    educativas de Venezuela a transformar sus procesos con tecnología de vanguardia.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── Stats ribbon ── -->
+        <div class="container">
+            <div class="team-stats-ribbon" data-aos="fade-up" data-aos-delay="100">
+                <div class="ribbon-stat">
+                    <div class="ribbon-stat__number">25<span style="font-size:1.2rem">+</span></div>
+                    <div class="ribbon-stat__label">Años de experiencia</div>
+                </div>
+                <div class="ribbon-stat">
+                    <div class="ribbon-stat__number">950<span style="font-size:1.2rem">+</span></div>
+                    <div class="ribbon-stat__label">Instituciones atendidas</div>
+                </div>
+                <div class="ribbon-stat">
+                    <div class="ribbon-stat__number">6K<span style="font-size:1.2rem">+</span></div>
+                    <div class="ribbon-stat__label">Usuarios activos</div>
+                </div>
+                <div class="ribbon-stat">
+                    <div class="ribbon-stat__number">24/7</div>
+                    <div class="ribbon-stat__label">Soporte técnico</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Nosotros section ── -->
+        <section class="nosotros-section">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <p class="section-eyebrow">Nosotros</p>
+                        <h2 class="section-heading mb-4">¿Quiénes somos?</h2>
+                        <div class="nosotros-text">
+                            <p>
+                                <strong>Sistemas SAE</strong> es la suite de software educativo líder en Venezuela,
+                                desarrollada y respaldada por <strong>AsistEscolar</strong>. Llevamos más de
+                                <strong>25 años</strong> acompañando a instituciones educativas —privadas, públicas,
+                                técnicas y universitarias— en la digitalización y automatización de sus procesos
+                                administrativos, académicos y comunicacionales.
+                            </p>
+                            <p>
+                                Nacimos con una filosofía simple: <em>la tecnología es servicio y se adapta a tus
+                                requerimientos</em>. Por eso cada módulo del Sistema SAE fue diseñado de la mano
+                                con las propias instituciones, cumpliendo con las normativas del <strong>MPPE</strong>,
+                                el <strong>SENIAT</strong> y las Zonas Educativas del país.
+                            </p>
+                            <p>
+                                Hoy atendemos a más de <strong>950 instituciones</strong> y más de
+                                <strong>6.000 usuarios activos</strong>, con soporte técnico disponible
+                                <strong>24/7</strong>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="80">
+                        <div class="nosotros-photo-wrap">
+                            <img src="assets/img/team-photo.png" alt="Equipo Sistemas SAE">
+                            <div class="nosotros-photo-badge">
+                                <div class="badge-icon"><i class="bi bi-award-fill"></i></div>
+                                <div class="badge-text">
+                                    <strong>+25 años</strong>
+                                    <span>Transformando la educación venezolana</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Por qué elegirnos section ── -->
+        <section class="elegirnos-section">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <p class="section-eyebrow">Nuestras ventajas</p>
+                    <h2 class="section-heading">¿Por qué elegirnos?</h2>
+                    <p class="section-sub mt-2">Razones concretas por las que más de 950 instituciones confían en SAE.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                        <div class="elegirnos-card">
+                            <div class="elegirnos-icon" style="background:#e8f0fe;color:#0253ac;"><i class="bi bi-patch-check-fill"></i></div>
+                            <div>
+                                <h5>Homologados y certificados</h5>
+                                <p>SAE Pagos está homologado por el <strong>SENIAT</strong> y nuestros módulos cumplen con todas las normativas del MPPE y Zonas Educativas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                        <div class="elegirnos-card">
+                            <div class="elegirnos-icon" style="background:#e0fdf8;color:#03a89a;"><i class="bi bi-headset"></i></div>
+                            <div>
+                                <h5>Soporte técnico 24/7</h5>
+                                <p>Centro de asistencia técnica disponible los 7 días de la semana. Atención personalizada y tiempos de respuesta óptimos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                        <div class="elegirnos-card">
+                            <div class="elegirnos-icon" style="background:#fff3e0;color:#e65100;"><i class="bi bi-database-fill-up"></i></div>
+                            <div>
+                                <h5>Migración garantizada</h5>
+                                <p>Transferimos tus datos personales y notas certificadas desde cualquier sistema anterior a SAE. Tu información está segura. <strong>¡GARANTIZADO!</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                        <div class="elegirnos-card">
+                            <div class="elegirnos-icon" style="background:#f3e8fd;color:#7b1fa2;"><i class="bi bi-sliders"></i></div>
+                            <div>
+                                <h5>Adaptado a tu institución</h5>
+                                <p>Régimen Regular y de Adultos, Escuelas Técnicas, Educación Inicial, Media General. Configuramos SAE a tu realidad educativa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                        <div class="elegirnos-card">
+                            <div class="elegirnos-icon" style="background:#e0f2f1;color:#00695c;"><i class="bi bi-phone-fill"></i></div>
+                            <div>
+                                <h5>Ecosistema completo</h5>
+                                <p>Desde el escritorio hasta el móvil: apps para representantes, profesores y directivos integradas en una sola plataforma.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                        <div class="elegirnos-card">
+                            <div class="elegirnos-icon" style="background:#fce4ec;color:#ad1457;"><i class="bi bi-currency-dollar"></i></div>
+                            <div>
+                                <h5>Multimoneda y multicuentas</h5>
+                                <p>SAE Pagos opera en bolívares, dólares, pesos y euros; maneja múltiples cuentas bancarias e indexación automática.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Values section ── -->
+        <section class="values-section">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <p class="section-eyebrow">Nuestra filosofía</p>
+                    <h2 class="section-heading">Lo que nos define como equipo</h2>
+                    <p class="section-sub mt-2">Principios que guían cada decisión y cada línea de código.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                        <div class="value-card vc-blue">
+                            <div class="value-icon vi-blue"><i class="bi bi-lightbulb-fill"></i></div>
+                            <h4>Innovación Constante</h4>
+                            <p>Evolucionamos continuamente nuestras soluciones para responder a los cambios del sistema educativo venezolano.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                        <div class="value-card vc-green">
+                            <div class="value-icon vi-green"><i class="bi bi-heart-fill"></i></div>
+                            <h4>Servicio con Propósito</h4>
+                            <p>La tecnología es servicio y se adapta a tus requerimientos. Cada institución es única y merece atención personalizada.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
+                        <div class="value-card vc-orange">
+                            <div class="value-icon vi-orange"><i class="bi bi-shield-fill-check"></i></div>
+                            <h4>Compromiso y Garantía</h4>
+                            <p>Respaldamos cada producto y proceso. Desde la migración de datos hasta la implementación: ¡GARANTIZADO!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
+                        <div class="value-card vc-purple">
+                            <div class="value-icon vi-purple"><i class="bi bi-people-fill"></i></div>
+                            <h4>Comunidad Educativa</h4>
+                            <p>Creemos en conectar a directivos, docentes, representantes y estudiantes en una sola plataforma integrada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Team section ── -->
+        <section class="team-section">
+            <div class="container">
+                <div class="text-center mb-4" data-aos="fade-up">
+                    <p class="section-eyebrow">El equipo</p>
+                    <h2 class="section-heading">Conoce a las personas de SAE</h2>
+                    <p class="section-sub mt-2 mb-4">Cada integrante aporta experiencia y vocación de servicio.</p>
+
+                    <!-- Department filter -->
+                    <div class="dept-pills" id="deptPills">
+                        <button class="dept-pill active" data-dept="todos">Todos</button>
+                        <button class="dept-pill" data-dept="liderazgo">Liderazgo</button>
+                        <button class="dept-pill" data-dept="desarrollo">Desarrollo</button>
+                        <button class="dept-pill" data-dept="soporte">Soporte</button>
+                        <button class="dept-pill" data-dept="comercial">Comercial</button>
+                    </div>
+                </div>
+
+                <div class="row g-4" id="teamGrid">
+
+                    <!-- Fundador / Director -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-blue">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Director</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Carlos A. Hernández</p>
+                                <p class="member-role">Fundador & Director General</p>
+                                <p class="member-desc">Visionario con más de 25 años liderando soluciones tecnológicas para el sector educativo venezolano.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Liderazgo</span>
+                                    <span class="skill-tag">Estrategia</span>
+                                    <span class="skill-tag">EdTech</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-link" title="Email"><i class="bi bi-envelope-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gerente de Producto -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
+                         data-aos="fade-up" data-aos-delay="60">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-teal">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Producto</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">María L. Rodríguez</p>
+                                <p class="member-role">Gerente de Producto</p>
+                                <p class="member-desc">Responsable de roadmap y visión de los Sistemas SAE, asegurando que cada módulo responda a las necesidades reales de las instituciones.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Product Management</span>
+                                    <span class="skill-tag">UX</span>
+                                    <span class="skill-tag">Agile</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-envelope-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lead Developer -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
+                         data-aos="fade-up" data-aos-delay="120">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-indigo">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Andrés M. Pérez</p>
+                                <p class="member-role">Lead Developer – SAE Evaluación</p>
+                                <p class="member-desc">Arquitecto principal del módulo de evaluación y control de estudios. Experto en normativas MPPE y Zonas Educativas.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">C#</span>
+                                    <span class="skill-tag">SQL Server</span>
+                                    <span class="skill-tag">Windows Forms</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Developer -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
+                         data-aos="fade-up" data-aos-delay="180">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-purple">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Gabriela F. Torres</p>
+                                <p class="member-role">Desarrolladora Backend – SAE Pagos</p>
+                                <p class="member-desc">Especialista en el motor financiero de SAE Pagos. Maneja la integración multimoneda, IGTF y reportes AVEC.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">C#</span>
+                                    <span class="skill-tag">Fintech</span>
+                                    <span class="skill-tag">SQL</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-envelope-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full Stack Web -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-cyan">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">José G. Vargas</p>
+                                <p class="member-role">Full Stack – SAE WEB & Aulas Virtuales</p>
+                                <p class="member-desc">Construye y mantiene la plataforma web integradora SAE WEB, incluyendo aulas virtuales y portal institucional.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">Bootstrap</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Developer -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
+                         data-aos="fade-up" data-aos-delay="60">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-orange">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Luisa P. Salcedo</p>
+                                <p class="member-role">Desarrolladora Mobile – Apps SAE</p>
+                                <p class="member-desc">Responsable de las aplicaciones móviles para representantes, estudiantes y profesores en Android e iOS.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Flutter</span>
+                                    <span class="skill-tag">Dart</span>
+                                    <span class="skill-tag">Firebase</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-envelope-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soporte Técnico -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
+                         data-aos="fade-up" data-aos-delay="120">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-green">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Soporte</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Ricardo E. Blanco</p>
+                                <p class="member-role">Jefe de Soporte Técnico</p>
+                                <p class="member-desc">Coordina el equipo de soporte 24/7, asegurando tiempos de respuesta óptimos y resolución efectiva de incidencias.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Helpdesk</span>
+                                    <span class="skill-tag">Redes</span>
+                                    <span class="skill-tag">Windows Server</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-envelope-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Implementación / Capacitación -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
+                         data-aos="fade-up" data-aos-delay="180">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-pink">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Soporte</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Valeria A. Montoya</p>
+                                <p class="member-role">Especialista en Implementación</p>
+                                <p class="member-desc">Acompaña a las instituciones durante todo el proceso de implantación y capacitación de los Sistemas SAE.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Capacitación</span>
+                                    <span class="skill-tag">Migración</span>
+                                    <span class="skill-tag">Onboarding</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-envelope-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comercial -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-blue">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Comercial</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Diego R. Fuentes</p>
+                                <p class="member-role">Ejecutivo de Cuentas</p>
+                                <p class="member-desc">Gestiona relaciones con instituciones aliadas y guía a nuevos clientes en elegir la solución SAE más adecuada.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Ventas</span>
+                                    <span class="skill-tag">CRM</span>
+                                    <span class="skill-tag">Educación</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial"
+                         data-aos="fade-up" data-aos-delay="60">
+                        <div class="member-card">
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg av-purple">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <span class="member-badge">Comercial</span>
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Natalia C. Jiménez</p>
+                                <p class="member-role">Coordinadora de Marketing</p>
+                                <p class="member-desc">Diseña y ejecuta estrategias de comunicación para difundir el impacto de los Sistemas SAE en Venezuela.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Marketing Digital</span>
+                                    <span class="skill-tag">Redes Sociales</span>
+                                    <span class="skill-tag">Contenido</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Culture Band ── -->
+        <section class="culture-band">
+            <div class="container position-relative" style="z-index:2;">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5" data-aos="fade-right">
+                        <p class="section-eyebrow" style="color:#03e0c9;">Nuestra cultura</p>
+                        <h2 class="mb-3">¿Por qué trabajar<br>con nosotros?</h2>
+                        <p>Un ambiente donde la vocación por ayudar a la educación venezolana es lo que nos une. Crecemos juntos, aprendemos juntos y entregamos lo mejor de nosotros cada día.</p>
+                    </div>
+                    <div class="col-lg-7" data-aos="fade-left" data-aos-delay="80">
+                        <div class="culture-perk">
+                            <div class="perk-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                            <div class="perk-text">
+                                <h5>Formación continua</h5>
+                                <p>Acceso a cursos, certificaciones y recursos para mantenerse actualizado en tecnología educativa.</p>
+                            </div>
+                        </div>
+                        <div class="culture-perk">
+                            <div class="perk-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                            <div class="perk-text">
+                                <h5>Proyectos con impacto real</h5>
+                                <p>Trabajamos en software que usan miles de estudiantes y docentes todos los días en Venezuela.</p>
+                            </div>
+                        </div>
+                        <div class="culture-perk">
+                            <div class="perk-icon"><i class="bi bi-chat-dots-fill"></i></div>
+                            <div class="perk-text">
+                                <h5>Comunicación abierta</h5>
+                                <p>Equipo horizontal donde todos aportan ideas y cada voz es escuchada.</p>
+                            </div>
+                        </div>
+                        <div class="culture-perk" style="margin-bottom:0;">
+                            <div class="perk-icon"><i class="bi bi-clock-history"></i></div>
+                            <div class="perk-text">
+                                <h5>Soporte y compañerismo 24/7</h5>
+                                <p>Nos cuidamos mutuamente tal como cuidamos a nuestros clientes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── CTA ── -->
+        <section class="team-cta">
+            <div class="container">
+                <div class="cta-box" data-aos="fade-up">
+                    <h2 class="mb-3">¿Quieres ser parte de <span style="color:#03e0c9;">nuestro equipo</span>?</h2>
+                    <p class="lead mb-4">Estamos siempre en búsqueda de talento apasionado por la tecnología y la educación.<br>Contáctanos y cuéntanos sobre ti.</p>
+                    <a href="index.html#contact" class="btn-cta-team">
+                        <i class="bi bi-send me-2"></i>Quiero unirme al equipo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /main-content-wrapper -->
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        /* Department filter */
+        const pills = document.querySelectorAll('.dept-pill');
+        const teamItems = document.querySelectorAll('.team-item');
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+
+                const dept = pill.dataset.dept;
+                teamItems.forEach(item => {
+                    const match = dept === 'todos' || item.dataset.dept === dept;
+                    item.style.display = match ? '' : 'none';
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
