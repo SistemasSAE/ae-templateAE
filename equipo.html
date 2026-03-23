@@ -225,10 +225,25 @@
             box-shadow: 0 12px 32px rgba(0,0,0,.13);
         }
 
+        .member-card-header {
+            position: relative;
+            height: 110px;
+            width: 100%;
+        }
+
         .member-avatar-wrap {
             position: relative;
-            height: 200px;
+            width: 120px;
+            height: 120px;
+            margin: -60px auto 0;
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,.1);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
         }
 
         .member-avatar-bg {
@@ -237,10 +252,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
         }
 
-        /* Avatar gradient backgrounds */
+        /* Avatar gradient backgrounds move to header */
         .av-blue   { background: linear-gradient(135deg, #e8f0fe 0%, #c5d8f8 100%); color: #0253ac; }
         .av-green  { background: linear-gradient(135deg, #e0fdf8 0%, #a7eddf 100%); color: #03a89a; }
         .av-purple { background: linear-gradient(135deg, #f3e8fd 0%, #d9b5f5 100%); color: #7b1fa2; }
@@ -252,45 +266,59 @@
 
         .member-badge {
             position: absolute;
-            bottom: 12px;
-            right: 14px;
+            top: 20px;
+            right: 20px;
             background: #fff;
             border-radius: 50px;
-            padding: .22rem .75rem;
-            font-size: .72rem;
-            font-weight: 700;
+            padding: .3rem .85rem;
+            font-size: .7rem;
+            font-weight: 800;
             color: var(--primary-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,.12);
+            box-shadow: 0 4px 14px rgba(0,0,0,.15);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            z-index: 10;
         }
 
         .member-body {
-            padding: 1.5rem;
+            padding: 1.25rem 1.5rem 1.75rem;
+            text-align: center;
         }
 
         .member-name {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #111;
-            margin-bottom: .15rem;
+            margin-bottom: .2rem;
         }
 
         .member-role {
-            font-size: .82rem;
+            font-size: .75rem;
             font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: .9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-bottom: .8rem;
+        }
+
+        .role-divider {
+            width: 40px;
+            height: 2px;
+            background: #e0e4ea;
+            margin: 0 auto 1rem;
         }
 
         .member-desc {
             font-size: .845rem;
             color: #666;
             line-height: 1.6;
-            margin-bottom: 1.1rem;
+            margin-bottom: 1.25rem;
         }
 
         .member-skills {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 6px;
         }
 
@@ -304,10 +332,11 @@
         }
 
         .member-social {
-            display: flex;
+            display: none;
+            justify-content: center;
             gap: 10px;
-            margin-top: 1rem;
-            padding-top: 1rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
             border-top: 1px solid #f0f0f0;
         }
 
@@ -804,14 +833,7 @@
                     <h2 class="section-heading">Conoce a las personas de SAE</h2>
                     <p class="section-sub mt-2 mb-4">Cada integrante aporta experiencia y vocación de servicio.</p>
 
-                    <!-- Department filter -->
-                    <div class="dept-pills" id="deptPills">
-                        <button class="dept-pill active" data-dept="todos">Todos</button>
-                        <button class="dept-pill" data-dept="liderazgo">Liderazgo</button>
-                        <button class="dept-pill" data-dept="desarrollo">Desarrollo</button>
-                        <button class="dept-pill" data-dept="soporte">Soporte</button>
-                        <button class="dept-pill" data-dept="comercial">Comercial</button>
-                    </div>
+
                 </div>
 
                 <div class="row g-4" id="teamGrid">
@@ -820,15 +842,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
                          data-aos="fade-up" data-aos-delay="0">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-blue">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-blue">
                                 <span class="member-badge">Director</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #0253ac;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Carlos A. Hernández</p>
                                 <p class="member-role">Fundador & Director General</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Visionario con más de 25 años liderando soluciones tecnológicas para el sector educativo venezolano.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Liderazgo</span>
@@ -847,15 +872,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
                          data-aos="fade-up" data-aos-delay="60">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-teal">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-teal">
                                 <span class="member-badge">Producto</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #00695c;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">María L. Rodríguez</p>
                                 <p class="member-role">Gerente de Producto</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Responsable de roadmap y visión de los Sistemas SAE, asegurando que cada módulo responda a las necesidades reales de las instituciones.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Product Management</span>
@@ -874,15 +902,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
                          data-aos="fade-up" data-aos-delay="120">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-indigo">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-indigo">
                                 <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #283593;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Andrés M. Pérez</p>
                                 <p class="member-role">Lead Developer – SAE Evaluación</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Arquitecto principal del módulo de evaluación y control de estudios. Experto en normativas MPPE y Zonas Educativas.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">C#</span>
@@ -901,15 +932,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
                          data-aos="fade-up" data-aos-delay="180">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-purple">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-purple">
                                 <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #7b1fa2;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Gabriela F. Torres</p>
                                 <p class="member-role">Desarrolladora Backend – SAE Pagos</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Especialista en el motor financiero de SAE Pagos. Maneja la integración multimoneda, IGTF y reportes AVEC.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">C#</span>
@@ -928,15 +962,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
                          data-aos="fade-up" data-aos-delay="0">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-cyan">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-cyan">
                                 <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #0097a7;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">José G. Vargas</p>
                                 <p class="member-role">Full Stack – SAE WEB & Aulas Virtuales</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Construye y mantiene la plataforma web integradora SAE WEB, incluyendo aulas virtuales y portal institucional.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">JavaScript</span>
@@ -955,15 +992,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
                          data-aos="fade-up" data-aos-delay="60">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-orange">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-orange">
                                 <span class="member-badge">Desarrollo</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #e65100;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Luisa P. Salcedo</p>
                                 <p class="member-role">Desarrolladora Mobile – Apps SAE</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Responsable de las aplicaciones móviles para representantes, estudiantes y profesores en Android e iOS.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Flutter</span>
@@ -982,15 +1022,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
                          data-aos="fade-up" data-aos-delay="120">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-green">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-green">
                                 <span class="member-badge">Soporte</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #03a89a;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Ricardo E. Blanco</p>
                                 <p class="member-role">Jefe de Soporte Técnico</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Coordina el equipo de soporte 24/7, asegurando tiempos de respuesta óptimos y resolución efectiva de incidencias.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Helpdesk</span>
@@ -1009,15 +1052,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
                          data-aos="fade-up" data-aos-delay="180">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-pink">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-pink">
                                 <span class="member-badge">Soporte</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #ad1457;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Valeria A. Montoya</p>
                                 <p class="member-role">Especialista en Implementación</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Acompaña a las instituciones durante todo el proceso de implantación y capacitación de los Sistemas SAE.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Capacitación</span>
@@ -1036,15 +1082,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial"
                          data-aos="fade-up" data-aos-delay="0">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-blue">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-blue">
                                 <span class="member-badge">Comercial</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #0253ac;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Diego R. Fuentes</p>
                                 <p class="member-role">Ejecutivo de Cuentas</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Gestiona relaciones con instituciones aliadas y guía a nuevos clientes en elegir la solución SAE más adecuada.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Ventas</span>
@@ -1063,15 +1112,18 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial"
                          data-aos="fade-up" data-aos-delay="60">
                         <div class="member-card">
-                            <div class="member-avatar-wrap">
-                                <div class="member-avatar-bg av-purple">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                            <div class="member-card-header av-purple">
                                 <span class="member-badge">Comercial</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <div class="member-avatar-bg">
+                                    <i class="bi bi-person-fill" style="color: #7b1fa2;"></i>
+                                </div>
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Natalia C. Jiménez</p>
                                 <p class="member-role">Coordinadora de Marketing</p>
+                                <div class="role-divider"></div>
                                 <p class="member-desc">Diseña y ejecuta estrategias de comunicación para difundir el impacto de los Sistemas SAE en Venezuela.</p>
                                 <div class="member-skills">
                                     <span class="skill-tag">Marketing Digital</span>
@@ -1081,6 +1133,34 @@
                                 <div class="member-social">
                                     <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
                                     <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seguridad (Perrito) -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="seguridad"
+                         data-aos="fade-up" data-aos-delay="120">
+                        <div class="member-card">
+                            <div class="member-card-header" style="background:#e0fdf8;">
+                                <span class="member-badge">Seguridad</span>
+                            </div>
+                            <div class="member-avatar-wrap">
+                                <img src="assets/img/khano.png" alt="Khano" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                            </div>
+                            <div class="member-body">
+                                <p class="member-name">Khano</p>
+                                <p class="member-role">Jefe de Seguridad & Bienestar</p>
+                                <div class="role-divider"></div>
+                                <p class="member-desc">Se encarga de mantener el orden, recibir a las visitas con alegría y recordar al equipo cuándo hacer pausas activas.</p>
+                                <div class="member-skills">
+                                    <span class="skill-tag">Vigilancia</span>
+                                    <span class="skill-tag">Alegría</span>
+                                    <span class="skill-tag">Pausas Activas</span>
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="bi bi-hearts"></i></a>
+                                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -1155,24 +1235,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/app.js"></script>
 
-    <script>
-        /* Department filter */
-        const pills = document.querySelectorAll('.dept-pill');
-        const teamItems = document.querySelectorAll('.team-item');
 
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-
-                const dept = pill.dataset.dept;
-                teamItems.forEach(item => {
-                    const match = dept === 'todos' || item.dataset.dept === dept;
-                    item.style.display = match ? '' : 'none';
-                });
-            });
-        });
-    </script>
 
 </body>
 
