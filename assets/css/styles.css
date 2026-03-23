@@ -704,6 +704,11 @@ h6 {
     transition: var(--transition);
 }
 
+.hero-multidevices {
+    max-width: 100%;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
 .btn-light {
     background: white;
     border: none;
@@ -1389,6 +1394,31 @@ h6 {
 
 .cta-feature i {
     font-size: 1.4rem;
+}
+
+.cta-btn-contact {
+    display: inline-block;
+    background: var(--gradient-secondary);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    border: none;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(14, 182, 122, 0.4);
+}
+
+.cta-btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(14, 182, 122, 0.5);
+    color: white;
+}
+
+.cta-btn-contact:active {
+    transform: translateY(-1px);
 }
 
 /* Contact Form */
