@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Identidad corporativa de B y C Computación C.A., casa matriz de Sistemas SAE y AsistEscolar. Misión, visión, reseña histórica y presencia nacional.">
+    <meta name="keywords" content="identidad corporativa, B y C Computación, SAE, AsistEscolar, Venezuela, misión, visión">
+    <meta name="author" content="AsistEscolar">
+
+    <title>Identidad Corporativa | Sistemas SAE – AsistEscolar</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-ae.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ── Hero ── */
+        .identity-hero-wrap {
+            background: var(--gradient-general);
+            padding-top: 180px;
+            padding-bottom: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .identity-hero-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .identity-hero-wrap::after {
+            content: '';
+            position: absolute;
+            top: -80px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(3,224,201,.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .identity-hero-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.15;
+        }
+
+        .identity-hero-title .text-gradient {
+            background: linear-gradient(135deg, #03e0c9 0%, #60fce2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ── Breadcrumb ── */
+        .identity-breadcrumb .breadcrumb-item a { color: rgba(255,255,255,.7); text-decoration: none; }
+        .identity-breadcrumb .breadcrumb-item.active { color: #fff; }
+        .identity-breadcrumb .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.4); }
+
+        /* ── Description section ── */
+        .desc-section {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .desc-section p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.85;
+        }
+
+        .logo-showcase {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0fdf8 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(2,83,172,.08);
+        }
+
+        .logo-showcase img {
+            max-width: 280px;
+            width: 100%;
+        }
+
+        .logo-showcase .logo-caption {
+            margin-top: 16px;
+            font-size: .85rem;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .sede-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .sede-card i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        .sede-card p {
+            margin: 0;
+            font-size: .92rem;
+            color: #555;
+        }
+
+        /* ── Timeline section ── */
+        .timeline-section {
+            background: #f4f6f9;
+            padding: 80px 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--green-light));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -9px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -9px;
+        }
+
+        .timeline-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,0,0,.1);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: .85rem;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .timeline-card p {
+            font-size: .88rem;
+            color: #666;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── Mission / Vision ── */
+        .mv-section {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .mv-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 32px;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,.06);
+            border-top: 4px solid var(--primary-color);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(0,0,0,.1);
+        }
+
+        .mv-card.vision {
+            border-top-color: var(--green-light);
+        }
+
+        .mv-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .mv-icon.mission-icon {
+            background: #e8f0fe;
+            color: var(--primary-color);
+        }
+
+        .mv-icon.vision-icon {
+            background: #e0fdf8;
+            color: #03a89a;
+        }
+
+        .mv-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 16px;
+        }
+
+        .mv-card p {
+            font-size: .95rem;
+            color: #555;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* ── Map section ── */
+        .map-section {
+            background: var(--gradient-general);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .map-container {
+            background: rgba(255,255,255,.1);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .map-container svg {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        .map-container svg path.state {
+            fill: rgba(255,255,255,.2);
+            stroke: rgba(255,255,255,.3);
+            stroke-width: .5;
+            transition: fill .3s, transform .2s;
+            cursor: pointer;
+        }
+
+        .map-container svg path.state.active {
+            fill: rgba(255,255,255,.85);
+            stroke: #fff;
+            stroke-width: 1;
+        }
+
+        .map-container svg path.state.active:hover {
+            fill: #fff;
+        }
+
+        .map-container svg path.state:not(.active):hover {
+            fill: rgba(255,255,255,.35);
+        }
+
+        .map-legend {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,.85);
+            font-size: .88rem;
+            font-weight: 500;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        .legend-dot.active-dot {
+            background: rgba(255,255,255,.85);
+        }
+
+        .legend-dot.inactive-dot {
+            background: rgba(255,255,255,.2);
+        }
+
+        .map-stats {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .map-stat {
+            text-align: center;
+        }
+
+        .map-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .map-stat-number span {
+            color: #03e0c9;
+        }
+
+        .map-stat-label {
+            font-size: .82rem;
+            color: rgba(255,255,255,.65);
+            font-weight: 500;
+        }
+
+        .state-tooltip {
+            position: absolute;
+            background: #fff;
+            color: #111;
+            font-size: .82rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.15);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .2s;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .state-tooltip.visible {
+            opacity: 1;
+        }
+
+        /* ── CTA ── */
+        .identity-cta {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: var(--gradient-general);
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+
+        .cta-box h2 { font-weight: 800; position: relative; z-index: 1; }
+        .cta-box p  { color: rgba(255,255,255,.8); position: relative; z-index: 1; }
+
+        .btn-cta {
+            background: linear-gradient(135deg, #03e0c9 0%, #00b8a3 100%);
+            color: #062040;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            padding: .85rem 2.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity .2s, transform .2s;
+            position: relative; z-index: 1;
+        }
+
+        .btn-cta:hover { opacity: .88; transform: translateY(-2px); color: #062040; }
+
+        /* ── Responsive ── */
+        @media (max-width: 992px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 55px; padding-right: 20px; }
+            .timeline-item::after { left: 11px !important; right: auto !important; }
+        }
+
+        @media (max-width: 768px) {
+            .map-container { padding: 20px; }
+            .map-stats { gap: 20px; }
+            .map-stat-number { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/img/logo-asistescolar.png" alt="AsistEscolar" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content-wrapper">
+
+        <!-- ── Hero ── -->
+        <div class="identity-hero-wrap">
+            <div class="container text-center position-relative" style="z-index:2;">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb identity-breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="index.html#stats">Nosotros</a></li>
+                        <li class="breadcrumb-item active">Identidad Corporativa</li>
+                    </ol>
+                </nav>
+
+                <div class="hero-badge-pill" data-aos="fade-down">
+                    <i class="bi bi-building"></i> Quiénes somos
+                </div>
+                <h1 class="identity-hero-title mb-3" data-aos="fade-up">
+                    Identidad<br><span class="text-gradient">Corporativa</span>
+                </h1>
+                <p class="lead text-white-50 mb-0" data-aos="fade-up" data-aos-delay="100" style="max-width:600px;margin:0 auto;">
+                    Conoce nuestra historia, misión, visión y presencia a nivel nacional.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── Descripción de la Empresa ── -->
+        <section class="desc-section">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5" data-aos="fade-right">
+                        <div class="logo-showcase">
+                            <img src="assets/img/logo-asistescolar.png" alt="Logo AsistEscolar - Sistemas SAE">
+                            <p class="logo-caption">B y C Computación, C.A. — Casa Matriz de Sistemas SAE</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" data-aos="fade-left">
+                        <p class="section-eyebrow">Descripción de la empresa</p>
+                        <h2 class="section-heading mb-4">B y C Computación, C.A.</h2>
+                        <p>
+                            <strong>B y C Computación, C.A.</strong> es una empresa venezolana dedicada al desarrollo de
+                            soluciones tecnológicas integrales orientadas a la automatización de procesos
+                            administrativos, académicos y comunicacionales en instituciones educativas. Se
+                            reconoce como casa matriz de los <strong>Sistemas SAE</strong> y de la plataforma
+                            <strong>AsistEscolar</strong>, los cuales son utilizados por instituciones del subsistema
+                            de Educación Básica y otras organizaciones educativas a nivel nacional para facilitar
+                            la gestión escolar y la comunicación con la comunidad educativa.
+                        </p>
+                        <div class="sede-card">
+                            <p>
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <strong>Sede principal:</strong> Avenida 20, entre calles 39 y 40, Centro Comercial Comercio,
+                                piso 1, Local 11, Barquisimeto, estado Lara, Venezuela.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Reseña Histórica (Timeline) ── -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <p class="section-eyebrow">Reseña histórica</p>
+                    <h2 class="section-heading">Nuestra trayectoria</h2>
+                    <p class="section-sub mt-2">Más de 25 años de evolución constante al servicio de la educación venezolana.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-card">
+                            <span class="timeline-year">1996</span>
+                            <h4>Fundación</h4>
+                            <p>B y C Computación C.A. fue fundada por el profesor Luis Colmenárez como un centro de servicios informáticos en el Centro Comercial Capital Plaza de Barquisimeto. Servicios de impresión, mantenimiento de computadoras y desarrollo de programas para hoteles, restaurantes e importadoras.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-card">
+                            <span class="timeline-year">2006</span>
+                            <h4>Enfoque en el sector educativo</h4>
+                            <p>La empresa reorientó su enfoque hacia el sector educativo, concentrándose en soluciones para instituciones públicas y privadas. Nació el Sistema Automatizado de Evaluación (SAE Evaluación), núcleo de la familia de productos SAE.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-card">
+                            <span class="timeline-year">2015</span>
+                            <h4>Salto a plataformas en línea</h4>
+                            <p>Se incorporaron sitios web institucionales y módulos web asociados a los sistemas, marcando el inicio de la transformación digital de SAE.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-card">
+                            <span class="timeline-year">2020</span>
+                            <h4>Pandemia y aulas virtuales</h4>
+                            <p>Ante la pandemia de COVID-19, se impulsó la integración de aulas virtuales y herramientas de comunicación para mantener el vínculo académico a distancia.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-card">
+                            <span class="timeline-year">2023</span>
+                            <h4>Aplicaciones móviles</h4>
+                            <p>Lanzamiento de aplicaciones móviles vinculadas a las plataformas SAE, ofreciendo a representantes acceso a servicios desde dispositivos móviles en Android e iOS.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-card">
+                            <span class="timeline-year">Hoy</span>
+                            <h4>Crecimiento continuo</h4>
+                            <p>Más de 950 instituciones confían en SAE. La empresa amplía continuamente sus productos y servicios para responder a las necesidades de instituciones educativas en diferentes regiones del país.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Misión y Visión ── -->
+        <section class="mv-section">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <p class="section-eyebrow">Filosofía empresarial</p>
+                    <h2 class="section-heading">Misión y Visión</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="mv-card">
+                            <div class="mv-icon mission-icon">
+                                <i class="bi bi-rocket-takeoff-fill"></i>
+                            </div>
+                            <h3>Misión</h3>
+                            <p>
+                                Proveer proyectos integrales de alta calidad en productos y servicios de computación
+                                y tecnologías de la información, orientados a satisfacer las necesidades del sector
+                                educativo y de otras organizaciones públicas y privadas a nivel nacional. Esta misión
+                                se materializa a través del diseño de programas automatizados, la instalación y
+                                mantenimiento de redes, computadoras, servidores, impresoras y equipos afines, con
+                                un enfoque basado en la ética, la responsabilidad social y el compromiso con la calidad.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="mv-card vision">
+                            <div class="mv-icon vision-icon">
+                                <i class="bi bi-eye-fill"></i>
+                            </div>
+                            <h3>Visión</h3>
+                            <p>
+                                Consolidarse como organización líder en el suministro de soluciones integrales en
+                                tecnología informática, reconocida por su experiencia, confiabilidad y búsqueda
+                                constante de la excelencia, manteniendo un alto nivel de satisfacción de sus clientes
+                                mediante productos y servicios innovadores y adaptados a sus requerimientos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Mapa de Presencia Nacional ── -->
+        <section class="map-section">
+            <div class="container position-relative" style="z-index:2;">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <p class="section-eyebrow" style="color:#03e0c9;">Presencia nacional</p>
+                    <h2 style="color:#fff;font-weight:800;">Estamos en todo el país</h2>
+                    <p style="color:rgba(255,255,255,.7);max-width:600px;margin:8px auto 0;">
+                        Brindamos asesoría y acompañamiento durante todo el Año Escolar a más de 900 instituciones educativas a nivel nacional.
+                    </p>
+                </div>
+
+                <div class="map-container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="position-relative" id="mapWrapper">
+                        <div class="state-tooltip" id="stateTooltip"></div>
+                        <!-- SVG Map of Venezuela -->
+                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" id="venezuelaMap">
+                            <!-- Zulia -->
+                            <path class="state active" data-name="Zulia"
+                                d="M80,120 L110,90 L140,95 L155,110 L160,140 L155,180 L145,220 L130,250 L110,260 L90,250 L70,230 L60,200 L55,170 L60,140 Z" />
+                            <!-- Falcón -->
+                            <path class="state active" data-name="Falcón"
+                                d="M155,80 L200,50 L240,40 L270,55 L280,80 L260,100 L240,110 L220,120 L200,130 L175,135 L160,125 L155,110 Z" />
+                            <!-- Lara -->
+                            <path class="state active" data-name="Lara"
+                                d="M175,135 L200,130 L230,125 L250,135 L255,160 L245,185 L225,195 L200,200 L180,195 L165,180 L160,155 Z" />
+                            <!-- Yaracuy -->
+                            <path class="state active" data-name="Yaracuy"
+                                d="M250,135 L275,125 L290,135 L295,155 L285,170 L265,175 L255,165 L255,160 Z" />
+                            <!-- Carabobo -->
+                            <path class="state active" data-name="Carabobo"
+                                d="M290,135 L315,120 L335,130 L340,155 L325,170 L305,175 L295,165 L295,155 Z" />
+                            <!-- Aragua -->
+                            <path class="state active" data-name="Aragua"
+                                d="M335,130 L360,115 L385,120 L395,140 L385,165 L365,175 L345,170 L340,155 Z" />
+                            <!-- Miranda -->
+                            <path class="state active" data-name="Miranda"
+                                d="M385,120 L420,110 L445,120 L455,145 L445,170 L420,180 L395,175 L385,165 L395,140 Z" />
+                            <!-- Vargas (La Guaira) -->
+                            <path class="state active" data-name="La Guaira"
+                                d="M360,100 L385,95 L420,100 L420,110 L385,120 L360,115 Z" />
+                            <!-- Distrito Capital -->
+                            <path class="state active" data-name="Distrito Capital"
+                                d="M395,110 L410,108 L415,115 L405,120 L395,118 Z" />
+                            <!-- Trujillo -->
+                            <path class="state active" data-name="Trujillo"
+                                d="M155,180 L175,170 L195,175 L200,195 L190,210 L170,215 L155,205 Z" />
+                            <!-- Mérida -->
+                            <path class="state active" data-name="Mérida"
+                                d="M120,210 L145,200 L155,205 L170,215 L165,235 L145,245 L125,240 L115,225 Z" />
+                            <!-- Táchira -->
+                            <path class="state active" data-name="Táchira"
+                                d="M85,250 L110,240 L125,245 L130,270 L120,290 L100,295 L80,280 L75,260 Z" />
+                            <!-- Barinas -->
+                            <path class="state active" data-name="Barinas"
+                                d="M165,235 L200,220 L235,225 L255,250 L245,280 L220,290 L190,285 L170,270 L160,250 Z" />
+                            <!-- Portuguesa -->
+                            <path class="state active" data-name="Portuguesa"
+                                d="M200,195 L225,195 L250,200 L260,220 L255,250 L235,225 L200,220 L190,210 Z" />
+                            <!-- Cojedes -->
+                            <path class="state active" data-name="Cojedes"
+                                d="M260,175 L285,170 L305,180 L310,205 L295,220 L270,215 L260,200 L255,185 Z" />
+                            <!-- Guárico -->
+                            <path class="state active" data-name="Guárico"
+                                d="M310,205 L345,195 L395,190 L420,200 L430,230 L420,260 L380,270 L340,265 L310,250 L300,225 Z" />
+                            <!-- Anzoátegui -->
+                            <path class="state active" data-name="Anzoátegui"
+                                d="M445,170 L490,155 L530,160 L555,180 L550,210 L530,230 L500,235 L470,225 L455,200 L445,180 Z" />
+                            <!-- Sucre -->
+                            <path class="state active" data-name="Sucre"
+                                d="M530,130 L570,115 L610,110 L640,120 L650,140 L640,160 L610,165 L580,160 L555,155 L540,145 Z" />
+                            <!-- Monagas -->
+                            <path class="state active" data-name="Monagas"
+                                d="M555,180 L590,170 L620,175 L640,195 L635,220 L615,235 L585,230 L565,215 L555,200 Z" />
+                            <!-- Delta Amacuro -->
+                            <path class="state active" data-name="Delta Amacuro"
+                                d="M640,160 L670,150 L710,155 L735,175 L730,210 L710,230 L680,235 L650,225 L640,200 L640,180 Z" />
+                            <!-- Bolívar -->
+                            <path class="state active" data-name="Bolívar"
+                                d="M470,260 L530,250 L580,260 L630,280 L660,320 L650,370 L620,410 L570,430 L520,420 L480,390 L460,350 L450,310 L455,280 Z" />
+                            <!-- Amazonas -->
+                            <path class="state active" data-name="Amazonas"
+                                d="M350,310 L390,290 L420,300 L440,330 L450,370 L440,410 L420,440 L390,460 L360,450 L340,420 L330,380 L335,340 Z" />
+                            <!-- Apure -->
+                            <path class="state active" data-name="Apure"
+                                d="M130,290 L170,275 L220,290 L260,300 L310,290 L350,300 L370,280 L380,290 L350,310 L320,330 L270,340 L220,335 L170,320 L140,310 Z" />
+                            <!-- Nueva Esparta -->
+                            <path class="state active" data-name="Nueva Esparta"
+                                d="M560,95 L585,88 L600,95 L598,108 L580,112 L562,108 Z" />
+                        </svg>
+                    </div>
+
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot active-dot"></div>
+                            <span>Con presencia SAE</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot inactive-dot"></div>
+                            <span>Próximamente</span>
+                        </div>
+                    </div>
+
+                    <div class="map-stats">
+                        <div class="map-stat">
+                            <div class="map-stat-number"><span>+</span>900</div>
+                            <div class="map-stat-label">Instituciones Educativas</div>
+                        </div>
+                        <div class="map-stat">
+                            <div class="map-stat-number">24</div>
+                            <div class="map-stat-label">Estados con presencia</div>
+                        </div>
+                        <div class="map-stat">
+                            <div class="map-stat-number"><span>+</span>25</div>
+                            <div class="map-stat-label">Años de experiencia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── CTA ── -->
+        <section class="identity-cta">
+            <div class="container">
+                <div class="cta-box" data-aos="fade-up">
+                    <h2 class="mb-3">¿Quieres ser parte de <span style="color:#03e0c9;">nuestra red</span>?</h2>
+                    <p class="lead mb-4">Únete a las más de 900 instituciones que confían en Sistemas SAE<br>para transformar su gestión educativa.</p>
+                    <a href="contacto.html" class="btn-cta">
+                        <i class="bi bi-send me-2"></i>Contáctanos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /main-content-wrapper -->
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Map tooltip interaction
+        const tooltip = document.getElementById('stateTooltip');
+        const mapWrapper = document.getElementById('mapWrapper');
+
+        document.querySelectorAll('#venezuelaMap .state').forEach(path => {
+            path.addEventListener('mouseenter', function(e) {
+                tooltip.textContent = this.dataset.name;
+                tooltip.classList.add('visible');
+            });
+
+            path.addEventListener('mousemove', function(e) {
+                const rect = mapWrapper.getBoundingClientRect();
+                tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+                tooltip.style.top = (e.clientY - rect.top - 30) + 'px';
+            });
+
+            path.addEventListener('mouseleave', function() {
+                tooltip.classList.remove('visible');
+            });
+        });
+    </script>
+</body>
+
+</html>
