@@ -293,99 +293,142 @@
             pointer-events: none;
         }
 
-        .map-container {
-            background: rgba(255,255,255,.1);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,.15);
-        }
-
-        .map-container svg {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-        }
-
-        .map-container svg path.state {
-            fill: rgba(255,255,255,.2);
-            stroke: rgba(255,255,255,.3);
-            stroke-width: .5;
-            transition: fill .3s, transform .2s;
-            cursor: pointer;
-        }
-
-        .map-container svg path.state.active {
-            fill: rgba(255,255,255,.85);
-            stroke: #fff;
-            stroke-width: 1;
-        }
-
-        .map-container svg path.state.active:hover {
-            fill: #fff;
-        }
-
-        .map-container svg path.state:not(.active):hover {
-            fill: rgba(255,255,255,.35);
-        }
-
-        .map-legend {
+        /* ── Map layout ── */
+        .map-layout {
             display: flex;
-            gap: 24px;
+            gap: 0;
+            align-items: stretch;
+            min-height: 480px;
+        }
+
+        .map-info-panel {
+            flex: 0 0 340px;
+            background: rgba(255,255,255,.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 24px 0 0 24px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            margin-top: 24px;
-            flex-wrap: wrap;
         }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255,255,255,.85);
-            font-size: .88rem;
+        .map-panel-eyebrow {
+            font-size: .75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #03e0c9;
+            margin-bottom: 8px;
+        }
+
+        .map-panel-state {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .map-panel-region {
+            font-size: .85rem;
+            color: rgba(255,255,255,.55);
+            margin-bottom: 28px;
             font-weight: 500;
         }
 
-        .legend-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 4px;
-        }
-
-        .legend-dot.active-dot {
-            background: rgba(255,255,255,.85);
-        }
-
-        .legend-dot.inactive-dot {
-            background: rgba(255,255,255,.2);
-        }
-
-        .map-stats {
+        .map-counter-wrap {
             display: flex;
-            gap: 32px;
-            justify-content: center;
-            margin-top: 28px;
-            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
         }
 
-        .map-stat {
-            text-align: center;
+        .map-counter-number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
         }
 
-        .map-stat-number {
+        .map-counter-plus {
             font-size: 2rem;
             font-weight: 800;
-            color: #fff;
-        }
-
-        .map-stat-number span {
             color: #03e0c9;
         }
 
-        .map-stat-label {
-            font-size: .82rem;
+        .map-counter-label {
+            font-size: .88rem;
             color: rgba(255,255,255,.65);
             font-weight: 500;
+            margin-bottom: 28px;
+            line-height: 1.4;
+        }
+
+        .map-panel-divider {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #03e0c9, transparent);
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .map-panel-total {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .map-panel-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .map-panel-stat-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255,255,255,.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #03e0c9;
+            flex-shrink: 0;
+        }
+
+        .map-panel-stat-text {
+            font-size: .82rem;
+            color: rgba(255,255,255,.7);
+            line-height: 1.4;
+        }
+
+        .map-panel-stat-text strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .map-svg-panel {
+            flex: 1;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1);
+            border-left: none;
+            border-radius: 0 24px 24px 0;
+            padding: 24px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-svg-panel object {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            display: block;
         }
 
         .state-tooltip {
@@ -406,6 +449,61 @@
 
         .state-tooltip.visible {
             opacity: 1;
+        }
+
+        .map-legend {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,.6);
+            font-size: .78rem;
+            font-weight: 500;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-dot.active-dot {
+            background: rgba(255,255,255,.88);
+        }
+
+        .legend-dot.inactive-dot {
+            background: rgba(255,255,255,.2);
+        }
+
+        .map-instruction {
+            text-align: center;
+            margin-top: 10px;
+            font-size: .78rem;
+            color: rgba(255,255,255,.4);
+        }
+
+        @media (max-width: 992px) {
+            .map-layout {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .map-info-panel {
+                flex: none;
+                border-radius: 24px 24px 0 0;
+                padding: 32px 24px;
+            }
+            .map-svg-panel {
+                border-left: 1px solid rgba(255,255,255,.1);
+                border-top: none;
+                border-radius: 0 0 24px 24px;
+                padding: 20px;
+            }
         }
 
         /* ── CTA ── */
@@ -460,9 +558,7 @@
         }
 
         @media (max-width: 768px) {
-            .map-container { padding: 20px; }
-            .map-stats { gap: 20px; }
-            .map-stat-number { font-size: 1.5rem; }
+            .map-counter-number { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -650,112 +746,57 @@
                     </p>
                 </div>
 
-                <div class="map-container" data-aos="fade-up" data-aos-delay="100">
-                    <div class="position-relative" id="mapWrapper">
+                <div class="map-layout" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Left: Info Panel -->
+                    <div class="map-info-panel">
+                        <div class="map-panel-eyebrow">Estado seleccionado</div>
+                        <div class="map-panel-state" id="panelStateName">Distrito Capital</div>
+                        <div class="map-panel-region" id="panelStateRegion">Región Capital</div>
+
+                        <div class="map-counter-wrap">
+                            <span class="map-counter-plus">+</span>
+                            <span class="map-counter-number" id="panelCounter">0</span>
+                        </div>
+                        <div class="map-counter-label">Instituciones educativas<br>confían en <strong style="color:#fff;">Sistemas SAE</strong></div>
+
+                        <hr class="map-panel-divider">
+
+                        <div class="map-panel-total">
+                            <div class="map-panel-stat">
+                                <div class="map-panel-stat-icon"><i class="bi bi-building"></i></div>
+                                <div class="map-panel-stat-text"><strong>+900</strong> instituciones a nivel nacional</div>
+                            </div>
+                            <div class="map-panel-stat">
+                                <div class="map-panel-stat-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="map-panel-stat-text"><strong>24 estados</strong> con presencia activa</div>
+                            </div>
+                            <div class="map-panel-stat">
+                                <div class="map-panel-stat-icon"><i class="bi bi-calendar-check"></i></div>
+                                <div class="map-panel-stat-text"><strong>+25 años</strong> de experiencia</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Map -->
+                    <div class="map-svg-panel" id="mapWrapper">
                         <div class="state-tooltip" id="stateTooltip"></div>
-                        <!-- SVG Map of Venezuela -->
-                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" id="venezuelaMap">
-                            <!-- Zulia -->
-                            <path class="state active" data-name="Zulia"
-                                d="M80,120 L110,90 L140,95 L155,110 L160,140 L155,180 L145,220 L130,250 L110,260 L90,250 L70,230 L60,200 L55,170 L60,140 Z" />
-                            <!-- Falcón -->
-                            <path class="state active" data-name="Falcón"
-                                d="M155,80 L200,50 L240,40 L270,55 L280,80 L260,100 L240,110 L220,120 L200,130 L175,135 L160,125 L155,110 Z" />
-                            <!-- Lara -->
-                            <path class="state active" data-name="Lara"
-                                d="M175,135 L200,130 L230,125 L250,135 L255,160 L245,185 L225,195 L200,200 L180,195 L165,180 L160,155 Z" />
-                            <!-- Yaracuy -->
-                            <path class="state active" data-name="Yaracuy"
-                                d="M250,135 L275,125 L290,135 L295,155 L285,170 L265,175 L255,165 L255,160 Z" />
-                            <!-- Carabobo -->
-                            <path class="state active" data-name="Carabobo"
-                                d="M290,135 L315,120 L335,130 L340,155 L325,170 L305,175 L295,165 L295,155 Z" />
-                            <!-- Aragua -->
-                            <path class="state active" data-name="Aragua"
-                                d="M335,130 L360,115 L385,120 L395,140 L385,165 L365,175 L345,170 L340,155 Z" />
-                            <!-- Miranda -->
-                            <path class="state active" data-name="Miranda"
-                                d="M385,120 L420,110 L445,120 L455,145 L445,170 L420,180 L395,175 L385,165 L395,140 Z" />
-                            <!-- Vargas (La Guaira) -->
-                            <path class="state active" data-name="La Guaira"
-                                d="M360,100 L385,95 L420,100 L420,110 L385,120 L360,115 Z" />
-                            <!-- Distrito Capital -->
-                            <path class="state active" data-name="Distrito Capital"
-                                d="M395,110 L410,108 L415,115 L405,120 L395,118 Z" />
-                            <!-- Trujillo -->
-                            <path class="state active" data-name="Trujillo"
-                                d="M155,180 L175,170 L195,175 L200,195 L190,210 L170,215 L155,205 Z" />
-                            <!-- Mérida -->
-                            <path class="state active" data-name="Mérida"
-                                d="M120,210 L145,200 L155,205 L170,215 L165,235 L145,245 L125,240 L115,225 Z" />
-                            <!-- Táchira -->
-                            <path class="state active" data-name="Táchira"
-                                d="M85,250 L110,240 L125,245 L130,270 L120,290 L100,295 L80,280 L75,260 Z" />
-                            <!-- Barinas -->
-                            <path class="state active" data-name="Barinas"
-                                d="M165,235 L200,220 L235,225 L255,250 L245,280 L220,290 L190,285 L170,270 L160,250 Z" />
-                            <!-- Portuguesa -->
-                            <path class="state active" data-name="Portuguesa"
-                                d="M200,195 L225,195 L250,200 L260,220 L255,250 L235,225 L200,220 L190,210 Z" />
-                            <!-- Cojedes -->
-                            <path class="state active" data-name="Cojedes"
-                                d="M260,175 L285,170 L305,180 L310,205 L295,220 L270,215 L260,200 L255,185 Z" />
-                            <!-- Guárico -->
-                            <path class="state active" data-name="Guárico"
-                                d="M310,205 L345,195 L395,190 L420,200 L430,230 L420,260 L380,270 L340,265 L310,250 L300,225 Z" />
-                            <!-- Anzoátegui -->
-                            <path class="state active" data-name="Anzoátegui"
-                                d="M445,170 L490,155 L530,160 L555,180 L550,210 L530,230 L500,235 L470,225 L455,200 L445,180 Z" />
-                            <!-- Sucre -->
-                            <path class="state active" data-name="Sucre"
-                                d="M530,130 L570,115 L610,110 L640,120 L650,140 L640,160 L610,165 L580,160 L555,155 L540,145 Z" />
-                            <!-- Monagas -->
-                            <path class="state active" data-name="Monagas"
-                                d="M555,180 L590,170 L620,175 L640,195 L635,220 L615,235 L585,230 L565,215 L555,200 Z" />
-                            <!-- Delta Amacuro -->
-                            <path class="state active" data-name="Delta Amacuro"
-                                d="M640,160 L670,150 L710,155 L735,175 L730,210 L710,230 L680,235 L650,225 L640,200 L640,180 Z" />
-                            <!-- Bolívar -->
-                            <path class="state active" data-name="Bolívar"
-                                d="M470,260 L530,250 L580,260 L630,280 L660,320 L650,370 L620,410 L570,430 L520,420 L480,390 L460,350 L450,310 L455,280 Z" />
-                            <!-- Amazonas -->
-                            <path class="state active" data-name="Amazonas"
-                                d="M350,310 L390,290 L420,300 L440,330 L450,370 L440,410 L420,440 L390,460 L360,450 L340,420 L330,380 L335,340 Z" />
-                            <!-- Apure -->
-                            <path class="state active" data-name="Apure"
-                                d="M130,290 L170,275 L220,290 L260,300 L310,290 L350,300 L370,280 L380,290 L350,310 L320,330 L270,340 L220,335 L170,320 L140,310 Z" />
-                            <!-- Nueva Esparta -->
-                            <path class="state active" data-name="Nueva Esparta"
-                                d="M560,95 L585,88 L600,95 L598,108 L580,112 L562,108 Z" />
-                        </svg>
-                    </div>
-
-                    <div class="map-legend">
-                        <div class="legend-item">
-                            <div class="legend-dot active-dot"></div>
-                            <span>Con presencia SAE</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-dot inactive-dot"></div>
-                            <span>Próximamente</span>
-                        </div>
-                    </div>
-
-                    <div class="map-stats">
-                        <div class="map-stat">
-                            <div class="map-stat-number"><span>+</span>900</div>
-                            <div class="map-stat-label">Instituciones Educativas</div>
-                        </div>
-                        <div class="map-stat">
-                            <div class="map-stat-number">24</div>
-                            <div class="map-stat-label">Estados con presencia</div>
-                        </div>
-                        <div class="map-stat">
-                            <div class="map-stat-number"><span>+</span>25</div>
-                            <div class="map-stat-label">Años de experiencia</div>
-                        </div>
+                        <object type="image/svg+xml" data="assets/img/venezuela-map2.svg" id="venezuelaMap">
+                            Mapa de Venezuela
+                        </object>
                     </div>
                 </div>
+
+                <div class="map-legend mt-3">
+                    <div class="legend-item">
+                        <div class="legend-dot active-dot"></div>
+                        <span>Con presencia SAE</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot inactive-dot"></div>
+                        <span>Próximamente</span>
+                    </div>
+                </div>
+                <p class="map-instruction"><i class="bi bi-hand-index-thumb"></i> Haz clic en un estado para ver sus datos</p>
             </div>
         </section>
 
@@ -782,25 +823,166 @@
     <script src="assets/js/app.js"></script>
 
     <script>
-        // Map tooltip interaction
-        const tooltip = document.getElementById('stateTooltip');
-        const mapWrapper = document.getElementById('mapWrapper');
+        // Data: institutions per state { id: { name, region, count } }
+        var stateData = {
+            'VE-A': { name: 'Distrito Capital',    region: 'Región Capital',          count: 120 },
+            'VE-B': { name: 'Anzoátegui',          region: 'Región Nor-Oriental',     count: 45 },
+            'VE-C': { name: 'Apure',               region: 'Región Los Llanos',       count: 15 },
+            'VE-D': { name: 'Aragua',              region: 'Región Central',          count: 55 },
+            'VE-E': { name: 'Barinas',             region: 'Región Los Andes',        count: 20 },
+            'VE-F': { name: 'Bolívar',             region: 'Región Guayana',          count: 30 },
+            'VE-G': { name: 'Carabobo',            region: 'Región Central',          count: 85 },
+            'VE-H': { name: 'Cojedes',             region: 'Región Central',          count: 12 },
+            'VE-I': { name: 'Delta Amacuro',       region: 'Región Guayana',          count: 8 },
+            'VE-J': { name: 'Falcón',              region: 'Región Nor-Occidental',   count: 25 },
+            'VE-K': { name: 'Guárico',             region: 'Región Los Llanos',       count: 18 },
+            'VE-L': { name: 'Lara',                region: 'Región Centro-Occidental',count: 95 },
+            'VE-M': { name: 'Mérida',              region: 'Región Los Andes',        count: 35 },
+            'VE-N': { name: 'Miranda',             region: 'Región Capital',          count: 80 },
+            'VE-O': { name: 'Monagas',             region: 'Región Nor-Oriental',     count: 22 },
+            'VE-P': { name: 'Nueva Esparta',       region: 'Región Insular',          count: 18 },
+            'VE-R': { name: 'Portuguesa',          region: 'Región Centro-Occidental',count: 28 },
+            'VE-S': { name: 'Sucre',               region: 'Región Nor-Oriental',     count: 20 },
+            'VE-T': { name: 'Táchira',             region: 'Región Los Andes',        count: 40 },
+            'VE-U': { name: 'Trujillo',            region: 'Región Los Andes',        count: 22 },
+            'VE-V': { name: 'Yaracuy',             region: 'Región Centro-Occidental',count: 18 },
+            'VE-W': { name: 'Zulia',               region: 'Región Zuliana',          count: 60 },
+            'VE-X': { name: 'Vargas',              region: 'Región Capital',          count: 25 },
+            'VE-Y': { name: 'Dependencias Federales', region: 'Territorio Insular',   count: 3 },
+            'VE-Z': { name: 'Amazonas',            region: 'Región Guayana',          count: 5 }
+        };
 
-        document.querySelectorAll('#venezuelaMap .state').forEach(path => {
-            path.addEventListener('mouseenter', function(e) {
-                tooltip.textContent = this.dataset.name;
-                tooltip.classList.add('visible');
+        var hideTerritories = ['AW','BQ','CW'];
+        var selectedState = null;
+        var currentAnimation = null;
+
+        var tooltip = document.getElementById('stateTooltip');
+        var mapWrapper = document.getElementById('mapWrapper');
+        var mapObj = document.getElementById('venezuelaMap');
+        var panelName = document.getElementById('panelStateName');
+        var panelRegion = document.getElementById('panelStateRegion');
+        var panelCounter = document.getElementById('panelCounter');
+
+        // Animated counter
+        function animateCounter(target) {
+            if (currentAnimation) cancelAnimationFrame(currentAnimation);
+            var start = 0;
+            var duration = 800;
+            var startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                // Ease out cubic
+                var eased = 1 - Math.pow(1 - progress, 3);
+                panelCounter.textContent = Math.floor(eased * target);
+                if (progress < 1) {
+                    currentAnimation = requestAnimationFrame(step);
+                } else {
+                    panelCounter.textContent = target;
+                    currentAnimation = null;
+                }
+            }
+            currentAnimation = requestAnimationFrame(step);
+        }
+
+        function selectState(id, svgDoc) {
+            var data = stateData[id];
+            if (!data) return;
+
+            // Update panel
+            panelName.textContent = data.name;
+            panelRegion.textContent = data.region;
+            animateCounter(data.count);
+
+            // Update SVG highlights
+            selectedState = id;
+            var paths = svgDoc.querySelectorAll('path');
+            paths.forEach(function(p) {
+                var pid = p.getAttribute('id');
+                if (hideTerritories.indexOf(pid) !== -1) return;
+                if (!stateData[pid]) return;
+
+                if (pid === id) {
+                    p.style.fill = '#fff';
+                    p.style.stroke = '#03e0c9';
+                    p.style.strokeWidth = '2.5';
+                    p.style.filter = 'drop-shadow(0 0 8px rgba(3,224,201,.5))';
+                } else {
+                    p.style.fill = 'rgba(255,255,255,.7)';
+                    p.style.stroke = 'rgba(2,83,172,.25)';
+                    p.style.strokeWidth = '1';
+                    p.style.filter = 'none';
+                }
+            });
+        }
+
+        mapObj.addEventListener('load', function() {
+            var svgDoc = mapObj.contentDocument;
+            if (!svgDoc) return;
+
+            var paths = svgDoc.querySelectorAll('path');
+            paths.forEach(function(path) {
+                var id = path.getAttribute('id');
+                var title = path.getAttribute('title') || '';
+
+                // Hide non-Venezuelan territories
+                if (hideTerritories.indexOf(id) !== -1) {
+                    path.style.display = 'none';
+                    return;
+                }
+
+                // Base styles
+                path.style.transition = 'fill .3s, stroke .2s, stroke-width .2s, filter .3s';
+                path.style.cursor = 'pointer';
+                path.style.fill = 'rgba(255,255,255,.7)';
+                path.style.stroke = 'rgba(2,83,172,.25)';
+                path.style.strokeWidth = '1';
+
+                // Tooltip
+                path.addEventListener('mouseenter', function(e) {
+                    if (title) {
+                        tooltip.textContent = title.trim();
+                        tooltip.classList.add('visible');
+                    }
+                    if (id !== selectedState) {
+                        path.style.fill = 'rgba(255,255,255,.92)';
+                        path.style.stroke = 'rgba(3,224,201,.6)';
+                        path.style.strokeWidth = '1.5';
+                    }
+                });
+
+                path.addEventListener('mousemove', function(e) {
+                    var rect = mapWrapper.getBoundingClientRect();
+                    tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+                    tooltip.style.top = (e.clientY - rect.top - 30) + 'px';
+                });
+
+                path.addEventListener('mouseleave', function() {
+                    tooltip.classList.remove('visible');
+                    if (id !== selectedState) {
+                        path.style.fill = 'rgba(255,255,255,.7)';
+                        path.style.stroke = 'rgba(2,83,172,.25)';
+                        path.style.strokeWidth = '1';
+                    }
+                });
+
+                // Click to select
+                path.addEventListener('click', function() {
+                    selectState(id, svgDoc);
+                });
             });
 
-            path.addEventListener('mousemove', function(e) {
-                const rect = mapWrapper.getBoundingClientRect();
-                tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
-                tooltip.style.top = (e.clientY - rect.top - 30) + 'px';
-            });
+            // Set SVG background to transparent
+            var svgEl = svgDoc.querySelector('svg');
+            if (svgEl) {
+                svgEl.style.background = 'transparent';
+                svgEl.setAttribute('fill', 'none');
+                svgEl.setAttribute('stroke', 'none');
+            }
 
-            path.addEventListener('mouseleave', function() {
-                tooltip.classList.remove('visible');
-            });
+            // Default: select Distrito Capital
+            selectState('VE-A', svgDoc);
         });
     </script>
 </body>
