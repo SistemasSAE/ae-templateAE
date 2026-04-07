@@ -22,596 +22,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        .team-hero-wrap {
-            background: var(--gradient-general);
-            padding-top: 180px;
-            padding-bottom: 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-hero-wrap::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
-            background-size: 28px 28px;
-            pointer-events: none;
-        }
-
-        .team-hero-wrap::after {
-            content: '';
-            position: absolute;
-            top: -80px; right: -100px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(3,224,201,.18) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .team-hero-blob {
-            position: absolute;
-            bottom: -120px; left: -80px;
-            width: 420px; height: 420px;
-            background: radial-gradient(circle, rgba(26,115,232,.18) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .team-hero-title {
-            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-        .team-hero-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,.75);
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .hero-badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(3,224,201,.15);
-            border: 1px solid rgba(3,224,201,.35);
-            color: #03e0c9;
-            font-size: .82rem;
-            font-weight: 600;
-            padding: .4rem 1.1rem;
-            border-radius: 50px;
-            letter-spacing: .04em;
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-        }
-
-        /* ── Breadcrumb ── */
-        .team-breadcrumb {
-            font-size: .85rem;
-            color: rgba(255,255,255,.5);
-        }
-        .team-breadcrumb a { color: rgba(255,255,255,.75); text-decoration: none; }
-        .team-breadcrumb a:hover { color: #fff; }
-        .team-breadcrumb .active { color: #03e0c9; }
-
-        /* ── Stats ribbon ── */
-        .team-stats-ribbon {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,.09);
-            padding: 28px 32px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: -36px;
-            position: relative;
-            z-index: 5;
-        }
-
-        .ribbon-stat {
-            text-align: center;
-            min-width: 110px;
-        }
-
-        .ribbon-stat__number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            line-height: 1;
-        }
-
-        .ribbon-stat__label {
-            font-size: .78rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            margin-top: 4px;
-        }
-
-        /* ── Section heading ── */
-        .section-eyebrow {
-            font-size: .78rem;
-            font-weight: 700;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            margin-bottom: .4rem;
-        }
-
-        .section-heading {
-            font-size: clamp(1.6rem, 3vw, 2.3rem);
-            font-weight: 800;
-            color: #111;
-            line-height: 1.25;
-        }
-
-        .section-sub {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        /* ── Values section ── */
-        .values-section {
-            background: #f4f6f9;
-            padding: 80px 0;
-        }
-
-        .value-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 2rem 1.75rem;
-            height: 100%;
-            box-shadow: 0 2px 12px rgba(0,0,0,.06);
-            border-top: 4px solid transparent;
-            transition: transform .25s, box-shadow .25s;
-        }
-
-        .value-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 28px rgba(0,0,0,.11);
-        }
-
-        .value-card.vc-blue   { border-top-color: var(--primary-color); }
-        .value-card.vc-green  { border-top-color: #03e0c9; }
-        .value-card.vc-orange { border-top-color: var(--orange); }
-        .value-card.vc-purple { border-top-color: var(--purple); }
-
-        .value-icon {
-            width: 52px; height: 52px;
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.1rem;
-        }
-
-        .vi-blue   { background: #e8f0fe; color: #0253ac; }
-        .vi-green  { background: #e0fdf8; color: #03e0c9; }
-        .vi-orange { background: #fff3e0; color: #e65100; }
-        .vi-purple { background: #f3e8fd; color: #7b1fa2; }
-
-        .value-card h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: .4rem;
-        }
-
-        .value-card p {
-            font-size: .875rem;
-            color: #666;
-            line-height: 1.65;
-            margin: 0;
-        }
-
-        /* ── Team grid ── */
-        .team-section { padding: 80px 0; }
-
-        .member-card {
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 2px 16px rgba(0,0,0,.07);
-            overflow: hidden;
-            height: 100%;
-            transition: transform .25s, box-shadow .25s;
-        }
-
-        .member-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0,0,0,.13);
-        }
-
-        .member-card-header {
-            position: relative;
-            height: 110px;
-            width: 100%;
-        }
-
-        .member-avatar-wrap {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin: -60px auto 0;
-            border-radius: 24px;
-            background: #fff;
-            box-shadow: 0 4px 16px rgba(0,0,0,.1);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-        }
-
-        .member-avatar-bg {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Avatar gradient backgrounds move to header */
-        .av-blue   { background: linear-gradient(135deg, #e8f0fe 0%, #c5d8f8 100%); color: #0253ac; }
-        .av-green  { background: linear-gradient(135deg, #e0fdf8 0%, #a7eddf 100%); color: #03a89a; }
-        .av-purple { background: linear-gradient(135deg, #f3e8fd 0%, #d9b5f5 100%); color: #7b1fa2; }
-        .av-orange { background: linear-gradient(135deg, #fff3e0 0%, #ffd9a8 100%); color: #e65100; }
-        .av-teal   { background: linear-gradient(135deg, #e0f2f1 0%, #a5d6d1 100%); color: #00695c; }
-        .av-indigo { background: linear-gradient(135deg, #e8eaf6 0%, #c5caf4 100%); color: #283593; }
-        .av-pink   { background: linear-gradient(135deg, #fce4ec 0%, #f8b4ca 100%); color: #ad1457; }
-        .av-cyan   { background: linear-gradient(135deg, #e0f7fa 0%, #a8e4ec 100%); color: #0097a7; }
-
-        .member-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            border-radius: 50px;
-            padding: .3rem .85rem;
-            font-size: .7rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            box-shadow: 0 4px 14px rgba(0,0,0,.15);
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            z-index: 10;
-        }
-
-        .member-body {
-            padding: 1.25rem 1.5rem 1.75rem;
-            text-align: center;
-        }
-
-        .member-name {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: .2rem;
-        }
-
-        .member-role {
-            font-size: .75rem;
-            font-weight: 600;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            margin-bottom: .8rem;
-        }
-
-        .role-divider {
-            width: 40px;
-            height: 2px;
-            background: #e0e4ea;
-            margin: 0 auto 1rem;
-        }
-
-        .member-desc {
-            font-size: .845rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-        }
-
-        .member-skills {
-            display: none;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .skill-tag {
-            font-size: .7rem;
-            font-weight: 600;
-            padding: .2rem .65rem;
-            border-radius: 50px;
-            background: #f1f3f4;
-            color: #444;
-        }
-
-        .member-social {
-            display: none;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1.25rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .social-link {
-            width: 32px; height: 32px;
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            background: #f4f6f8;
-            color: #555;
-            font-size: .9rem;
-            text-decoration: none;
-            transition: background .2s, color .2s;
-        }
-
-        .social-link:hover { background: var(--primary-color); color: #fff; }
-
-        /* ── Departments filter ── */
-        .dept-pills {
-            display: inline-flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            background: #f4f6f9;
-            border: 1px solid #e0e4ea;
-            border-radius: 50px;
-            padding: 6px 10px;
-        }
-
-        .dept-pill {
-            border: none;
-            background: transparent;
-            border-radius: 50px;
-            padding: .38rem 1.2rem;
-            font-size: .88rem;
-            font-weight: 500;
-            color: #666;
-            cursor: pointer;
-            transition: background .2s, color .2s;
-        }
-
-        .dept-pill:hover  { background: rgba(2,83,172,.08); color: #0253ac; }
-        .dept-pill.active { background: #0253ac; color: #fff; font-weight: 700;
-                            box-shadow: 0 1px 6px rgba(2,83,172,.3); }
-
-        /* ── Culture Band ── */
-        .culture-band {
-            background: var(--gradient-general);
-            padding: 70px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .culture-band::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
-            background-size: 24px 24px;
-            pointer-events: none;
-        }
-
-        .culture-band h2 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 800;
-            color: #fff;
-        }
-
-        .culture-band p {
-            color: rgba(255,255,255,.75);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .culture-perk {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 1.4rem;
-        }
-
-        .perk-icon {
-            width: 42px; height: 42px;
-            border-radius: 12px;
-            background: rgba(255,255,255,.12);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem;
-            color: #03e0c9;
-            flex-shrink: 0;
-        }
-
-        .perk-text h5 {
-            font-size: .95rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .2rem;
-        }
-
-        .perk-text p {
-            font-size: .845rem;
-            color: rgba(255,255,255,.65);
-            margin: 0;
-            line-height: 1.55;
-        }
-
-        /* ── CTA ── */
-        .team-cta {
-            background: #fff;
-            padding: 80px 0;
-        }
-
-        .cta-box {
-            background: var(--gradient-general);
-            border-radius: 20px;
-            padding: 56px 40px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-box::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
-            background-size: 22px 22px;
-            pointer-events: none;
-        }
-
-        .cta-box h2 { font-weight: 800; position: relative; z-index: 1; }
-        .cta-box p  { color: rgba(255,255,255,.8); position: relative; z-index: 1; }
-
-        .btn-cta-team {
-            background: linear-gradient(135deg, #03e0c9 0%, #00b8a3 100%);
-            color: #062040;
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            padding: .85rem 2.4rem;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            transition: opacity .2s, transform .2s;
-            position: relative; z-index: 1;
-        }
-
-        .btn-cta-team:hover { opacity: .88; transform: translateY(-2px); color: #062040; }
-
-        /* ── Nosotros section ── */
-        .nosotros-section {
-            background: #fff;
-            padding: 80px 0;
-        }
-
-        .nosotros-text p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .nosotros-photo-wrap {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 16px 48px rgba(2,83,172,.15);
-        }
-
-        .nosotros-photo-wrap img {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .photo-placeholder {
-            width: 100%;
-            height: 360px;
-            background: linear-gradient(135deg, #e8f0fe 0%, #c5d8f8 60%, #e0fdf8 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            color: #6c8fc7;
-        }
-
-        .photo-placeholder i { font-size: 3.5rem; }
-        .photo-placeholder span { font-size: .9rem; font-weight: 600; }
-
-        .nosotros-photo-badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: #fff;
-            border-radius: 12px;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 16px rgba(0,0,0,.12);
-        }
-
-        .nosotros-photo-badge .badge-icon {
-            width: 38px; height: 38px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #0253ac, #0369d9);
-            display: flex; align-items: center; justify-content: center;
-            color: #fff;
-            font-size: 1.1rem;
-        }
-
-        .nosotros-photo-badge .badge-text strong {
-            display: block;
-            font-size: .85rem;
-            font-weight: 700;
-            color: #111;
-        }
-
-        .nosotros-photo-badge .badge-text span {
-            font-size: .72rem;
-            color: #888;
-        }
-
-        /* ── Por qué elegirnos ── */
-        .elegirnos-section {
-            background: #f4f6f9;
-            padding: 80px 0;
-        }
-
-        .elegirnos-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 1.75rem 1.5rem;
-            height: 100%;
-            box-shadow: 0 2px 12px rgba(0,0,0,.06);
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            transition: transform .25s, box-shadow .25s;
-        }
-
-        .elegirnos-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 28px rgba(0,0,0,.11);
-        }
-
-        .elegirnos-icon {
-            width: 48px; height: 48px;
-            border-radius: 13px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-
-        .elegirnos-card h5 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: .3rem;
-        }
-
-        .elegirnos-card p {
-            font-size: .855rem;
-            color: #666;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Responsive tweaks */
-        @media (max-width: 768px) {
-            .team-stats-ribbon { flex-direction: column; align-items: center; gap: 1.2rem; }
-            .culture-band .row { flex-direction: column; }
-            .nosotros-photo-wrap img { height: 260px; }
-            .photo-placeholder { height: 260px; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/equipo.css">
 </head>
 
 <body class="loading">
@@ -685,7 +96,7 @@
                             </p>
                             <p>
                                 Nacimos con una filosofía simple: <em>la tecnología es servicio y se adapta a tus
-                                requerimientos</em>. Por eso cada módulo del Sistema SAE fue diseñado de la mano
+                                    requerimientos</em>. Por eso cada módulo del Sistema SAE fue diseñado de la mano
                                 con las propias instituciones, cumpliendo con las normativas del <strong>MPPE</strong>,
                                 el <strong>SENIAT</strong> y las Zonas Educativas del país.
                             </p>
@@ -718,60 +129,73 @@
                 <div class="text-center mb-5" data-aos="fade-up">
                     <p class="section-eyebrow">Nuestras ventajas</p>
                     <h2 class="section-heading">¿Por qué elegirnos?</h2>
-                    <p class="section-sub mt-2">Razones concretas por las que más de 950 instituciones confían en SAE.</p>
+                    <p class="section-sub mt-2">Razones concretas por las que más de 950 instituciones confían en SAE.
+                    </p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
                         <div class="elegirnos-card">
-                            <div class="elegirnos-icon" style="background:#e8f0fe;color:#0253ac;"><i class="bi bi-patch-check-fill"></i></div>
+                            <div class="elegirnos-icon" style="background:#e8f0fe;color:#0253ac;"><i
+                                    class="bi bi-patch-check-fill"></i></div>
                             <div>
                                 <h5>Homologados y certificados</h5>
-                                <p>SAE Pagos está homologado por el <strong>SENIAT</strong> y nuestros módulos cumplen con todas las normativas del MPPE y Zonas Educativas.</p>
+                                <p>SAE Pagos está homologado por el <strong>SENIAT</strong> y nuestros módulos cumplen
+                                    con todas las normativas del MPPE y Zonas Educativas.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
                         <div class="elegirnos-card">
-                            <div class="elegirnos-icon" style="background:#e0fdf8;color:#03a89a;"><i class="bi bi-headset"></i></div>
+                            <div class="elegirnos-icon" style="background:#e0fdf8;color:#03a89a;"><i
+                                    class="bi bi-headset"></i></div>
                             <div>
                                 <h5>Soporte técnico 24/7</h5>
-                                <p>Centro de asistencia técnica disponible los 7 días de la semana. Atención personalizada y tiempos de respuesta óptimos.</p>
+                                <p>Centro de asistencia técnica disponible los 7 días de la semana. Atención
+                                    personalizada y tiempos de respuesta óptimos.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
                         <div class="elegirnos-card">
-                            <div class="elegirnos-icon" style="background:#fff3e0;color:#e65100;"><i class="bi bi-database-fill-up"></i></div>
+                            <div class="elegirnos-icon" style="background:#fff3e0;color:#e65100;"><i
+                                    class="bi bi-database-fill-up"></i></div>
                             <div>
                                 <h5>Migración garantizada</h5>
-                                <p>Transferimos tus datos personales y notas certificadas desde cualquier sistema anterior a SAE. Tu información está segura. <strong>¡GARANTIZADO!</strong></p>
+                                <p>Transferimos tus datos personales y notas certificadas desde cualquier sistema
+                                    anterior a SAE. Tu información está segura. <strong>¡GARANTIZADO!</strong></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
                         <div class="elegirnos-card">
-                            <div class="elegirnos-icon" style="background:#f3e8fd;color:#7b1fa2;"><i class="bi bi-sliders"></i></div>
+                            <div class="elegirnos-icon" style="background:#f3e8fd;color:#7b1fa2;"><i
+                                    class="bi bi-sliders"></i></div>
                             <div>
                                 <h5>Adaptado a tu institución</h5>
-                                <p>Régimen Regular y de Adultos, Escuelas Técnicas, Educación Inicial, Media General. Configuramos SAE a tu realidad educativa.</p>
+                                <p>Régimen Regular y de Adultos, Escuelas Técnicas, Educación Inicial, Media General.
+                                    Configuramos SAE a tu realidad educativa.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
                         <div class="elegirnos-card">
-                            <div class="elegirnos-icon" style="background:#e0f2f1;color:#00695c;"><i class="bi bi-phone-fill"></i></div>
+                            <div class="elegirnos-icon" style="background:#e0f2f1;color:#00695c;"><i
+                                    class="bi bi-phone-fill"></i></div>
                             <div>
                                 <h5>Ecosistema completo</h5>
-                                <p>Desde el escritorio hasta el móvil: apps para representantes, profesores y directivos integradas en una sola plataforma.</p>
+                                <p>Desde el escritorio hasta el móvil: apps para representantes, profesores y directivos
+                                    integradas en una sola plataforma.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
                         <div class="elegirnos-card">
-                            <div class="elegirnos-icon" style="background:#fce4ec;color:#ad1457;"><i class="bi bi-currency-dollar"></i></div>
+                            <div class="elegirnos-icon" style="background:#fce4ec;color:#ad1457;"><i
+                                    class="bi bi-currency-dollar"></i></div>
                             <div>
                                 <h5>Multimoneda y multicuentas</h5>
-                                <p>SAE Pagos opera en bolívares, dólares, pesos y euros; maneja múltiples cuentas bancarias e indexación automática.</p>
+                                <p>SAE Pagos opera en bolívares, dólares, pesos y euros; maneja múltiples cuentas
+                                    bancarias e indexación automática.</p>
                             </div>
                         </div>
                     </div>
@@ -792,28 +216,32 @@
                         <div class="value-card vc-blue">
                             <div class="value-icon vi-blue"><i class="bi bi-lightbulb-fill"></i></div>
                             <h4>Innovación Constante</h4>
-                            <p>Evolucionamos continuamente nuestras soluciones para responder a los cambios del sistema educativo venezolano.</p>
+                            <p>Evolucionamos continuamente nuestras soluciones para responder a los cambios del sistema
+                                educativo venezolano.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
                         <div class="value-card vc-green">
                             <div class="value-icon vi-green"><i class="bi bi-heart-fill"></i></div>
                             <h4>Servicio con Propósito</h4>
-                            <p>La tecnología es servicio y se adapta a tus requerimientos. Cada institución es única y merece atención personalizada.</p>
+                            <p>La tecnología es servicio y se adapta a tus requerimientos. Cada institución es única y
+                                merece atención personalizada.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
                         <div class="value-card vc-orange">
                             <div class="value-icon vi-orange"><i class="bi bi-shield-fill-check"></i></div>
                             <h4>Compromiso y Garantía</h4>
-                            <p>Respaldamos cada producto y proceso. Desde la migración de datos hasta la implementación: ¡GARANTIZADO!</p>
+                            <p>Respaldamos cada producto y proceso. Desde la migración de datos hasta la implementación:
+                                ¡GARANTIZADO!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
                         <div class="value-card vc-purple">
                             <div class="value-icon vi-purple"><i class="bi bi-people-fill"></i></div>
                             <h4>Comunidad Educativa</h4>
-                            <p>Creemos en conectar a directivos, docentes, representantes y estudiantes en una sola plataforma integrada.</p>
+                            <p>Creemos en conectar a directivos, docentes, representantes y estudiantes en una sola
+                                plataforma integrada.</p>
                         </div>
                     </div>
                 </div>
@@ -834,229 +262,254 @@
                 <div class="row g-4" id="teamGrid">
 
                     <!-- 1. Presidente Fundador -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="member-card">
                             <div class="member-card-header av-blue">
                                 <span class="member-badge">Presidencia</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/srluis.png" alt="Prof. Luis Colmenárez" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/srluis.png" alt="Prof. Luis Colmenárez"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Prof. Luis Colmenárez</p>
                                 <p class="member-role">Presidente Fundador</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Visionario desarrollador con más de 25 años liderando soluciones tecnológicas para el sector educativo venezolano.</p>
+                                <p class="member-desc">Visionario desarrollador con más de 25 años liderando soluciones
+                                    tecnológicas para el sector educativo venezolano.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 2. Gerente Administrativo -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
-                         data-aos="fade-up" data-aos-delay="60">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo" data-aos="fade-up"
+                        data-aos-delay="60">
                         <div class="member-card">
                             <div class="member-card-header av-teal">
                                 <span class="member-badge">Gerencia</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/liz.png" alt="Ing. Liz Colmenárez" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/liz.png" alt="Ing. Liz Colmenárez"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Ing. Liz Colmenárez</p>
                                 <p class="member-role">Gerente Administrativo</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Responsable de la gestión administrativa y visión de los Sistemas SAE, asegurando que cada módulo responda a las necesidades reales de las instituciones.</p>
+                                <p class="member-desc">Responsable de la gestión administrativa y visión de los Sistemas
+                                    SAE, asegurando que cada módulo responda a las necesidades reales de las
+                                    instituciones.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 3. Gerente de Desarrollo Web -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
-                         data-aos="fade-up" data-aos-delay="120">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo" data-aos="fade-up"
+                        data-aos-delay="120">
                         <div class="member-card">
                             <div class="member-card-header av-indigo">
                                 <span class="member-badge">Gerencia</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/luisito.png" alt="Ing. Luis Colmenárez Jr." style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/luisito.png" alt="Ing. Luis Colmenárez Jr."
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Ing. Luis Colmenárez Jr.</p>
                                 <p class="member-role">Gerente de Desarrollo Web</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Construye y mantiene la plataforma SAE WEB, incluyendo aplicaciones móviles en Android e iOS.</p>
+                                <p class="member-desc">Construye y mantiene la plataforma SAE WEB, incluyendo
+                                    aplicaciones móviles en Android e iOS.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 4. Mejora continua y Logística -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
-                         data-aos="fade-up" data-aos-delay="180">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo" data-aos="fade-up"
+                        data-aos-delay="180">
                         <div class="member-card">
                             <div class="member-card-header av-purple">
                                 <span class="member-badge">Logística</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/victor.png" alt="Ing. Víctor Rodríguez" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/victor.png" alt="Ing. Víctor Rodríguez"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Ing. Víctor Rodríguez</p>
                                 <p class="member-role">Mejora continua y Logística</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Responsable de la mejora continua de procesos y logística operativa de los Sistemas SAE.</p>
+                                <p class="member-desc">Responsable de la mejora continua de procesos y logística
+                                    operativa de los Sistemas SAE.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 5. RRHH -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="liderazgo" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="member-card">
                             <div class="member-card-header av-pink">
                                 <span class="member-badge">RRHH</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/Silvia.png" alt="Silvia Gutiérrez" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/Silvia.png" alt="Silvia Gutiérrez"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Silvia Gutiérrez</p>
                                 <p class="member-role">Recursos Humanos</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Gestiona el talento humano del equipo SAE, velando por el bienestar y desarrollo profesional de cada integrante.</p>
+                                <p class="member-desc">Gestiona el talento humano del equipo SAE, velando por el
+                                    bienestar y desarrollo profesional de cada integrante.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 6. Asistente Administrativo - Ventas -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial"
-                         data-aos="fade-up" data-aos-delay="60">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial" data-aos="fade-up"
+                        data-aos-delay="60">
                         <div class="member-card">
                             <div class="member-card-header av-orange">
                                 <span class="member-badge">Ventas</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/Genesis.png" alt="T.S.U. Génesis Castañeda" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/Genesis.png" alt="T.S.U. Génesis Castañeda"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">T.S.U. Génesis Castañeda</p>
                                 <p class="member-role">Asistente Administrativo – Ventas</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Apoya la gestión administrativa y comercial, coordinando procesos de ventas y atención a instituciones.</p>
+                                <p class="member-desc">Apoya la gestión administrativa y comercial, coordinando procesos
+                                    de ventas y atención a instituciones.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 7. Ventas -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial"
-                         data-aos="fade-up" data-aos-delay="120">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="comercial" data-aos="fade-up"
+                        data-aos-delay="120">
                         <div class="member-card">
                             <div class="member-card-header av-blue">
                                 <span class="member-badge">Ventas</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/dayana.png" alt="Dayana Romero" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/dayana.png" alt="Dayana Romero"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Dayana Romero</p>
                                 <p class="member-role">Ventas</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Gestiona relaciones con instituciones aliadas y guía a nuevos clientes en elegir la solución SAE más adecuada.</p>
+                                <p class="member-desc">Gestiona relaciones con instituciones aliadas y guía a nuevos
+                                    clientes en elegir la solución SAE más adecuada.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 8. Coordinación SAE Evaluación -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
-                         data-aos="fade-up" data-aos-delay="180">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte" data-aos="fade-up"
+                        data-aos-delay="180">
                         <div class="member-card">
                             <div class="member-card-header av-cyan">
                                 <span class="member-badge">Coordinación</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/mariangela.png" alt="Ing. Mariangela Yépez" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/mariangela.png" alt="Ing. Mariangela Yépez"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Ing. Mariangela Yépez</p>
                                 <p class="member-role">Coordinación de SAE Evaluación</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Responsable de la implementación de SAE Evaluación, seguimiento de clientes, inducciones, capacitación y soporte técnico.</p>
+                                <p class="member-desc">Responsable de la implementación de SAE Evaluación, seguimiento
+                                    de clientes, inducciones, capacitación y soporte técnico.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 9. Coordinación SAE Pagos -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
-                         data-aos="fade-up" data-aos-delay="0">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="member-card">
                             <div class="member-card-header av-green">
                                 <span class="member-badge">Coordinación</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/ricmay.png" alt="Ricmay Pineda" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/ricmay.png" alt="Ricmay Pineda"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Ricmay Pineda</p>
                                 <p class="member-role">Coordinación de SAE Pagos</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Responsable de la implementación de SAE Pagos, seguimiento de clientes, inducciones, capacitación y soporte técnico.</p>
+                                <p class="member-desc">Responsable de la implementación de SAE Pagos, seguimiento de
+                                    clientes, inducciones, capacitación y soporte técnico.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 10. Coordinación SAE Web -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte"
-                         data-aos="fade-up" data-aos-delay="60">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="soporte" data-aos="fade-up"
+                        data-aos-delay="60">
                         <div class="member-card">
                             <div class="member-card-header av-teal">
                                 <span class="member-badge">Coordinación</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/Jhei.png" alt="T.S.U. Jheilyn Ramírez" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/Jhei.png" alt="T.S.U. Jheilyn Ramírez"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">T.S.U. Jheilyn Ramírez</p>
                                 <p class="member-role">Coordinación de SAE Web</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Responsable de la implementación de SAE Web, seguimiento de clientes, inducciones, capacitación y soporte técnico.</p>
+                                <p class="member-desc">Responsable de la implementación de SAE Web, seguimiento de
+                                    clientes, inducciones, capacitación y soporte técnico.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 11. Project Manager y Diseño UI/UX -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo"
-                         data-aos="fade-up" data-aos-delay="120">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="desarrollo" data-aos="fade-up"
+                        data-aos-delay="120">
                         <div class="member-card">
                             <div class="member-card-header av-purple">
                                 <span class="member-badge">Proyectos</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/deb.png" alt="T.S.U. Deborah Mayurel" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/Deb.png" alt="T.S.U. Deborah Mayurel"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">T.S.U. Deborah Mayurel</p>
                                 <p class="member-role">Project Manager y Diseño UI/UX</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Gestiona los proyectos de desarrollo y diseña las interfaces de usuario de las plataformas SAE.</p>
+                                <p class="member-desc">Gestiona los proyectos de desarrollo y diseña las interfaces de
+                                    usuario de las plataformas SAE.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 12. Seguridad (Khano) -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="seguridad"
-                         data-aos="fade-up" data-aos-delay="180">
+                    <div class="col-xl-3 col-lg-4 col-md-6 team-item" data-dept="seguridad" data-aos="fade-up"
+                        data-aos-delay="180">
                         <div class="member-card">
                             <div class="member-card-header" style="background:#e0fdf8;">
                                 <span class="member-badge">Seguridad</span>
                             </div>
                             <div class="member-avatar-wrap">
-                                <img src="assets/img/khano.png" alt="Khano" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                                <img src="assets/img/khano.png" alt="Khano"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                             </div>
                             <div class="member-body">
                                 <p class="member-name">Khano</p>
                                 <p class="member-role">Jefe de Seguridad & Bienestar</p>
                                 <div class="role-divider"></div>
-                                <p class="member-desc">Se encarga de mantener el orden, recibir a las visitas con alegría y recordar al equipo cuándo hacer pausas activas.</p>
+                                <p class="member-desc">Se encarga de mantener el orden, recibir a las visitas con
+                                    alegría y recordar al equipo cuándo hacer pausas activas.</p>
                             </div>
                         </div>
                     </div>
@@ -1072,28 +525,32 @@
                     <div class="col-lg-5" data-aos="fade-right">
                         <p class="section-eyebrow" style="color:#03e0c9;">Nuestro compromiso</p>
                         <h2 class="mb-3">¿Por qué ser<br>nuestro aliado?</h2>
-                        <p>Más que un proveedor, somos tu socio estratégico. Trabajamos codo a codo con cada institución para construir soluciones que realmente transformen la gestión educativa.</p>
+                        <p>Más que un proveedor, somos tu socio estratégico. Trabajamos codo a codo con cada institución
+                            para construir soluciones que realmente transformen la gestión educativa.</p>
                     </div>
                     <div class="col-lg-7" data-aos="fade-left" data-aos-delay="80">
                         <div class="culture-perk">
                             <div class="perk-icon"><i class="bi bi-handshake"></i></div>
                             <div class="perk-text">
                                 <h5>Acompañamiento personalizado</h5>
-                                <p>Te guiamos en cada paso de la implementación, adaptándonos a las necesidades de tu institución.</p>
+                                <p>Te guiamos en cada paso de la implementación, adaptándonos a las necesidades de tu
+                                    institución.</p>
                             </div>
                         </div>
                         <div class="culture-perk">
                             <div class="perk-icon"><i class="bi bi-gear-wide-connected"></i></div>
                             <div class="perk-text">
                                 <h5>Tecnología con impacto real</h5>
-                                <p>Soluciones probadas que ya usan miles de estudiantes y docentes todos los días en Venezuela.</p>
+                                <p>Soluciones probadas que ya usan miles de estudiantes y docentes todos los días en
+                                    Venezuela.</p>
                             </div>
                         </div>
                         <div class="culture-perk">
                             <div class="perk-icon"><i class="bi bi-arrow-repeat"></i></div>
                             <div class="perk-text">
                                 <h5>Mejora continua juntos</h5>
-                                <p>Escuchamos tu feedback para evolucionar nuestras herramientas según lo que tu institución necesita.</p>
+                                <p>Escuchamos tu feedback para evolucionar nuestras herramientas según lo que tu
+                                    institución necesita.</p>
                             </div>
                         </div>
                         <div class="culture-perk" style="margin-bottom:0;">
@@ -1113,7 +570,8 @@
             <div class="container">
                 <div class="cta-box" data-aos="fade-up">
                     <h2 class="mb-3">¿Listo para <span style="color:#03e0c9;">transformar tu institución</span>?</h2>
-                    <p class="lead mb-4">Comencemos este proyecto juntos. Cuéntanos sobre tu institución<br>y diseñamos la solución ideal para ti.</p>
+                    <p class="lead mb-4">Comencemos este proyecto juntos. Cuéntanos sobre tu institución<br>y diseñamos
+                        la solución ideal para ti.</p>
                     <a href="contactanos.html" class="btn-cta-team">
                         <i class="bi bi-send me-2"></i>Comencemos juntos
                     </a>

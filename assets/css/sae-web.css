@@ -474,6 +474,22 @@
 }
 
 @media (max-width: 991px) {
+    .product-hero {
+        padding: 120px 0 70px;
+    }
+
+    .info-section {
+        padding: 60px 0;
+    }
+
+    .cta-bottom {
+        padding: 70px 0;
+    }
+
+    .modules-tabs-section {
+        padding: 3.5rem 0 4rem;
+    }
+
     .potentials-section .text-center {
         text-align: center !important;
     }
@@ -490,6 +506,87 @@
     .laptop-feature-section .d-flex {
         justify-content: center;
         text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .product-hero {
+        padding: 100px 0 50px;
+        text-align: center;
+    }
+
+    .product-hero h1 {
+        font-size: 1.65rem;
+    }
+
+    .product-hero p {
+        font-size: 0.9rem;
+    }
+
+    .product-hero .breadcrumb {
+        justify-content: center;
+    }
+
+    .feature-icon-large {
+        width: 56px;
+        height: 56px;
+        font-size: 1.7rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .info-section {
+        padding: 40px 0;
+    }
+
+    .info-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .info-card i {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .info-card h4 {
+        font-size: 1rem;
+    }
+
+    .highlight-box {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .cta-bottom {
+        padding: 50px 0;
+    }
+
+    .icon-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.05rem;
+        border-radius: 10px;
+    }
+
+    .check-list-v2 li {
+        font-size: 0.88rem;
+    }
+
+    /* Modules tabs */
+    .modules-tabs-section {
+        padding: 2.5rem 0 3rem;
+    }
+
+    .category-tab-btn {
+        padding: 8px 16px !important;
+        font-size: 0.82rem;
+    }
+
+    .category-icon-badge {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+        border-radius: 16px;
     }
 }
 

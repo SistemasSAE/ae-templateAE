@@ -137,6 +137,11 @@ const initNavbarLogic = () => {
     // Smooth scroll
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+            // On mobile, skip dropdown triggers so the megamenu toggle handles them
+            if (window.innerWidth < 992 && (link.classList.contains('nav-link--dropdown') || link.classList.contains('btn-comunidad'))) {
+                return;
+            }
+
             const href = link.getAttribute('href');
             if (href.includes('#')) {
                 const targetId = href.split('#')[1];

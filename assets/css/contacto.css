@@ -1,0 +1,489 @@
+/* ── Hero ── */
+.contact-hero {
+    background: var(--gradient-general);
+    padding: 130px 0 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(52,168,83,.18) 0%, transparent 55%);
+}
+
+.contact-hero h1 { color: #fff; font-weight: 800; }
+.contact-hero p  { color: rgba(255,255,255,.78); }
+
+.contact-hero .breadcrumb-item a        { color: rgba(255,255,255,.7); text-decoration: none; }
+.contact-hero .breadcrumb-item.active   { color: var(--green-light, #34a853); }
+.contact-hero .breadcrumb-separator     { color: rgba(255,255,255,.4); }
+
+/* ── Info cards ── */
+.info-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+    padding: 2rem 1.6rem;
+    height: 100%;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+a.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    color: inherit;
+}
+
+.info-card__icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.ic-green  { background: #e6f4ea; color: #188038; }
+.ic-blue   { background: #e8f0fe; color: #1a73e8; }
+.ic-orange { background: #fff3e0; color: #e65100; }
+.ic-teal   { background: #e0f2f1; color: #00695c; }
+
+.info-card__label {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: .3rem;
+}
+
+.info-card__value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: .2rem;
+}
+
+.info-card__sub {
+    font-size: .85rem;
+    color: #666;
+}
+
+/* ── Form card ── */
+.form-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 32px rgba(0,0,0,.09);
+    padding: 2.4rem 2rem;
+}
+
+.form-card .form-label {
+    font-weight: 600;
+    font-size: .9rem;
+    color: #333;
+}
+
+.form-card .form-control,
+.form-card .form-select {
+    border-radius: 10px;
+    border-color: #e0e0e0;
+    font-size: .93rem;
+    padding: .6rem .9rem;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-card .form-control:focus,
+.form-card .form-select:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26,115,232,.12);
+}
+
+.form-card .btn-submit {
+    background: linear-gradient(135deg, #0253ac, #1a73e8);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: .75rem 2.2rem;
+    font-weight: 600;
+    font-size: .95rem;
+    width: 100%;
+    transition: opacity .2s, transform .2s;
+}
+
+.form-card .btn-submit:hover { opacity: .9; transform: translateY(-2px); }
+
+/* ── Sidebar info ── */
+.side-block {
+    border-radius: 16px;
+    padding: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.side-block h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+    color: #111;
+}
+
+.side-block p, .side-block a {
+    font-size: .88rem;
+    color: #555;
+    margin-bottom: .3rem;
+}
+
+.side-block a { text-decoration: none; color: #1a73e8; }
+.side-block a:hover { text-decoration: underline; }
+
+.side-hours { background: #f8f9fb; }
+.side-social { background: #f8f9fb; }
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .88rem;
+    font-weight: 500;
+    padding: .4rem .9rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin: 3px;
+    transition: opacity .2s;
+}
+
+.social-btn:hover { opacity: .82; }
+.social-btn-wa  { background: #25d366; color: #fff; }
+.social-btn-ig  { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+.social-btn-fb  { background: #1877f2; color: #fff; }
+.social-btn-yt  { background: #ff0000; color: #fff; }
+
+/* ── FAQ ── */
+.faq-section { background: #f8f9fb; }
+
+.faq-section .accordion-button {
+    font-weight: 600;
+    font-size: .95rem;
+    color: #111;
+    background: #fff;
+}
+
+.faq-section .accordion-button:not(.collapsed) {
+    color: #0253ac;
+    background: #e8f0fe;
+    box-shadow: none;
+}
+
+.faq-section .accordion-button::after {
+    filter: none;
+}
+
+.faq-section .accordion-item {
+    border-radius: 12px !important;
+    overflow: hidden;
+    margin-bottom: .5rem;
+    border: 1px solid #e8e8e8;
+}
+
+.faq-section .accordion-body {
+    font-size: .92rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* ── Alert ── */
+#formAlert { display: none; border-radius: 12px; }
+
+/* ── WhatsApp Community ── */
+.wa-community {
+    background: linear-gradient(135deg, #0c2e1a 0%, #145227 60%, #1a6b33 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+}
+
+.wa-community::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,.04);
+    border-radius: 50%;
+}
+
+.wa-community::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,.04);
+    border-radius: 50%;
+}
+
+.wa-community__content { position: relative; z-index: 2; padding: 3rem 2.5rem; }
+
+.wa-big-icon {
+    width: 72px; height: 72px;
+    background: rgba(255,255,255,.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.4rem;
+    backdrop-filter: blur(4px);
+}
+
+.wa-community h2 { font-weight: 800; font-size: 1.75rem; }
+
+.wa-community p { color: rgba(255,255,255,.82); font-size: .95rem; line-height: 1.7; }
+
+.wa-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: .65rem;
+}
+
+.wa-benefit i { color: #4ede80; font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+
+.wa-benefit span { font-size: .9rem; color: rgba(255,255,255,.85); }
+
+/* Join mini-form */
+.wa-form { position: relative; z-index: 2; padding: 3rem 2.5rem; }
+
+.wa-form-inner {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 18px;
+    padding: 2rem 1.8rem;
+    backdrop-filter: blur(8px);
+}
+
+.wa-form-inner h4 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: #fff;
+}
+
+.wa-form-inner .form-control {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: .9rem;
+    padding: .6rem .9rem;
+}
+
+.wa-form-inner .form-control::placeholder { color: rgba(255,255,255,.5); }
+
+.wa-form-inner .form-control:focus {
+    background: rgba(255,255,255,.15);
+    border-color: #4ede80;
+    box-shadow: 0 0 0 3px rgba(78,222,128,.2);
+    color: #fff;
+}
+
+.wa-form-inner .form-label { font-size: .85rem; color: rgba(255,255,255,.8); font-weight: 500; }
+
+.wa-form-inner .form-check-label { font-size: .82rem; color: rgba(255,255,255,.7); }
+
+.wa-form-inner .form-check-input:checked { background-color: #25d366; border-color: #25d366; }
+
+.btn-wa-join {
+    background: #25d366;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: .72rem 1.8rem;
+    font-weight: 700;
+    font-size: .95rem;
+    width: 100%;
+    transition: background .2s, transform .2s;
+}
+
+.btn-wa-join:hover { background: #1ebe5a; transform: translateY(-2px); color: #fff; }
+
+/* ========================================
+   RESPONSIVE — CONTACTO
+   ======================================== */
+
+/* ---- Tablet (768px – 991px) ---- */
+@media (max-width: 991px) {
+    .contact-hero {
+        padding: 120px 0 50px;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-hero p {
+        font-size: 0.95rem;
+    }
+
+    .form-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .wa-community__content {
+        padding: 2.5rem 2rem;
+    }
+
+    .wa-community h2 {
+        font-size: 1.5rem;
+    }
+
+    .wa-form {
+        padding: 2.5rem 2rem;
+    }
+
+    .info-card {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .info-card__value {
+        font-size: 0.9rem;
+    }
+}
+
+/* ---- Phone (≤767px) ---- */
+@media (max-width: 767px) {
+    .contact-hero {
+        padding: 100px 0 40px;
+        text-align: center;
+    }
+
+    .contact-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .contact-hero .display-4 {
+        font-size: 1.75rem !important;
+    }
+
+    .contact-hero p {
+        font-size: 0.88rem;
+    }
+
+    .contact-hero .breadcrumb {
+        justify-content: center;
+    }
+
+    /* Info cards */
+    .info-card {
+        padding: 1.25rem 1rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info-card__icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .info-card__label {
+        font-size: 0.72rem;
+    }
+
+    .info-card__value {
+        font-size: 0.88rem;
+    }
+
+    .info-card__sub {
+        font-size: 0.78rem;
+    }
+
+    /* Form */
+    .form-card {
+        padding: 1.5rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .form-card h2 {
+        font-size: 1.25rem !important;
+    }
+
+    .form-card .btn-submit {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Sidebar */
+    .side-block {
+        padding: 1.25rem;
+        border-radius: 14px;
+    }
+
+    .side-block h5 {
+        font-size: 0.88rem;
+    }
+
+    .social-btn {
+        font-size: 0.82rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    /* WhatsApp Community */
+    .wa-community__content {
+        padding: 2rem 1.25rem;
+    }
+
+    .wa-community h2 {
+        font-size: 1.3rem;
+    }
+
+    .wa-community p {
+        font-size: 0.85rem;
+    }
+
+    .wa-big-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .wa-benefit span {
+        font-size: 0.82rem;
+    }
+
+    .wa-form {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .wa-form-inner {
+        padding: 1.5rem 1.2rem;
+        border-radius: 14px;
+    }
+
+    .wa-form-inner h4 {
+        font-size: 1rem;
+    }
+
+    .btn-wa-join {
+        padding: 0.65rem 1.5rem;
+        font-size: 0.88rem;
+    }
+
+    /* FAQ */
+    .faq-section .accordion-button {
+        font-size: 0.88rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .faq-section .accordion-body {
+        font-size: 0.85rem;
+        padding: 0.85rem 1rem;
+    }
+}
