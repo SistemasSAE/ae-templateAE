@@ -40,7 +40,7 @@
                 <nav aria-label="breadcrumb" class="mb-4">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item">
-                            <a href="index.html">Inicio</a>
+                            <a href="../index.html">Inicio</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Contáctanos</li>
                     </ol>
@@ -126,28 +126,24 @@
 
                                     <div class="col-sm-6">
                                         <label for="cp-name" class="form-label">Nombre completo *</label>
-                                        <input type="text" class="form-control" id="cp-name"
-                                               placeholder="Ej. María González" required>
+                                        <input type="text" class="form-control" id="cp-name" placeholder="Ej. María González" required>
                                         <div class="invalid-feedback">Por favor ingresa tu nombre completo.</div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="cp-email" class="form-label">Correo electrónico *</label>
-                                        <input type="email" class="form-control" id="cp-email"
-                                               placeholder="correo@institución.edu" required>
+                                        <input type="email" class="form-control" id="cp-email" placeholder="correo@institución.edu" required>
                                         <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="cp-phone" class="form-label">Teléfono / WhatsApp</label>
-                                        <input type="tel" class="form-control" id="cp-phone"
-                                               placeholder="+58 414 000 0000">
+                                        <input type="tel" class="form-control" id="cp-phone" placeholder="+58 414 000 0000">
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="cp-institution" class="form-label">Institución educativa</label>
-                                        <input type="text" class="form-control" id="cp-institution"
-                                               placeholder="Nombre de tu institución">
+                                        <input type="text" class="form-control" id="cp-institution" placeholder="Nombre de tu institución">
                                     </div>
 
                                     <div class="col-sm-6">
@@ -218,8 +214,7 @@
 
                                     <div class="col-12">
                                         <label for="cp-message" class="form-label">Mensaje *</label>
-                                        <textarea class="form-control" id="cp-message" rows="4"
-                                                  placeholder="Cuéntanos sobre tu institución y en qué podemos ayudarte..." required></textarea>
+                                        <textarea class="form-control" id="cp-message" rows="4" placeholder="Cuéntanos sobre tu institución y en qué podemos ayudarte..." required></textarea>
                                         <div class="invalid-feedback">Por favor escribe un mensaje.</div>
                                     </div>
 
@@ -341,20 +336,17 @@
                                 <form id="waForm" novalidate>
                                     <div class="mb-3">
                                         <label for="wa-name" class="form-label">Nombre *</label>
-                                        <input type="text" class="form-control" id="wa-name"
-                                               placeholder="Nombre de contacto" required>
+                                        <input type="text" class="form-control" id="wa-name" placeholder="Nombre de contacto" required>
                                         <div class="invalid-feedback" style="color:#ffc8c8;">Ingresa tu nombre.</div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="wa-email" class="form-label">Correo electrónico *</label>
-                                        <input type="email" class="form-control" id="wa-email"
-                                               placeholder="correo@ejemplo.com" required>
+                                        <input type="email" class="form-control" id="wa-email" placeholder="correo@ejemplo.com" required>
                                         <div class="invalid-feedback" style="color:#ffc8c8;">Ingresa un correo válido.</div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="wa-phone" class="form-label">Teléfono WhatsApp *</label>
-                                        <input type="tel" class="form-control" id="wa-phone"
-                                               placeholder="+58 414 000 0000" required>
+                                        <input type="tel" class="form-control" id="wa-phone" placeholder="+58 414 000 0000" required>
                                         <div class="invalid-feedback" style="color:#ffc8c8;">Ingresa tu número de WhatsApp.</div>
                                     </div>
                                     <div class="mb-3 form-check">
@@ -540,6 +532,19 @@
         const waSubmit = document.getElementById('wa-submit');
         const waOk     = document.getElementById('wa-success');
 
+        // Helper para mostrar el mensaje y hacer scroll hacia él
+        function waShowMsg(mensaje, color) {
+            waOk.style.color   = color;
+            waOk.innerHTML     = mensaje;
+            waOk.style.display = 'block';
+            waOk.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => {
+                waOk.style.display = 'none';
+                waOk.style.color   = '#4ede80';
+                waOk.innerHTML     = '<i class="bi bi-check-circle-fill me-1"></i> ¡Listo! Te agregaremos pronto.';
+            }, 6000);
+        }
+
         waForm.addEventListener('submit', function (e) {
             e.preventDefault();
             if (!waForm.checkValidity()) { waForm.classList.add('was-validated'); return; }
@@ -547,19 +552,69 @@
             waSubmit.disabled = true;
             waSubmit.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Procesando...';
 
-            setTimeout(() => {
-                waSubmit.disabled = false;
-                waSubmit.innerHTML = '<i class="bi bi-whatsapp me-2"></i>Unirme a la comunidad';
-                waForm.reset();
-                waForm.classList.remove('was-validated');
-                waOk.style.display = 'block';
-                setTimeout(() => { waOk.style.display = 'none'; }, 6000);
-            }, 1200);
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LdAUWgsAAAAACWv42GpaiSiX7ez11TCp7SRN66I', { action: 'whatsapp' }).then(function (token) {
+
+                    const info = {
+                        txtNombre:   document.getElementById('wa-name').value.trim(),
+                        txtEmail:    document.getElementById('wa-email').value.trim(),
+                        txtTelefono: document.getElementById('wa-phone').value.trim()
+                    };
+
+                    const formData = new FormData();
+                    formData.append('g-recaptcha-response', token);
+                    formData.append('info', JSON.stringify(info));
+
+                    fetch('https://asistescolar.com/sae/scripts/frmWS.php', { method: 'POST', body: formData })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        waSubmit.disabled = false;
+                        waSubmit.innerHTML = '<i class="bi bi-whatsapp me-2"></i>Unirme a la comunidad';
+
+                        if (data?.data?.success === 'exito') {
+                            waForm.reset();
+                            waForm.classList.remove('was-validated');
+                            waShowMsg(
+                                '<i class="bi bi-check-circle-fill me-1"></i> ¡Listo! Te agregaremos pronto.',
+                                '#4ede80'
+                            );
+                        } else {
+                            waShowMsg(
+                                '<i class="bi bi-exclamation-triangle-fill me-1"></i> Error al enviar. Intenta nuevamente.',
+                                '#ff6b6b'
+                            );
+                        }
+                    })
+                    .catch(function (err) {
+                        waSubmit.disabled = false;
+                        waSubmit.innerHTML = '<i class="bi bi-whatsapp me-2"></i>Unirme a la comunidad';
+                        waShowMsg(
+                            '<i class="bi bi-exclamation-triangle-fill me-1"></i> Error de conexión. Intenta más tarde.',
+                            '#ff6b6b'
+                        );
+                        console.error(err);
+                    });
+
+                });
+            });
         });
 
-        const form    = document.getElementById('contactPageForm');
-        const alert   = document.getElementById('formAlert');
+
+        const form      = document.getElementById('contactPageForm');
+        const alert     = document.getElementById('formAlert');
         const submitBtn = document.getElementById('cp-submitBtn');
+
+        // Helper para mostrar alerta y hacer scroll hacia ella
+        function showAlertContacto(tipo, mensaje) {
+            alert.className = 'alert alert-' + tipo;
+            alert.innerHTML = mensaje;
+            alert.style.display = 'block';
+            alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => { alert.style.display = 'none'; }, 6000);
+        }
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -571,24 +626,64 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
 
-            /* Simulate send — replace with real backend/EmailJS call */
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Enviar mensaje';
-                form.reset();
-                form.classList.remove('was-validated');
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LdAUWgsAAAAACWv42GpaiSiX7ez11TCp7SRN66I', { action: 'contacto' }).then(function (token) {
 
-                alert.className = 'alert alert-success';
-                alert.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' +
-                    '<strong>¡Mensaje enviado!</strong> Te contactaremos a la brevedad.';
-                alert.style.display = 'block';
-                alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    const info = {
+                        txtNombre:   document.getElementById('cp-name').value.trim(),
+                        txtEmail:    document.getElementById('cp-email').value.trim(),
+                        txtTelefono: document.getElementById('cp-phone').value.trim(),
+                        txtEmpresa:  document.getElementById('cp-institution').value.trim(),
+                        txtRol:      document.getElementById('cp-role').value,
+                        txtServicio: document.getElementById('cp-service').value,
+                        txtEstado:   document.getElementById('cp-estado').value,
+                        txtCiudad:   document.getElementById('cp-ciudad').value,
+                        txtMensaje:  document.getElementById('cp-message').value.trim()
+                    };
 
-                setTimeout(() => { alert.style.display = 'none'; }, 6000);
-            }, 1400);
+                    const formData = new FormData();
+                    formData.append('g-recaptcha-response', token);
+                    formData.append('info', JSON.stringify(info));
+
+                    fetch('https://asistescolar.com/sae/scripts/frmContacto.php', { method: 'POST', body: formData })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Enviar mensaje';
+
+                        if (data?.data?.success === 'exito') {
+                            form.reset();
+                            form.classList.remove('was-validated');
+                            showAlertContacto('success',
+                                '<i class="bi bi-check-circle-fill me-2"></i>' +
+                                '<strong>¡Mensaje enviado!</strong> Te contactaremos a la brevedad.'
+                            );
+                        } else {
+                            showAlertContacto('danger',
+                                '<i class="bi bi-exclamation-triangle-fill me-2"></i>' +
+                                '<strong>Error al enviar.</strong> Por favor intenta nuevamente.'
+                            );
+                        }
+                    })
+                    .catch(function (err) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Enviar mensaje';
+                        showAlertContacto('danger',
+                            '<i class="bi bi-exclamation-triangle-fill me-2"></i>' +
+                            '<strong>Error de conexión.</strong> Por favor intenta más tarde.'
+                        );
+                        console.error(err);
+                    });
+
+                });
+            });
         });
-    </script>
 
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdAUWgsAAAAACWv42GpaiSiX7ez11TCp7SRN66I"></script>
 </body>
 
 </html>
