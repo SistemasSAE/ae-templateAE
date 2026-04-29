@@ -235,7 +235,7 @@ const initStatsCounter = () => {
             hasAnimated = true;
             statNumbers.forEach(animate);
         }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
 
     statsObserver.observe(statsSection);
 };
