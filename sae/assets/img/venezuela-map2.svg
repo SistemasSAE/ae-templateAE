@@ -7,9 +7,15 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    mapsvg:geoViewBox="-73.388293 12.543709 -59.804557 0.644674"
-   width="600.57019"
-   height="527.14868">
- 
+   viewBox="0 0 600.57019 527.14868"
+   width="100%"
+   height="100%">
+  <style>
+    svg { background: transparent; }
+    rect { display: none; }
+    path, polygon, circle, ellipse { fill: rgba(255,255,255,.7); stroke: rgba(2,83,172,.25); stroke-width: 1; transition: fill .3s, stroke .2s, stroke-width .2s, filter .3s; }
+  </style>
+
   <path
      d="m 147.6002,0.9461982 0.91,-0.64 0.9,0.64 0,1.42 0.9,0.26 0.13,0.51 1.03,0.26 1.67,1.16 1.8,2.7 0,1.29 -0.77,0.77 -2.06,-0.38 -0.26,-0.91 -1.28,-0.77 -0.65,-0.13 -2.32,-1.54 -0.38,-1.68 -1.29,-0.38 0.9,-0.52 0.52,-0.51 z"
      title="Aruba"

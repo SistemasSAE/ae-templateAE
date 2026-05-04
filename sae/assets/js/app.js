@@ -63,8 +63,8 @@ const initApp = async () => {
 
     // 1. Start loading Navbar and Footer in parallel
     const componentPromises = [
-        loadComponent('navbar-placeholder', 'components/navbar.html'),
-        loadComponent('footer-placeholder', 'components/footer.html')
+        loadComponent('navbar-placeholder', '/sae/components/navbar.html'),
+        loadComponent('footer-placeholder', '/sae/components/footer.html')
     ];
 
     try {
@@ -125,7 +125,7 @@ const initNavbarLogic = () => {
                 const sectionId = entry.target.getAttribute('id');
                 navLinks.forEach(link => link.classList.remove('active'));
 
-                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"], .nav-link[href="index.html#${sectionId}"]`);
+                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"], .nav-link[href="../index.html#${sectionId}"]`);
                 if (activeLink) activeLink.classList.add('active');
             }
         });
@@ -235,7 +235,7 @@ const initStatsCounter = () => {
             hasAnimated = true;
             statNumbers.forEach(animate);
         }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
 
     statsObserver.observe(statsSection);
 };
