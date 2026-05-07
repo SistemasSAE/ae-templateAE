@@ -9,6 +9,14 @@
 // 0. COMPONENT LOADER UTILITY
 // ============================================
 
+// Detect base path: '/' on localhost, '/repo-name/' on GitHub Pages
+const BASE_PATH = (() => {
+    const { hostname, pathname } = window.location;
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '') return '/';
+    const match = pathname.match(/^\/[^/]+\//);
+    return match ? match[0] : '/';
+})();
+
 const loadComponent = async (placeholderId, url) => {
     const placeholder = document.getElementById(placeholderId);
     if (!placeholder) return;
@@ -16,7 +24,13 @@ const loadComponent = async (placeholderId, url) => {
     try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Could not load ${url}`);
-        const content = await response.text();
+        let content = await response.text();
+        // Fix absolute paths inside the component for GitHub Pages
+        if (BASE_PATH !== '/') {
+            content = content
+                .replace(/href="\/(?!\/)/g, `href="${BASE_PATH}`)
+                .replace(/src="\/(?!\/)/g, `src="${BASE_PATH}`);
+        }
         placeholder.innerHTML = content;
         return true;
     } catch (error) {
@@ -63,8 +77,8 @@ const initApp = async () => {
 
     // 1. Start loading Navbar and Footer in parallel
     const componentPromises = [
-        loadComponent('navbar-placeholder', '/sae/components/navbar.html'),
-        loadComponent('footer-placeholder', '/sae/components/footer.html')
+        loadComponent('navbar-placeholder', `${BASE_PATH}sae/components/navbar.html`),
+        loadComponent('footer-placeholder', `${BASE_PATH}sae/components/footer.html`)
     ];
 
     try {

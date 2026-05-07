@@ -482,6 +482,13 @@ h6 {
 
 /* ---- MOBILE: stack inside collapse ---- */
 @media (max-width: 991.98px) {
+    .navbar-collapse {
+        max-height: calc(100dvh - 70px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+    }
+
     .megamenu {
         position: static;
         transform: none !important;
@@ -1141,7 +1148,7 @@ h6 {
     height: 100%;
     display: flex;
     flex-direction: column;
-    border-top: 4px solid transparent;
+    border-top: 8px solid transparent;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -1174,37 +1181,43 @@ h6 {
     border-top-color: var(--orange);
 }
 
-/* Icon wrap (desktop: just a small colored icon, no bg) */
+/* Icon wrap — cuadrado con color de fondo */
 .svc-card__icon-wrap {
+    width: 54px;
+    min-width: 54px;
+    height: 54px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
-    margin-bottom: 0.85rem;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .svc-card__icon {
     font-size: 1.5rem;
     flex-shrink: 0;
+    color: #fff !important;
 }
 
-/* Icon color matches variant */
-.svc-card--blue-dark .svc-card__icon {
-    color: var(--primary-color);
+/* Background color per variant */
+.svc-card--blue-dark .svc-card__icon-wrap {
+    background: var(--primary-color);
 }
 
-.svc-card--blue-light .svc-card__icon {
-    color: var(--secondary-color);
+.svc-card--blue-light .svc-card__icon-wrap {
+    background: var(--secondary-color);
 }
 
-.svc-card--green-light .svc-card__icon {
-    color: #0eb67a;
+.svc-card--green-light .svc-card__icon-wrap {
+    background: var(--green-light);
 }
 
-.svc-card--purple .svc-card__icon {
-    color: #9b59b6;
+.svc-card--purple .svc-card__icon-wrap {
+    background: #9b59b6;
 }
 
-.svc-card--orange .svc-card__icon {
-    color: var(--orange);
+.svc-card--orange .svc-card__icon-wrap {
+    background: var(--orange);
 }
 
 /* Body: title + descs */
@@ -1297,7 +1310,7 @@ h6 {
     }
 
     .svc-card--green-light .svc-card__icon-wrap {
-        background: #0eb67a;
+        background: var(--green-light);
     }
 
     .svc-card--blue-light .svc-card__icon-wrap {
@@ -1361,7 +1374,7 @@ h6 {
     }
 
     .svc-card--green-light .svc-card__link {
-        color: #0eb67a;
+        color: var(--green-light);
     }
 
     .svc-card--blue-light .svc-card__link {
@@ -2379,7 +2392,14 @@ h6 {
     background: linear-gradient(90deg, #03e0c9, transparent);
     border: none;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin: 16px 0;
+}
+
+.map-panel-hint {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+    margin: 0;
 }
 
 .map-panel-total {
