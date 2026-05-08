@@ -34,6 +34,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -1807,6 +1808,9 @@ h6 {
     transition: var(--transition);
     z-index: 1000;
     box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .back-to-top.show {
@@ -2784,5 +2788,460 @@ h6 {
 @media (max-width: 575px) {
     .review-card {
         flex: 0 0 100%;
+    }
+}
+
+/* =============================================
+   Why SAE Section — Problema > Solución > Beneficios
+   ============================================= */
+
+.why-sae-section {
+    background: #f4f7ff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* El container flota sobre las formas */
+.why-sae-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Base para todos los decorativos */
+.why-sae-deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Grilla de puntos — top-left */
+.why-sae-deco--dots {
+    top: 36px;
+    left: 36px;
+    width: 130px;
+    height: 110px;
+    background-image: radial-gradient(circle, rgba(2, 83, 172, 0.45) 2.2px, transparent 2.2px);
+    background-size: 14px 14px;
+    animation: wsae-float-y 6s ease-in-out infinite;
+}
+
+/* Círculo sólido azul — left, vertical center */
+.why-sae-deco--circle-sm {
+    left: -20px;
+    top: 36%;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 0 40px rgba(2, 83, 172, 0.35);
+    animation: wsae-float-diag 7s ease-in-out infinite 0.8s;
+}
+
+/* Gran círculo celeste — bottom-left */
+.why-sae-deco--circle-lg {
+    left: -120px;
+    bottom: -160px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #c8daff 0%, #d8e8ff 40%, transparent 72%);
+    animation: wsae-float-lg 10s ease-in-out infinite 0.3s;
+}
+
+/* Anillo (solo borde) — top-right */
+.why-sae-deco--ring {
+    right: -70px;
+    top: -70px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 32px solid rgba(2, 83, 172, 0.18);
+    background: transparent;
+    animation: wsae-float-ring 8s ease-in-out infinite 1.2s;
+}
+
+/* --- Keyframes de flotado --- */
+@keyframes wsae-float-y {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-16px); }
+}
+
+@keyframes wsae-float-diag {
+    0%, 100% { transform: translate(0px, 0px); }
+    50%      { transform: translate(10px, -18px); }
+}
+
+@keyframes wsae-float-lg {
+    0%, 100% { transform: translate(0px, 0px); }
+    50%      { transform: translate(-14px, -22px); }
+}
+
+@keyframes wsae-float-ring {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    50%      { transform: translate(-12px, 14px) scale(1.05); }
+}
+
+/* =============================================
+   Asistencia + Distribuidor Section
+   ============================================= */
+
+.asistencia-section {
+    background: #fff;
+}
+
+/* --- Tarjetas base --- */
+.asist-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    border-radius: 16px;
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.asist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Contacto — fondo azul suave */
+.asist-card--contact {
+    background: #eef4ff;
+    border: 1.5px solid #d0e3fb;
+}
+
+/* Centro de ayuda — fondo verde suave */
+.asist-card--help {
+    background: #edfdf4;
+    border: 1.5px solid #b2edce;
+}
+
+/* Distribuidor — fondo azul sólido, layout horizontal extendido */
+.asist-card--distribuidor {
+    background: var(--primary-color);
+    border: none;
+    align-items: center;
+    height: auto;
+}
+
+/* --- Iconos --- */
+.asist-card__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.asist-card__icon--blue  { background: var(--primary-color); color: #fff; }
+.asist-card__icon--green { background: #0b9b6a; color: #fff; }
+.asist-card__icon--white { background: rgba(255,255,255,0.18); color: #fff; font-size: 1.75rem; }
+
+/* --- Cuerpo --- */
+.asist-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.asist-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.asist-card__title--green { color: #0b7a53; }
+.asist-card__title--white { color: #fff; font-size: 1.2rem; }
+
+.asist-card__desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.asist-card__desc--white { color: rgba(255,255,255,0.82); }
+
+/* --- Botones --- */
+.asist-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-top: 0.6rem;
+    width: fit-content;
+}
+
+.asist-btn--blue {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.asist-btn--blue:hover {
+    background: #024189;
+    color: #fff;
+    filter: brightness(1.1);
+}
+
+.asist-btn--green {
+    background: #0b9b6a;
+    color: #fff;
+}
+
+.asist-btn--green:hover {
+    color: #fff;
+    filter: brightness(1.12);
+}
+
+.asist-btn--white {
+    background: #fff;
+    color: var(--primary-color);
+    border-radius: 10px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.92rem;
+    margin-top: 0;
+}
+
+.asist-btn--white:hover {
+    background: #f0f5ff;
+    color: var(--primary-color);
+}
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+    .asist-card--distribuidor {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .asist-btn--white {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Badge */
+.why-sae-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid #d0e4fb;
+    border-radius: 50px;
+    padding: 0.4rem 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.why-sae-title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--dark-color);
+    line-height: 1.28;
+    margin-bottom: 1rem;
+}
+
+.why-sae-brand {
+    color: var(--primary-color);
+}
+
+.why-sae-underline {
+    width: 56px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+/* --- Grid: tarjetas + flechas --- */
+.psb-grid {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* --- Tarjetas --- */
+.psb-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.5rem 1.25rem;
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.07);
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    align-self: stretch;
+}
+
+.psb-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Ícono circular */
+.psb-card__icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.psb-card__icon--problem  { background: #d63031; color: #fff; }
+.psb-card__icon--solution { background: var(--primary-color); color: #fff; }
+.psb-card__icon--benefit  { background: #0b9b6a; color: #fff; }
+
+/* Título + línea bajo el título */
+.psb-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+}
+
+.psb-card__title--problem  { color: #d63031; }
+.psb-card__title--solution { color: var(--primary-color); }
+.psb-card__title--benefit  { color: #0b9b6a; }
+
+.psb-card__line {
+    height: 2px;
+    width: 36px;
+    border-radius: 2px;
+}
+
+.psb-card__line--problem  { background: #d63031; }
+.psb-card__line--solution { background: var(--primary-color); }
+.psb-card__line--benefit  { background: #0b9b6a; }
+
+/* Ícono decorativo en la esquina inferior */
+.psb-card__deco {
+    display: none;
+}
+
+/* --- Lista --- */
+.psb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.psb-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.psb-list__item i {
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.psb-list__item--problem  i { color: #d63031; }
+.psb-list__item--solution i { color: var(--primary-color); }
+.psb-list__item--benefit  i { color: #0b9b6a; }
+
+/* --- Flechas entre tarjetas --- */
+.psb-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    flex-shrink: 0;
+}
+
+.psb-arrow__btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(2, 83, 172, 0.35);
+    flex-shrink: 0;
+}
+
+/* --- CTA --- */
+.why-sae-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.85rem 2.75rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 28px rgba(2, 83, 172, 0.35);
+    transition: var(--transition);
+}
+
+.why-sae-cta:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(2, 83, 172, 0.45);
+}
+
+.why-sae-cta-sub {
+    font-size: 0.88rem;
+    color: #0b9b6a;
+    font-weight: 500;
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+}
+
+.why-sae-cta-sub i {
+    font-size: 0.82rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 991px) {
+    .why-sae-deco {
+        display: none;
+    }
+
+    .psb-grid {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .psb-card {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .psb-arrow {
+        padding: 0.6rem 0;
+    }
+
+    .psb-arrow__btn {
+        transform: rotate(90deg);
     }
 }

@@ -9,12 +9,14 @@
 // 0. COMPONENT LOADER UTILITY
 // ============================================
 
-// Detect base path: '/' on localhost, '/repo-name/' on GitHub Pages
+// Detect base path: '/repo-name/' on GitHub Pages (.github.io), '/' everywhere else
 const BASE_PATH = (() => {
     const { hostname, pathname } = window.location;
-    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '') return '/';
-    const match = pathname.match(/^\/[^/]+\//);
-    return match ? match[0] : '/';
+    if (hostname.endsWith('.github.io')) {
+        const match = pathname.match(/^\/[^/]+\//);
+        return match ? match[0] : '/';
+    }
+    return '/';
 })();
 
 const loadComponent = async (placeholderId, url) => {
