@@ -98,6 +98,12 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero-section">
+            <!-- Background blobs -->
+            <div class="hero-background">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+                <div class="blob blob-3"></div>
+            </div>
             <!-- Barra verde informativa -->
             <div class="hero-top-bar">
                 <div class="container">
@@ -125,11 +131,11 @@
                             Procesos Administrativos, Académicos y Comunicacionales a la vanguardia del <strong>MPPE | SENIAT</strong>
                         </p>
                         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
-                            <a href="sae/contacto.html" class="btn btn-light btn-lg me-3 mb-3">
+                            <a href="sae/contacto.html" class="cta-btn-contact me-3 mb-3">
                                 <i class="bi bi-rocket-takeoff me-2"></i>Empieza Gratis
                             </a>
-                            <a href="https://linktr.ee/sistemassaeappmoviles" class="btn btn-outline-light btn-lg mb-3">
-                                <i class="bi bi-play-circle me-2"></i>Descargar Apps Móviles SAE
+                            <a href="https://linktr.ee/sistemassaeappmoviles" class="btn btn-outline-light btn-lg mb-3 rounded-pill">
+                                <i class="bi bi-phone-fill me-2"></i>Descargar Apps Móviles SAE
                             </a>
                         </div>
                     </div>
@@ -139,13 +145,18 @@
                     </div>
                 </div>
             </div>
+            <div class="hero-wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                    <path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="#f4f6f8"/>
+                </svg>
+            </div>
             <div class="scroll-indicator">
                 <i class="bi bi-chevron-down"></i>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="services-section py-5">
+        <section id="services" class="services-section pt-3 pb-5">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="services-main-title">Productos, Servicios y Asistencia Técnica<br>de la mejor calidad a
@@ -274,18 +285,21 @@
                 <div class="row g-4 mt-0 justify-content-center">
                     <div class="col-md-4 col-sm-6">
                         <div class="stat-card text-center">
+                            <div class="stat-icon"><i class="bi bi-buildings"></i></div>
                             <h3 class="stat-number" data-target="900" data-prefix="+">0</h3>
                             <p class="stat-label">Instituciones</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="stat-card text-center">
+                            <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
                             <h3 class="stat-number" data-target="25" data-suffix="+">0</h3>
                             <p class="stat-label">Años de Experiencia</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="stat-card text-center">
+                            <div class="stat-icon"><i class="bi bi-headset"></i></div>
                             <h3 class="stat-number" data-custom="24/7">24/7</h3>
                             <p class="stat-label">Soporte Técnico</p>
                         </div>
