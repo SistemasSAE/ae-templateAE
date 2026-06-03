@@ -644,6 +644,108 @@
             </div>
         </section>
 
+        <!-- SAE Comunica Section -->
+        <section id="sae-comunica" class="sae-comunica-section">
+
+            <!-- Top: Blue gradient area -->
+            <div class="sc-top">
+                <div class="sc-blob sc-blob--1" aria-hidden="true"></div>
+                <div class="sc-blob sc-blob--2" aria-hidden="true"></div>
+                <div class="container position-relative" style="z-index:2;">
+
+                    <!-- Eyebrow + Title -->
+                    <div class="text-center mb-4" data-aos="fade-up">
+                        <span class="sc-eyebrow-v2">
+                            <span class="sc-ey-white">MÁS COMUNICACIÓN,</span>
+                            <span class="sc-ey-teal">&nbsp;MEJORES RESULTADOS</span>
+                        </span>
+                        <h2 class="sc-heading-v2">¿Tu institución aprovecha al máximo<br><span class="sc-heading-teal">SAE Comunica?</span></h2>
+                        <p class="sc-lead-v2">Soluciones que integran y optimizan la gestión escolar y la comunicación institucional.</p>
+                    </div>
+
+                    <!-- Feature grid with arrows -->
+                    <div class="sc-grid-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <button class="sc-nav-btn" id="scNavPrev" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
+                        <div class="sc-grid-viewport" id="scGridViewport">
+                            <div class="sc-grid" id="scGrid">
+                                <button class="sc-card active" data-id="portal">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-display"></i></span>
+                                    <span class="sc-card__label">Portal Web<br>Institucional</span>
+                                </button>
+                                <button class="sc-card" data-id="eventos">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-calendar3"></i></span>
+                                    <span class="sc-card__label">Eventos y<br>Calendario</span>
+                                </button>
+                                <button class="sc-card" data-id="noticias">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-newspaper"></i></span>
+                                    <span class="sc-card__label">Noticias y<br>Blog</span>
+                                </button>
+                                <button class="sc-card" data-id="directorio">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-people"></i></span>
+                                    <span class="sc-card__label">Directorio<br>Institucional</span>
+                                </button>
+                                <button class="sc-card" data-id="admisiones">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-person-plus"></i></span>
+                                    <span class="sc-card__label">Admisiones<br>en Línea</span>
+                                </button>
+                                <button class="sc-card" data-id="documentos">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-file-text"></i></span>
+                                    <span class="sc-card__label">Documentos<br>y Circulares</span>
+                                </button>
+                                <button class="sc-card" data-id="galerias">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-images"></i></span>
+                                    <span class="sc-card__label">Galerías y<br>Multimedia</span>
+                                </button>
+                                <button class="sc-card" data-id="encuestas">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-ui-checks"></i></span>
+                                    <span class="sc-card__label">Encuestas y<br>Formularios</span>
+                                </button>
+                                <button class="sc-card" data-id="mensajeria">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-bell"></i></span>
+                                    <span class="sc-card__label">Mensajería y<br>Notificaciones</span>
+                                </button>
+                                <button class="sc-card" data-id="aula">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-mortarboard"></i></span>
+                                    <span class="sc-card__label">Aula Virtual</span>
+                                </button>
+                                <button class="sc-card" data-id="certificados">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-award"></i></span>
+                                    <span class="sc-card__label">Certificados<br>Digitales</span>
+                                </button>
+                                <button class="sc-card" data-id="reportes">
+                                    <span class="sc-card__icon-wrap"><i class="bi bi-bar-chart"></i></span>
+                                    <span class="sc-card__label">Reportes y<br>Estadísticas</span>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="sc-nav-btn" id="scNavNext" aria-label="Siguiente"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom: White module card -->
+            <div class="sc-bottom">
+                <div class="container">
+                    <div class="sc-module-card" data-aos="fade-up">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5">
+                                <div id="scModuleInfo"></div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div id="scMockupArea"></div>
+                            </div>
+                        </div>
+                        <div class="sc-integration-note">
+                            <i class="bi bi-lightbulb-fill"></i>
+                            Todos los módulos de <strong>SAE Comunica 2026</strong> trabajan integrados para una comunicación más eficiente
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
         <!-- Asistencia + Distribuidor Section -->
         <section id="asistencia" class="asistencia-section py-5">
             <div class="container">
@@ -1213,6 +1315,80 @@
             track.addEventListener('touchend',   function () { setTimeout(startTimer, 800); }, { passive: true });
 
             startTimer();
+        })();
+    </script>
+
+    <!-- SAE Comunica Interactive Modules -->
+    <script>
+        (function () {
+            var IMG = 'sae/assets/img/';
+            var modules = {
+                'portal':      { title: 'Portal Web Institucional',      img: IMG + 'saeweb-laptop.png',        bullets: [['Diseño moderno y responsive','Adaptable a todos los dispositivos.'],['Publica noticias, eventos y avisos','Mantén informada a toda tu comunidad.'],['Integración con sistemas SAE','Información sincronizada en tiempo real.'],['Galerías, documentos y más','Todo lo que tu institución necesita.']], desc: 'Tu institución siempre conectada. Un portal moderno, rápido y adaptable que fortalece la imagen y la comunicación con estudiantes, representantes y docentes.' },
+                'eventos':     { title: 'Eventos y Calendario',           img: IMG + 'saeeventos-laptop.png',    bullets: [['Calendario institucional compartido','Visible para toda la comunidad.'],['Creación y gestión de eventos','Con notificaciones automáticas.'],['Recordatorios y alertas','Para representantes y docentes.'],['Historial y agenda digital','Siempre al alcance de tu comunidad.']], desc: 'Organiza y comparte todos los eventos institucionales con un calendario interactivo accesible para toda la comunidad educativa en tiempo real.' },
+                'noticias':    { title: 'Noticias y Blog',                img: IMG + 'saeweb-laptop.png',        bullets: [['Publicación fácil de noticias','Con editor de contenido incluido.'],['Categorías y etiquetas','Organiza el contenido fácilmente.'],['Compartir en redes sociales','Amplía el alcance de tus comunicados.'],['Archivo histórico digital','Todo el contenido disponible siempre.']], desc: 'Mantén informada a tu comunidad educativa con publicaciones, artículos y comunicados oficiales en un espacio digital profesional.' },
+                'directorio':  { title: 'Directorio Institucional',       img: IMG + 'saeweb-laptop.png',        bullets: [['Directorio de docentes y personal','Con información de contacto directa.'],['Búsqueda avanzada','Encuentra cualquier contacto al instante.'],['Integrado al sistema SAE','Datos siempre actualizados.'],['Control de acceso y privacidad','Información visible según el perfil.']], desc: 'Centraliza la información de contacto de toda tu comunidad: personal docente, administrativo, estudiantes y representantes en un solo lugar.' },
+                'admisiones':  { title: 'Admisiones en Línea',            img: IMG + 'saeweb-laptop.png',        bullets: [['Formulario de solicitud en línea','Accesible desde cualquier dispositivo.'],['Seguimiento de postulaciones','Estado en tiempo real para representantes.'],['Gestión de documentos requeridos','Carga digital sin papeleos.'],['Notificaciones automáticas','Informa el resultado inmediatamente.']], desc: 'Digitaliza todo el proceso de admisión e inscripción. Gestiona solicitudes de cupos, documentos y aprobaciones desde una plataforma centralizada.' },
+                'documentos':  { title: 'Documentos y Circulares',        img: IMG + 'saeweb-laptop.png',        bullets: [['Envío masivo de circulares','A toda la comunidad o grupos específicos.'],['Confirmación de lectura','Saber quién recibió y leyó el documento.'],['Repositorio digital organizado','Todos los documentos en un solo lugar.'],['Formato digital y descargable','Sin consumo de papel.']], desc: 'Distribuye circulares, reglamentos y formularios de manera digital, segura y con confirmación de recepción para toda la comunidad.' },
+                'galerias':    { title: 'Galerías y Multimedia',          img: IMG + 'saeweb-laptop.png',        bullets: [['Álbumes de fotos y videos','Organizados por eventos y fechas.'],['Galería pública e interna','Controla qué ve cada perfil.'],['Carga masiva de imágenes','Sube múltiples archivos a la vez.'],['Compartir en redes sociales','Proyecta la imagen de tu institución.']], desc: 'Comparte los mejores momentos de tu institución con galerías de fotos y videos accesibles para toda la comunidad educativa.' },
+                'encuestas':   { title: 'Encuestas y Formularios',        img: IMG + 'saeweb-laptop.png',        bullets: [['Creación de encuestas personalizadas','Múltiples tipos de preguntas.'],['Envío a grupos específicos','Docentes, representantes o estudiantes.'],['Resultados en tiempo real','Gráficos y reportes automáticos.'],['Historial de encuestas','Consulta resultados anteriores.']], desc: 'Recoge la opinión de tu comunidad educativa con encuestas personalizadas y formularios digitales con resultados en tiempo real.' },
+                'mensajeria':  { title: 'Mensajería y Notificaciones',    img: IMG + 'ae_appmovil.jpg',          bullets: [['Notificaciones push en tiempo real','A dispositivos móviles y web.'],['Mensajería directa e interna','Entre docentes, admín y representantes.'],['Alertas automáticas del sistema','Incidencias, pagos, notas y más.'],['Historial de comunicaciones','Registro completo de mensajes.']], desc: 'Comunicación instantánea con toda tu comunidad a través de notificaciones push, mensajes directos, correos y alertas automatizadas.' },
+                'aula':        { title: 'Aula Virtual',                   img: IMG + 'saeweb-laptop.png',        bullets: [['Clases virtuales integradas','Con herramientas de videoconferencia.'],['Asignación y entrega de tareas','Control total del progreso académico.'],['Recursos y materiales digitales','PDFs, videos, presentaciones y más.'],['Calificación integrada al SAE','Notas reflejadas automáticamente.']], desc: 'Entorno de aprendizaje digital integrado a SAE donde docentes imparten clases, asignan tareas y comparten recursos educativos.' },
+                'certificados':{ title: 'Certificados Digitales',         img: IMG + 'saeweb-laptop.png',        bullets: [['Constancias en tiempo real','Generadas al instante sin esperas.'],['Firma y sello digital institucional','Validez y autenticidad garantizada.'],['Múltiples tipos de documentos','Solvencia, inscripción, estudios y más.'],['Descarga y envío digital','Por correo o descarga directa.']], desc: 'Emite constancias y certificados digitales verificables en segundos con firma y sello institucional, listos para imprimir o enviar.' },
+                'reportes':    { title: 'Reportes y Estadísticas',        img: IMG + 'saepagos-laptop.png',      bullets: [['Dashboard de métricas clave','Vista general del estado institucional.'],['Reportes de asistencia y notas','Por estudiante, sección o nivel.'],['Estadísticas de comunicación','Alcance de mensajes y notificaciones.'],['Exportación a PDF y Excel','Para análisis y presentaciones.']], desc: 'Toma decisiones informadas con reportes detallados sobre asistencia, rendimiento académico, pagos y actividad general de tu institución.' }
+            };
+
+            function bulletsHtml(bullets) {
+                return bullets.map(function(b) {
+                    return '<li class="sc-bullet">' +
+                        '<i class="bi bi-check-circle-fill sc-bullet__check"></i>' +
+                        '<span><span class="sc-bullet__title">' + b[0] + '</span>' +
+                        '<span class="sc-bullet__sub">' + b[1] + '</span></span>' +
+                    '</li>';
+                }).join('');
+            }
+
+            function renderModule(id) {
+                var m = modules[id];
+                if (!m) return;
+                var info = document.getElementById('scModuleInfo');
+                var mock = document.getElementById('scMockupArea');
+                if (!info || !mock) return;
+
+                info.innerHTML = '<div class="sc-mod-anim">' +
+                    '<span class="sc-mod-badge"><i class="bi bi-star-fill me-1"></i>MÓDULO DESTACADO</span>' +
+                    '<h3 class="sc-mod-title">' + m.title + '</h3>' +
+                    '<p class="sc-mod-desc">' + m.desc + '</p>' +
+                    '<ul class="sc-bullets">' + bulletsHtml(m.bullets) + '</ul>' +
+                    '<div class="sc-mod-btns">' +
+                        '<a href="sae/contacto.html" class="sc-btn-primary"><i class="bi bi-send-fill me-1"></i>Solicitar demo del módulo</a>' +
+                        '<a href="sae/contacto.html" class="sc-btn-link">Ver funcionalidades <i class="bi bi-arrow-right"></i></a>' +
+                    '</div>' +
+                '</div>';
+
+                mock.innerHTML = '<img src="' + m.img + '" alt="' + m.title + '" class="sc-mockup-img">';
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                renderModule('portal');
+
+                var cards = document.querySelectorAll('.sc-card');
+                cards.forEach(function (card) {
+                    card.addEventListener('click', function () {
+                        cards.forEach(function (c) { c.classList.remove('active'); });
+                        card.classList.add('active');
+                        renderModule(card.dataset.id);
+                    });
+                });
+
+                /* Scroll arrows for the grid */
+                var viewport = document.getElementById('scGridViewport');
+                document.getElementById('scNavPrev').addEventListener('click', function () {
+                    viewport.scrollBy({ left: -220, behavior: 'smooth' });
+                });
+                document.getElementById('scNavNext').addEventListener('click', function () {
+                    viewport.scrollBy({ left: 220, behavior: 'smooth' });
+                });
+            });
         })();
     </script>
 
