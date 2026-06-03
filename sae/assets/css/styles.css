@@ -2002,6 +2002,42 @@ h6 {
     }
 }
 
+/* ---- Tablet Landscape / Small Desktop (992px – 1199px) ---- */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .hero-row {
+        min-height: auto;
+        padding-top: 1.5rem;
+        padding-bottom: 2.5rem;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.25rem !important;
+    }
+
+    .hero-img-col .hero-multidevices {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .cta-btn-contact {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.4rem;
+    }
+}
+
 /* ---- Phone (≤767px) ---- */
 @media (max-width: 767px) {
 

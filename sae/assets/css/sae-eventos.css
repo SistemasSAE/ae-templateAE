@@ -244,8 +244,12 @@
 
 @media (max-width: 767px) {
     .product-hero {
-        padding: 100px 0 50px;
+        padding: 100px 0 65px;
         text-align: center;
+    }
+
+    .product-hero::after {
+        display: none;
     }
 
     .product-hero h1 {
